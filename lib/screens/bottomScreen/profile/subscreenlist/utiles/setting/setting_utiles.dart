@@ -7,6 +7,7 @@ import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pinput/pinput.dart';
 
 class PhoneEditScreen extends StatelessWidget {
   const PhoneEditScreen({Key? key}) : super(key: key);
@@ -69,6 +70,7 @@ class PhoneEditScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: TextFromFieldCommon(
                       hintText: "91 12345 67890",
+                      isTrue: false,
                       suffixIcon: Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: SvgPicture.asset(
@@ -89,24 +91,17 @@ class PhoneEditScreen extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => UpdateMobileScreen());
+                    },
                     child: Container(
                       height: 50,
                       width: Get.width,
                       margin: EdgeInsets.symmetric(horizontal: 24),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        /* color: ColorConst.white,*/
                         borderRadius: BorderRadius.circular(32.0),
                         border: Border.all(color: ColorConst.greyEB),
-                        /*   gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [
-                            ColorConst.appColor,
-                            ColorConst.appColorFD,
-                          ],
-                        ),*/
                       ),
                       child: Text(
                         "Update My Phone Number",
@@ -173,5 +168,271 @@ showMeBottomSheet() {
       ),
     ),
     isScrollControlled: true,
+  );
+}
+
+///update mobile screen
+class UpdateMobileScreen extends StatelessWidget {
+  const UpdateMobileScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: ColorConst.white,
+      body: Column(
+        children: [
+          AppBarDesign(),
+          Text(
+            "My Number Is",
+            style: TextStyleClass.interBold(
+              size: 28.0,
+            ),
+          ),
+          SizedBox(
+            height: 33,
+          ),
+          mobileTextFrom(),
+          SizedBox(
+            height: 16,
+          ),
+          Text(
+            "When you tap continue, appname will send a text with\nverification code. Message and data rates may apply.\nThe verified phone number can be used to login.",
+            textAlign: TextAlign.center,
+            style: TextStyleClass.interRegular(
+              size: 13.0,
+              color: ColorConst.grey69,
+            ),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Text(
+            "Learn what happens when your number changes.",
+            textAlign: TextAlign.center,
+            style: TextStyleClass.interUnderLine(size: 13.0),
+          ),
+          Spacer(),
+          CommonButton(
+            onTap: () {
+              Get.to(() => UpdateVerifyScreen());
+            },
+            title: "Continue",
+          ),
+          SizedBox(
+            height: 185.0,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget mobileTextFrom() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: TextFormField(
+        decoration: InputDecoration(
+          prefixIcon: SizedBox(
+            width: 120,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage(
+                      ImageConst.india,
+                    ),
+                  ),
+                  Text(
+                    " (+91)",
+                    style: TextStyleClass.interRegular(
+                      size: 16.0,
+                    ),
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down,
+                    color: ColorConst.greyAD,
+                  ),
+                  SizedBox(
+                    height: 10,
+                    width: 10,
+                    child: VerticalDivider(
+                      color: ColorConst.greyE8,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          contentPadding: EdgeInsets.only(top: 35, left: 20),
+          hintText: "12345 67890",
+          hintStyle: TextStyleClass.interSemiBold(
+            size: 16.0,
+            color: ColorConst.black03,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(
+              color: ColorConst.greyEB,
+              width: 1,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(
+              color: ColorConst.greyEB,
+              width: 1,
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(
+              color: ColorConst.appColor,
+              width: 1,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(
+              color: ColorConst.appColor,
+              width: 1,
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(
+              color: ColorConst.appColor,
+              width: 1,
+            ),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(
+              color: ColorConst.greyEB,
+              width: 1,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+///update verify otp screen
+class UpdateVerifyScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: ColorConst.white,
+      body: Column(
+        children: [
+          AppBarDesign(),
+          Text(
+            "Verify it’s you",
+            style: TextStyleClass.interBold(
+              size: 28.0,
+            ),
+          ),
+          SizedBox(
+            height: 11,
+          ),
+          RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "We send a code to ",
+                  style: TextStyleClass.interRegular(
+                    size: 18.0,
+                  ),
+                ),
+                TextSpan(
+                  text: "(+91 12345 67890).\n",
+                  style: TextStyleClass.interRegular(
+                    size: 18.0,
+                    color: ColorConst.appColor,
+                  ),
+                ),
+                TextSpan(
+                  text: "Enter it here to verify your identity.",
+                  style: TextStyleClass.interRegular(
+                    size: 18.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 42,
+          ),
+          Pinput(
+            defaultPinTheme: defaultPinTheme,
+            focusedPinTheme: focusedPinTheme,
+            submittedPinTheme: submittedPinTheme,
+            onCompleted: (val) {
+              // Get.to(() => WhatsYourEmailScreen());
+            },
+          ),
+          SizedBox(
+            height: 42,
+          ),
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              "Send again",
+              style: TextStyleClass.interBold(
+                size: 18.0,
+                color: ColorConst.appColorFF,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  final defaultPinTheme = PinTheme(
+    width: 66,
+    height: 67,
+    textStyle: TextStyle(
+      fontSize: 20,
+      color: Color.fromRGBO(30, 60, 87, 1),
+      fontWeight: FontWeight.w600,
+    ),
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: ColorConst.greyE8,
+      ),
+      borderRadius: BorderRadius.circular(15),
+    ),
+  );
+  final focusedPinTheme = PinTheme(
+    width: 66,
+    height: 67,
+    /*textStyle: TextStyle(
+      fontSize: 20,
+      color: Color.fromRGBO(30, 60, 87, 1),
+      fontWeight: FontWeight.w600,
+    ),*/
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: ColorConst.appColor,
+      ),
+      borderRadius: BorderRadius.circular(15),
+    ),
+  );
+  final submittedPinTheme = PinTheme(
+    width: 66,
+    height: 67,
+    textStyle: TextStyleClass.interSemiBold(
+      size: 34.0,
+      color: ColorConst.white,
+    ),
+    decoration: BoxDecoration(
+      color: ColorConst.appColorFF,
+      border: Border.all(
+        color: ColorConst.appColorFF,
+      ),
+      borderRadius: BorderRadius.circular(15),
+    ),
   );
 }

@@ -15,7 +15,7 @@ class SplashMainController extends GetxController {
     Timer(
       Duration(seconds: 5),
       () {
-        Get.off(() => EnableLocationScreen());
+        Get.off(() => OnBoardingScreen());
       },
     );
     super.onInit();

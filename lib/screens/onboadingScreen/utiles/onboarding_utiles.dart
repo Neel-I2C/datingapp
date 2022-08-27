@@ -26,13 +26,16 @@ class FirstPart extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 80,
+                height: Get.height / 11.13 /*80*/,
               ),
               Image.asset(
                 onBoardingController.onBoardingPages[index].imageAsset,
+                height: Get.height / 2.97 /*220*/,
+                width: Get.width,
+                fit: BoxFit.fill,
               ),
               SizedBox(
-                height: 75,
+                height: Get.height / 11.88 /*75*/,
               ),
               RichText(
                 textAlign: TextAlign.center,
@@ -100,7 +103,7 @@ class SecondPart extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 60,
+            height: Get.height / 14.85 /*60*/,
           ),
           Obx(
             () => TextButton(
@@ -119,16 +122,20 @@ class SecondPart extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 18,
+            height: Get.height / 49.5 /*18*/,
           ),
-          CommonButton(
-            title: "Next",
-            onTap: () {
-              onBoardingController.forwardAction();
-            },
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: CommonButton(
+              title: "Next",
+              width: Get.width,
+              onTap: () {
+                onBoardingController.forwardAction();
+              },
+            ),
           ),
           SizedBox(
-            height: 70,
+            height: Get.height / 12.72 /*70*/,
           ),
         ],
       ),

@@ -22,6 +22,7 @@ class ColorConst {
   static Color greyF7 = Color(0xffF7F7F7);
   static Color greyF4 = Color(0xffF4F6F9);
   static Color greyDE = Color(0xffDEDEDE);
+  static Color grey6B = Color(0xff6B6B6B);
   static Color purple = Color(0xff8A2387);
   static Color purAA3FEC = Color(0xffAA3FEC);
   static Color green = Color(0xff4FD000);

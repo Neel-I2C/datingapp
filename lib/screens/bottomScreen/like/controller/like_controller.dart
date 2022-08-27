@@ -1,4 +1,5 @@
 import 'package:datingapp/constants/image.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LikeController extends GetxController {
@@ -18,6 +19,42 @@ class LikeController extends GetxController {
 
 class LikeInfo {
   String? image;
+  String? title;
+  String? subTitle;
 
-  LikeInfo({this.image});
+  LikeInfo({this.image, this.title, this.subTitle});
+}
+
+class OnBoardingController extends GetxController {
+  var selectedPageIndex = 0.obs;
+  var selectedIndex;
+  void selectedItem(index) {
+    selectedIndex = index;
+    update();
+  }
+
+  bool get isLastPage => selectedPageIndex.value == onBoardingPages.length - 1;
+  var pageController = PageController();
+
+  forwardAction() {
+    if (isLastPage) {
+      // Get.offAll(() => LogInOptionScreen());
+      //go to home page
+    } else {
+      pageController.nextPage(duration: 300.milliseconds, curve: Curves.ease);
+    }
+  }
+
+  List<LikeInfo> onBoardingPages = [
+    LikeInfo(
+        title: "Unlimited Likes", subTitle: "Send as many likes as you want"),
+    LikeInfo(
+        title: "Unlimited Likes", subTitle: "Send as many likes as you want"),
+    LikeInfo(
+        title: "Unlimited Likes", subTitle: "Send as many likes as you want"),
+    LikeInfo(
+        title: "Unlimited Likes", subTitle: "Send as many likes as you want"),
+    LikeInfo(
+        title: "Unlimited Likes", subTitle: "Send as many likes as you want"),
+  ];
 }

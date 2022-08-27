@@ -121,12 +121,15 @@ class AppBarDesign extends StatelessWidget {
 class TextFromFieldCommon extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
+  final bool? isTrue;
 
-  TextFromFieldCommon({this.hintText, this.suffixIcon});
+  TextFromFieldCommon({this.hintText, this.suffixIcon, this.isTrue});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      /*readOnly: isTrue ?? false,*/
+      enabled: isTrue ?? true,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.only(top: 35, left: 20),
         suffixIcon: suffixIcon ?? SizedBox.shrink(),

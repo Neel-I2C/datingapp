@@ -2,6 +2,7 @@ import 'package:datingapp/constants/color.dart';
 import 'package:datingapp/constants/image.dart';
 import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/profile/utiles/profile_utiles.dart';
+import 'package:datingapp/screens/match/match_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 53),
             child: CommonButton(
               onTap: () {
-                // Get.to(() => AccountRecoveryScreen());
+                Get.to(() => MatchScreen());
               },
               width: Get.width,
               title: "My Boosts",

@@ -193,7 +193,6 @@ class PaymentVaiCardScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Align(
-
                                 alignment: Alignment.centerRight,
                                 child: IconButton(
                                   onPressed: () {
