@@ -128,7 +128,6 @@ class SecondPart extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 24),
             child: CommonButton(
               title: "Next",
-              width: Get.width,
               onTap: () {
                 onBoardingController.forwardAction();
               },

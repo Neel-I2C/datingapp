@@ -30,7 +30,7 @@ class CommonButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 55,
-        width: width ?? 360,
+        width: width ?? Get.width / 1.14 /*360*/,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32.0),

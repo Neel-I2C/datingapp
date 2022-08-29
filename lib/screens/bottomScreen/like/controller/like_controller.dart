@@ -28,6 +28,7 @@ class LikeInfo {
 class OnBoardingController extends GetxController {
   var selectedPageIndex = 0.obs;
   var selectedIndex;
+
   void selectedItem(index) {
     selectedIndex = index;
     update();
@@ -56,5 +57,10 @@ class OnBoardingController extends GetxController {
         title: "Unlimited Likes", subTitle: "Send as many likes as you want"),
     LikeInfo(
         title: "Unlimited Likes", subTitle: "Send as many likes as you want"),
+  ];
+  List<LikeInfo> primeInfo = [
+    LikeInfo(title: "months", subTitle: "\$7/mo", image: "12"),
+    LikeInfo(title: "months", subTitle: "\$10/mo", image: "6"),
+    LikeInfo(title: "months", subTitle: "\$19/mo", image: "1"),
   ];
 }

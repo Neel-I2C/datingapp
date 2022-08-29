@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               ///tinder swiper
               SizedBox(
-                height: 532,
+                height: Get.height/1.48 /*532*/,
                 child: SwipeCards(
                   matchEngine: _matchEngine,
                   itemBuilder: (BuildContext context, int index) {

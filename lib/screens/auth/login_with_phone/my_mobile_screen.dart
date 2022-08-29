@@ -50,7 +50,7 @@ class MyMobileScreen extends StatelessWidget {
             onTap: () {
               Get.to(() => VerifyOtpScreen());
             },
-            title: "Login With Email",
+            title: "Continue",
           ),
           SizedBox(
             height: 185.0,

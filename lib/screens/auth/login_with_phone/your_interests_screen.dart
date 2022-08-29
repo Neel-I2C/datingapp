@@ -21,41 +21,52 @@ class YourInterestScreen extends StatelessWidget {
           Column(
             children: [
               AppBarDesign(),
-              Text(
-                "Your interests",
-                style: TextStyleClass.interBold(
-                  size: 28.0,
-                ),
-              ),
-              SizedBox(
-                height: 11,
-              ),
-              Text(
-                '''Select a few of your interests and let everyone
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Your interests",
+                        style: TextStyleClass.interBold(
+                          size: 28.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 11,
+                      ),
+                      Text(
+                        '''Select a few of your interests and let everyone
 know what you’re passionate about.''',
-                textAlign: TextAlign.center,
-                style: TextStyleClass.interRegular(
-                  size: 16.0,
-                  color: ColorConst.grey69,
-                ),
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Obx(
-                () => Text(
-                  "${yourInterestsController.selectedList.length}of 5",
-                  textAlign: TextAlign.center,
-                  style: TextStyleClass.interRegular(
-                    size: 16.0,
-                    color: ColorConst.grey69,
+                        textAlign: TextAlign.center,
+                        style: TextStyleClass.interRegular(
+                          size: 16.0,
+                          color: ColorConst.grey69,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Obx(
+                        () => Text(
+                          "${yourInterestsController.selectedList.length}of 5",
+                          textAlign: TextAlign.center,
+                          style: TextStyleClass.interRegular(
+                            size: 16.0,
+                            color: ColorConst.grey69,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 27,
+                      ),
+                      itemSelection(),
+                      SizedBox(
+                        height: 120,
+                      ),
+                    ],
                   ),
                 ),
               ),
-              SizedBox(
-                height: 27,
-              ),
-              itemSelection(),
             ],
           ),
           Container(
@@ -102,6 +113,7 @@ know what you’re passionate about.''',
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: GridView.builder(
         shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         itemCount: yourInterestsController.itemList.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,

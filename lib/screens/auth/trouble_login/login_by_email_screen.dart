@@ -47,7 +47,7 @@ you in''',
             onTap: () {
               Get.to(() => CheckYourEmailScreen());
             },
-            title: "Login With Email",
+            title: "Send Email",
           ),
           SizedBox(
             height: 185.0,

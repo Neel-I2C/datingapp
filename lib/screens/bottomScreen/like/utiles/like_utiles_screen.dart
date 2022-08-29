@@ -132,7 +132,7 @@ void showAlert(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: 3,
+                      itemCount: controller.primeInfo.length,
                       itemBuilder: (context, index) {
                         return InkWell(
                           onTap: () {
@@ -155,7 +155,7 @@ void showAlert(
                                   height: 19,
                                 ),
                                 Text(
-                                  "12",
+                                  controller.primeInfo[index].image.toString(),
                                   style: TextStyleClass.interBold(
                                     size: 25.0,
                                     color: controller.selectedIndex == index
@@ -164,7 +164,7 @@ void showAlert(
                                   ),
                                 ),
                                 Text(
-                                  "months",
+                                  controller.primeInfo[index].title.toString(),
                                   style: TextStyleClass.interBold(
                                     size: 15.0,
                                     color: controller.selectedIndex == index
@@ -176,7 +176,8 @@ void showAlert(
                                   height: 13,
                                 ),
                                 Text(
-                                  "\$7/mo",
+                                  controller.primeInfo[index].subTitle
+                                      .toString(),
                                   style: TextStyleClass.interBold(
                                     size: 15.0,
                                     color: controller.selectedIndex == index
@@ -184,6 +185,20 @@ void showAlert(
                                         : ColorConst.black,
                                   ),
                                 ),
+                                if (index == 1)
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                if (index == 1)
+                                  Text(
+                                    "Save 36%",
+                                    style: TextStyleClass.interBold(
+                                      size: 11.0,
+                                      color: controller.selectedIndex == index
+                                          ? ColorConst.appColorFF
+                                          : ColorConst.black,
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
@@ -199,7 +214,7 @@ void showAlert(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: CommonButton(
                     onTap: () {
-                      // Get.back();
+                      Get.back();
                       likeController!.isSelected(true);
                       Get.to(() => PaymentVaiCardScreen());
                     },
