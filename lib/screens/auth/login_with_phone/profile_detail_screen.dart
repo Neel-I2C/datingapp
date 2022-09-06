@@ -16,7 +16,7 @@ class ProfileDetailScreen extends StatelessWidget {
         children: [
           AppBarDesign(),
           Text(
-            "What’s your email?",
+            "Profile Details",
             style: TextStyleClass.interBold(
               size: 28.0,
             ),

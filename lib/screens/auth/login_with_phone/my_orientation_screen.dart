@@ -7,7 +7,12 @@ import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MyOrientationScreen extends StatelessWidget {
+class MyOrientationScreen extends StatefulWidget {
+  @override
+  State<MyOrientationScreen> createState() => _MyOrientationScreenState();
+}
+
+class _MyOrientationScreenState extends State<MyOrientationScreen> {
   final MyOrientationController myOrientationController =
       Get.put(MyOrientationController());
 
@@ -20,7 +25,9 @@ class MyOrientationScreen extends StatelessWidget {
           AppBarDesign(
             action: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => ShowMeScreen());
+                },
                 child: Text(
                   "Skip",
                   style: TextStyleClass.interBold(
@@ -71,11 +78,10 @@ class MyOrientationScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4.0),
                   ),
                   activeColor: ColorConst.appColorFF,
-                  // fillColor: ColorConst.appColorFF,
                 ),
               ),
               Text(
-                "Show my gender on my profile",
+                "Show my orientation on my profile",
                 style: TextStyleClass.interRegular(
                   color: ColorConst.grey69,
                 ),

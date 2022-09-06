@@ -80,20 +80,20 @@ class LoginCommonButtons extends StatelessWidget {
             width: 1,
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(image!),
-            SizedBox(
-              width: 27,
-            ),
-            Text(
-              title!,
-              style: TextStyleClass.interSemiBold(
-                size: 16.0,
-              ),
-            )
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: Get.width >= 411 ? 80 : 50),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SvgPicture.asset(image!),
+              Text(
+                title!,
+                style: TextStyleClass.interSemiBold(
+                  size: 16.0,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -111,7 +111,20 @@ class AppBarDesign extends StatelessWidget {
     return AppBar(
       backgroundColor: ColorConst.white,
       elevation: 0.0,
-      foregroundColor: ColorConst.appColor,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: ColorConst.appColor,
+          ),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      ),
+      /*foregroundColor: ColorConst.appColor,*/
+      automaticallyImplyLeading: false,
       actions: action,
     );
   }
@@ -122,12 +135,15 @@ class TextFromFieldCommon extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
   final bool? isTrue;
+  final TextEditingController? controller;
 
-  TextFromFieldCommon({this.hintText, this.suffixIcon, this.isTrue});
+  TextFromFieldCommon(
+      {this.hintText, this.suffixIcon, this.isTrue, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       /*readOnly: isTrue ?? false,*/
       enabled: isTrue ?? true,
       decoration: InputDecoration(

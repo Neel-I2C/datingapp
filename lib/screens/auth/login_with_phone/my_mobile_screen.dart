@@ -13,49 +13,53 @@ class MyMobileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConst.white,
-      body: Column(
-        children: [
-          AppBarDesign(),
-          Text(
-            "My Number Is",
-            style: TextStyleClass.interBold(
-              size: 28.0,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            AppBarDesign(),
+            Text(
+              "My Number Is",
+              style: TextStyleClass.interBold(
+                size: 28.0,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 33,
-          ),
-          mobileTextFrom(),
-          SizedBox(
-            height: 16,
-          ),
-          Text(
-            "When you tap continue, appname will send a text with\nverification code. Message and data rates may apply.\nThe verified phone number can be used to login.",
-            textAlign: TextAlign.center,
-            style: TextStyleClass.interRegular(
-              size: 13.0,
-              color: ColorConst.grey69,
+            SizedBox(
+              height: 33,
             ),
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          Text(
-            "Learn what happens when your number changes.",
-            textAlign: TextAlign.center,
-            style: TextStyleClass.interUnderLine(size: 13.0),
-          ),
-          Spacer(),
-          CommonButton(
-            onTap: () {
-              Get.to(() => VerifyOtpScreen());
-            },
-            title: "Continue",
-          ),
-          SizedBox(
-            height: 185.0,
-          ),
-        ],
+            mobileTextFrom(),
+            SizedBox(
+              height: 16,
+            ),
+            Text(
+              "When you tap continue, appname will send a text with\nverification code. Message and data rates may apply.\nThe verified phone number can be used to login.",
+              textAlign: TextAlign.center,
+              style: TextStyleClass.interRegular(
+                size: 13.0,
+                color: ColorConst.grey69,
+              ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Text(
+              "Learn what happens when your number changes.",
+              textAlign: TextAlign.center,
+              style: TextStyleClass.interUnderLine(size: 13.0),
+            ),
+           SizedBox(
+             height: 150,
+           ),
+            CommonButton(
+              onTap: () {
+                Get.to(() => VerifyOtpScreen());
+              },
+              title: "Continue",
+            ),
+            SizedBox(
+              height: 185.0,
+            ),
+          ],
+        ),
       ),
     );
   }

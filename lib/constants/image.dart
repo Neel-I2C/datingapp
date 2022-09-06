@@ -69,6 +69,7 @@ class ImageConst {
   static String restart = "${homePath}restart.svg";
   static String star = "${homePath}star.svg";
   static String match = "${homePath}match.png";
+  static String doubleClick = "${homePath}doubleClick.png";
 
   ///profile detail
   static String modeling = "${homePath}modeling.svg";

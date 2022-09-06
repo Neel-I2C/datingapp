@@ -13,60 +13,66 @@ class WhatsYourEmailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConst.white,
-      body: Column(
-        children: [
-          AppBarDesign(),
-          Text(
-            "What’s your email?",
-            style: TextStyleClass.interBold(
-              size: 28.0,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            AppBarDesign(),
+            Text(
+              "What’s your email?",
+              style: TextStyleClass.interBold(
+                size: 28.0,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 11,
-          ),
-          Text(
-            '''Don’t  lose access to your account,
+            SizedBox(
+              height: 11,
+            ),
+            Text(
+              '''Don’t  lose access to your account,
 verify your email.''',
-            textAlign: TextAlign.center,
-            style: TextStyleClass.interRegular(
-              size: 16.0,
+              textAlign: TextAlign.center,
+              style: TextStyleClass.interRegular(
+                size: 16.0,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 36,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: TextFromFieldCommon(hintText: "Enter Email"),
-          ),
-          SizedBox(
-            height: 240,
-          ),
-          CommonButton(
-            onTap: () {
-              Get.to(() => ProfileDetailScreen());
-            },
-            title: "Continue",
-          ),
-          SizedBox(
-            height: 28,
-          ),
-          Text(
-            "Or",
-            style: TextStyleClass.interBold(
-              size: 15.0,
+            SizedBox(
+              height: 36,
             ),
-          ),
-          SizedBox(
-            height: 28,
-          ),
-          LoginCommonButtons(
-            onTap: () {},
-            image: ImageConst.googleSvg,
-            title: "Login With Google",
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: TextFromFieldCommon(hintText: "Enter Email"),
+            ),
+            SizedBox(
+              height: 240,
+            ),
+            CommonButton(
+              onTap: () {
+                Get.to(() => ProfileDetailScreen());
+              },
+              title: "Continue",
+            ),
+            SizedBox(
+              height: 28,
+            ),
+            Text(
+              "Or",
+              style: TextStyleClass.interBold(
+                size: 15.0,
+              ),
+            ),
+            SizedBox(
+              height: 28,
+            ),
+            LoginCommonButtons(
+              onTap: () {},
+              image: ImageConst.googleSvg,
+              title: "Login With Google",
+            ),
+            SizedBox(
+              height: 28,
+            ),
+          ],
+        ),
       ),
     );
   }

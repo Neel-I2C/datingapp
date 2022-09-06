@@ -11,6 +11,8 @@ class LogInOptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("${Get.height}");
+    print("${Get.width}");
     return Scaffold(
       backgroundColor: ColorConst.white,
       body: Column(
@@ -96,20 +98,24 @@ class LogInOptionScreen extends StatelessWidget {
                   width: 1,
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(ImageConst.facebookPng, height: 24),
-                  SizedBox(
-                    width: 27,
-                  ),
-                  Text(
-                    "Login With Facebook",
-                    style: TextStyleClass.interSemiBold(
-                      size: 16.0,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width >= 411 ? 80 : 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(ImageConst.facebookPng, height: 24),
+                    /*    SizedBox(
+                      width: 15,
+                    ),*/
+                    Text(
+                      "Login With Facebook",
+                      style: TextStyleClass.interSemiBold(
+                        size: 16.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -138,7 +144,7 @@ class LogInOptionScreen extends StatelessWidget {
               Get.to(() => AccountRecoveryScreen());
             },
             title: "Trouble Logging in?",
-          )
+          ),
         ],
       ),
     );

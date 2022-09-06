@@ -15,8 +15,11 @@ class ProfileDetailController extends GetxController {
 class ProfileDetailInfo {
   String? title;
   String? image;
+  bool? isSelected;
 
   ProfileDetailInfo({
     this.title,
+    this.isSelected,
+
   });
 }

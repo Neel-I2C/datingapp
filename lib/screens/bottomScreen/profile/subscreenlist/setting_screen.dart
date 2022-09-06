@@ -4,6 +4,7 @@ import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/profile/subscreenlist/contaroller/setting_controller.dart';
 import 'package:datingapp/screens/bottomScreen/profile/subscreenlist/utiles/setting/setting_utiles.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -213,13 +214,28 @@ class SettingScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 24, bottom: 15),
-                    child: Text(
-                      'Only show people in this range',
-                      style: TextStyleClass.interRegular(
-                        size: 16.0,
-                        color: ColorConst.grey69,
-                      ),
+                    padding:
+                        const EdgeInsets.only(left: 24, bottom: 15, right: 24),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Only show people in this range',
+                          style: TextStyleClass.interRegular(
+                            size: 16.0,
+                            color: ColorConst.grey69,
+                          ),
+                        ),
+                        Obx(
+                          () => CupertinoSwitch(
+                            value: settingController.on2.value,
+                            activeColor: ColorConst.appColorFF,
+                            onChanged: (val) {
+                              settingController.on2.value = val;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Divider(),
@@ -313,13 +329,28 @@ class SettingScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 24, bottom: 15),
-                    child: Text(
-                      'Only show people in this range',
-                      style: TextStyleClass.interRegular(
-                        size: 16.0,
-                        color: ColorConst.black09,
-                      ),
+                    padding:
+                        const EdgeInsets.only(left: 24, bottom: 15, right: 24),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Only show people in this range',
+                          style: TextStyleClass.interRegular(
+                            size: 16.0,
+                            color: ColorConst.black09,
+                          ),
+                        ),
+                        Obx(
+                          () => CupertinoSwitch(
+                            value: settingController.on1.value,
+                            activeColor: ColorConst.appColorFF,
+                            onChanged: (val) {
+                              settingController.on1.value = val;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Divider(),
@@ -335,13 +366,28 @@ class SettingScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Padding(
-                    padding: const EdgeInsets.only(left: 24, bottom: 5, top: 5),
-                    child: Text(
-                      "Show me on Tinder",
-                      style: TextStyleClass.interRegular(
-                        size: 16.0,
-                        color: ColorConst.black09,
-                      ),
+                    padding: const EdgeInsets.only(
+                        left: 24, bottom: 5, top: 5, right: 24),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Show me on Tinder",
+                          style: TextStyleClass.interRegular(
+                            size: 16.0,
+                            color: ColorConst.black09,
+                          ),
+                        ),
+                        Obx(
+                          () => CupertinoSwitch(
+                            value: settingController.on3.value,
+                            activeColor: ColorConst.appColorFF,
+                            onChanged: (val) {
+                              settingController.on3.value = val;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Divider(),
@@ -357,13 +403,28 @@ class SettingScreen extends StatelessWidget {
                   ),
                   Divider(),
                   Padding(
-                    padding: const EdgeInsets.only(left: 24, bottom: 5, top: 5),
-                    child: Text(
-                      "Recommended Sort",
-                      style: TextStyleClass.interRegular(
-                        size: 16.0,
-                        color: ColorConst.black09,
-                      ),
+                    padding: const EdgeInsets.only(
+                        left: 24, bottom: 5, top: 5, right: 24),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Recommended Sort",
+                          style: TextStyleClass.interRegular(
+                            size: 16.0,
+                            color: ColorConst.black09,
+                          ),
+                        ),
+                        Obx(
+                          () => CupertinoSwitch(
+                            value: settingController.on4.value,
+                            activeColor: ColorConst.appColorFF,
+                            onChanged: (val) {
+                              settingController.on4.value = val;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Divider(),

@@ -9,17 +9,22 @@ class EditProfileTabController extends GetxController
     Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(ImageConst.moon, color: null),
-        /*Icon(Icons.directions_car,),*/
-        SizedBox(width: 5),
+        // SvgPicture.asset(ImageConst.moon, color: null),
+        Icon(
+          Icons.star_half_rounded,
+        ),
+        SizedBox(width: 7),
         Text("Zodiac"),
       ],
     ),
     Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(ImageConst.pet, color: null),
-        SizedBox(width: 5),
+        // SvgPicture.asset(ImageConst.pet, color: null),
+        Icon(
+          Icons.pets_sharp,
+        ),
+        SizedBox(width: 7),
         Text("Pets"),
       ],
     ),

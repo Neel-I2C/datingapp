@@ -16,6 +16,7 @@ class SplashScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: Image(
             image: AssetImage(ImageConst.splashBg),
+            fit: BoxFit.cover,
           ),
         ),
       ),

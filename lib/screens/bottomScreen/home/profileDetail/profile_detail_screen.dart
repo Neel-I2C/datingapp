@@ -67,84 +67,84 @@ class ProfileDetailHomeScreen extends StatelessWidget {
               topLeft: Radius.circular(30),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 24, top: 48),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Rex, 27",
-                  style: TextStyleClass.interBold(
-                    color: ColorConst.black,
-                    size: 26.0,
-                  ),
-                ),
-                Text(
-                  "Proffesional model",
-                  style: TextStyleClass.interRegular(
-                    color: ColorConst.black,
-                    size: 16.0,
-                  ),
-                ),
-                SizedBox(
-                  height: 12,
-                ),
-                commonRowProfileD(
-                  title: "Veer Narmad South Gujarat University",
-                  icon: Icons.school_outlined,
-                ),
-                commonRowProfileD(
-                  title: "Live in Surat",
-                  icon: Icons.home_outlined,
-                ),
-                commonRowProfileD(
-                  title: "3 miles away",
-                  icon: Icons.location_on_outlined,
-                ),
-                SizedBox(
-                  height: 12,
-                ),
-                Text(
-                  "About",
-                  style: TextStyleClass.interSemiBold(
-                    color: ColorConst.black,
-                    size: 18.0,
-                  ),
-                ),
-                SizedBox(
-                  height: 9,
-                ),
-                Row(
-                  children: [
-                    CommonButtonProfileDetail(
-                      title: "Dancing",
-                      image: ImageConst.dance,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 24, top: 48),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Rex, 27",
+                    style: TextStyleClass.interBold(
+                      color: ColorConst.black,
+                      size: 26.0,
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    CommonButtonProfileDetail(
-                      title: "Modeling",
-                      image: ImageConst.modeling,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 14,
-                ),
-                Text(
-                  "Interests",
-                  style: TextStyleClass.interSemiBold(
-                    color: ColorConst.black,
-                    size: 18.0,
                   ),
-                ),
-                SizedBox(
-                  height: 9,
-                ),
-                Expanded(
-                  child: Padding(
+                  Text(
+                    "Proffesional model",
+                    style: TextStyleClass.interRegular(
+                      color: ColorConst.black,
+                      size: 16.0,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  commonRowProfileD(
+                    title: "Veer Narmad South Gujarat University",
+                    icon: Icons.school_outlined,
+                  ),
+                  commonRowProfileD(
+                    title: "Live in Surat",
+                    icon: Icons.home_outlined,
+                  ),
+                  commonRowProfileD(
+                    title: "3 miles away",
+                    icon: Icons.location_on_outlined,
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(
+                    "About",
+                    style: TextStyleClass.interSemiBold(
+                      color: ColorConst.black,
+                      size: 18.0,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 9,
+                  ),
+                  Row(
+                    children: [
+                      CommonButtonProfileDetail(
+                        title: "Dancing",
+                        image: ImageConst.dance,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      CommonButtonProfileDetail(
+                        title: "Modeling",
+                        image: ImageConst.modeling,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 14,
+                  ),
+                  Text(
+                    "Interests",
+                    style: TextStyleClass.interSemiBold(
+                      color: ColorConst.black,
+                      size: 18.0,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 9,
+                  ),
+                  Padding(
                     padding: const EdgeInsets.only(right: 24),
                     child: GridView.builder(
                       shrinkWrap: true,
@@ -157,29 +157,64 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                           crossAxisSpacing: 15,
                           mainAxisSpacing: 10),
                       itemBuilder: (context, index) {
-                        return Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: ColorConst.white,
-                            borderRadius: BorderRadius.circular(35),
-                            border: Border.all(
-                              color: ColorConst.greyE8,
-                            ),
-                          ),
-                          child: Text(
-                            profileDetailController.itemList[index].title
-                                .toString(),
-                            style: TextStyleClass.interRegular(
-                              color: ColorConst.black09,
-                              size: 14.0,
-                            ),
-                          ),
-                        );
+                        return (index == 0 || index == 1)
+                            ? Container(
+                                /*alignment: Alignment.center,*/
+                                decoration: BoxDecoration(
+                                  color: ColorConst.white,
+                                  borderRadius: BorderRadius.circular(35),
+                                  border: Border.all(
+                                    color: ColorConst.appColorFF,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                      image: AssetImage(ImageConst.doubleClick),
+                                      height: 10,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      profileDetailController
+                                          .itemList[index].title
+                                          .toString(),
+                                      style: TextStyleClass.interSemiBold(
+                                        color: ColorConst.appColorFF,
+                                        size: 14.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: ColorConst.white,
+                                  borderRadius: BorderRadius.circular(35),
+                                  border: Border.all(
+                                    color: ColorConst.greyE8,
+                                  ),
+                                ),
+                                child: Text(
+                                  profileDetailController.itemList[index].title
+                                      .toString(),
+                                  style: TextStyleClass.interRegular(
+                                    color: ColorConst.black09,
+                                    size: 14.0,
+                                  ),
+                                ),
+                              );
                       },
                     ),
                   ),
-                ),
-              ],
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

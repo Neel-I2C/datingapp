@@ -88,7 +88,7 @@ class PaymentVaiCardScreen extends StatelessWidget {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 20, right: 24),
-                          child: TextFromFieldCommon(hintText: "MM/YY"),
+                          child: TextFromFieldCommon(hintText: "CVC"),
                         ),
                       ),
                     ],

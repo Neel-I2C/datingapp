@@ -37,7 +37,9 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
               item,
               style: TextStyleClass.interRegular(
                 size: 16.0,
-                // color: ColorConst.appColorFF,
+                color: selectedChoices.contains(item)
+                    ? ColorConst.white
+                    : ColorConst.appColorFF,
               ),
             ),
             selected: selectedChoices.contains(item),
