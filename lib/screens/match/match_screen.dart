@@ -1,9 +1,10 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../Constant/app_color.dart';
+import '../../Constant/app_image.dart';
 
 class MatchScreen extends StatelessWidget {
   const MatchScreen({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class MatchScreen extends StatelessWidget {
           ),
           Image(
             image: AssetImage(
-              ImageConst.match,
+              AppImage.match,
             ),
             height: 400,
           ),
@@ -29,15 +30,15 @@ class MatchScreen extends StatelessWidget {
               children: [
                 Text(
                   "It’s a match, John!",
-                  style: TextStyleClass.interBold(
-                    color: ColorConst.appColorFF,
+                  style: AppTextStyle.interBold(
+                    color: AppColor.appColorFF5,
                     size: 34.0,
                   ),
                 ),
                 Text(
                   "Start a conversation now with each other",
-                  style: TextStyleClass.interRegular(
-                    color: ColorConst.grey69,
+                  style: AppTextStyle.interRegular(
+                    color: AppColor.grey697,
                   ),
                 ),
               ],
@@ -65,13 +66,13 @@ class MatchScreen extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(32.0),
-                color: ColorConst.appColorFF.withOpacity(0.1),
+                color: AppColor.appColorFF5.withOpacity(0.1),
               ),
               child: Text(
                 "Keep swiping",
-                style: TextStyleClass.interRegular(
+                style: AppTextStyle.interRegular(
                   size: 16.0,
-                  color: ColorConst.appColorFF,
+                  color: AppColor.appColorFF5,
                 ),
               ),
             ),

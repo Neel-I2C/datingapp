@@ -1,11 +1,10 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/screens/auth/email_login/email_login.dart';
 import 'package:datingapp/screens/auth/login_with_phone/my_mobile_screen.dart';
-import 'package:datingapp/screens/auth/trouble_login/account_recovery_screen.dart';
-import 'package:datingapp/screens/auth/trouble_login/login_by_email_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_textstyle.dart';
 
 class CheckYourEmailScreen extends StatelessWidget {
   const CheckYourEmailScreen({Key? key}) : super(key: key);
@@ -13,13 +12,13 @@ class CheckYourEmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(),
           Text(
             "Check your email!",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -32,23 +31,23 @@ class CheckYourEmailScreen extends StatelessWidget {
               children: [
                 TextSpan(
                   text: "if we found an account with\n",
-                  style: TextStyleClass.interRegular(
-                    color: ColorConst.grey69,
+                  style: AppTextStyle.interRegular(
+                    color: AppColor.grey697,
                     size: 18.0,
                   ),
                 ),
                 TextSpan(
                   text: "Johndoe123@gmail.com\n",
-                  style: TextStyleClass.interSemiBold(
-                    color: ColorConst.grey69,
+                  style: AppTextStyle.interSemiBold(
+                    color: AppColor.grey697,
                     size: 18.0,
                   ),
                 ),
                 TextSpan(
                   text:
                       "an email has been sent. Please\ncheck your email in a moment.",
-                  style: TextStyleClass.interRegular(
-                    color: ColorConst.grey69,
+                  style: AppTextStyle.interRegular(
+                    color: AppColor.grey697,
                     size: 18.0,
                   ),
                 ),
@@ -58,8 +57,8 @@ class CheckYourEmailScreen extends StatelessWidget {
           Spacer(),
           Text(
             "Didn't receive a link?",
-            style: TextStyleClass.interBold(
-              color: ColorConst.grey69,
+            style: AppTextStyle.interBold(
+              color: AppColor.grey697,
               size: 22.0,
             ),
           ),
@@ -68,7 +67,7 @@ class CheckYourEmailScreen extends StatelessWidget {
           ),
           CommonButton(
             onTap: () {
-              Get.to(() => LoginByEmailScreen());
+              Get.to(() => EmailLogin());
             },
             title: "Use A Different Email",
           ),

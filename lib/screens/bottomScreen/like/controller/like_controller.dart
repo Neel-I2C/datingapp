@@ -1,16 +1,16 @@
-import 'package:datingapp/constants/image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../Constant/app_image.dart';
 
 class LikeController extends GetxController {
   List<LikeInfo> itemList = [
-    LikeInfo(image: ImageConst.gril1Without),
-    LikeInfo(image: ImageConst.gril2without),
-    LikeInfo(image: ImageConst.girl3),
-    LikeInfo(image: ImageConst.girl4),
-    LikeInfo(image: ImageConst.girl5),
-    LikeInfo(image: ImageConst.girl6),
-    LikeInfo(image: ImageConst.girl7),
+    LikeInfo(image: AppImage.gril1Without),
+    LikeInfo(image: AppImage.gril2without),
+    LikeInfo(image: AppImage.girl3),
+    LikeInfo(image: AppImage.girl4),
+    LikeInfo(image: AppImage.girl5),
+    LikeInfo(image: AppImage.girl6),
+    LikeInfo(image: AppImage.girl7),
   ];
 
   var isSelected = false.obs;

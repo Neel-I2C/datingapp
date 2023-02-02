@@ -1,11 +1,12 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/add_photos_screen.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/your_interests_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/utiles/your_interest_utiles.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_textstyle.dart';
 
 class YourInterestScreen extends StatelessWidget {
   final YourInterestsController yourInterestsController =
@@ -14,7 +15,7 @@ class YourInterestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -27,7 +28,7 @@ class YourInterestScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Your interests",
-                        style: TextStyleClass.interBold(
+                        style: AppTextStyle.interBold(
                           size: 28.0,
                         ),
                       ),
@@ -38,9 +39,9 @@ class YourInterestScreen extends StatelessWidget {
                         '''Select a few of your interests and let everyone
 know what you’re passionate about.''',
                         textAlign: TextAlign.center,
-                        style: TextStyleClass.interRegular(
+                        style: AppTextStyle.interRegular(
                           size: 16.0,
-                          color: ColorConst.grey69,
+                          color: AppColor.grey697,
                         ),
                       ),
                       SizedBox(
@@ -50,9 +51,9 @@ know what you’re passionate about.''',
                         () => Text(
                           "${yourInterestsController.selectedList.length}of 5",
                           textAlign: TextAlign.center,
-                          style: TextStyleClass.interRegular(
+                          style: AppTextStyle.interRegular(
                             size: 16.0,
-                            color: ColorConst.grey69,
+                            color: AppColor.grey697,
                           ),
                         ),
                       ),
@@ -74,9 +75,9 @@ know what you’re passionate about.''',
             width: Get.width,
             padding: EdgeInsets.only(top: 16, bottom: 40, left: 24, right: 24),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               border: Border.all(
-                color: ColorConst.greyEB,
+                color: AppColor.greyEBE,
                 width: 1,
               ),
               borderRadius: BorderRadius.only(
@@ -89,8 +90,8 @@ know what you’re passionate about.''',
                   ? CommonButton(
                       onTap: () {},
                       colors: [
-                        ColorConst.appColor.withOpacity(0.6),
-                        ColorConst.appColorFD.withOpacity(0.6),
+                        AppColor.appColorFF4.withOpacity(0.6),
+                        AppColor.appColorFD7.withOpacity(0.6),
                       ],
                       title: "Continue",
                     )

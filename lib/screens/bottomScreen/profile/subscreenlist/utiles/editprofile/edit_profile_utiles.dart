@@ -1,5 +1,3 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/i_am_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/my_orientation_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/your_interests_controller.dart';
@@ -11,6 +9,9 @@ import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../../../Constant/app_color.dart';
+import '../../../../../../Constant/app_textstyle.dart';
 
 ///interest bottom sheet
 interestBottomSheet() {
@@ -24,7 +25,7 @@ interestBottomSheet() {
         width: Get.width,
         padding: EdgeInsets.only(top: 40),
         decoration: BoxDecoration(
-          color: ColorConst.white,
+          color: AppColor.whiteFFF,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40),
             topRight: Radius.circular(40),
@@ -38,16 +39,16 @@ interestBottomSheet() {
                 children: [
                   Text(
                     "Interests",
-                    style: TextStyleClass.interBold(
+                    style: AppTextStyle.interBold(
                       size: 28.0,
-                      color: ColorConst.black09,
+                      color: AppColor.black091,
                     ),
                   ),
                   Text(
                     "5 of 5",
-                    style: TextStyleClass.interRegular(
+                    style: AppTextStyle.interRegular(
                       size: 16.0,
-                      color: ColorConst.grey69,
+                      color: AppColor.grey697,
                     ),
                   ),
                   SizedBox(
@@ -58,23 +59,23 @@ interestBottomSheet() {
                     width: Get.width,
                     margin: EdgeInsets.symmetric(horizontal: 24),
                     decoration: BoxDecoration(
-                      color: ColorConst.greyF4,
+                      color: AppColor.greyF4F,
                       borderRadius: BorderRadius.circular(35),
                       border: Border.all(
-                        color: ColorConst.greyF4,
+                        color: AppColor.greyF4F,
                       ),
                     ),
                     child: TextField(
                       decoration: InputDecoration(
                         prefixIcon: Icon(
                           CupertinoIcons.search,
-                          color: ColorConst.appColorFF,
+                          color: AppColor.appColorFF5,
                           size: 20,
                         ),
                         hintText: "Search",
-                        hintStyle: TextStyleClass.interRegular(
+                        hintStyle: AppTextStyle.interRegular(
                           size: 16.0,
-                          color: ColorConst.grey69,
+                          color: AppColor.grey697,
                         ),
                         border: InputBorder.none,
                       ),
@@ -132,9 +133,9 @@ interestBottomSheet() {
               padding:
                   EdgeInsets.only(top: 16, bottom: 40, left: 24, right: 24),
               decoration: BoxDecoration(
-                color: ColorConst.white,
+                color: AppColor.whiteFFF,
                 border: Border.all(
-                  color: ColorConst.greyEB,
+                  color: AppColor.greyEBE,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.only(
@@ -168,7 +169,7 @@ lifestyleBottomSheet() {
         height: Get.height,
         width: Get.width,
         decoration: BoxDecoration(
-          color: ColorConst.white,
+          color: AppColor.whiteFFF,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40),
             topRight: Radius.circular(40),
@@ -182,25 +183,25 @@ lifestyleBottomSheet() {
               margin: EdgeInsets.only(top: 42, right: 24, left: 24, bottom: 24),
               // padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                  color: ColorConst.white,
+                  color: AppColor.whiteFFF,
                   borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: ColorConst.greyE8)),
+                  border: Border.all(color: AppColor.greyE8E)),
               child: TabBar(
                 tabs: editProfileTabController.myTabs,
-                unselectedLabelColor: ColorConst.grey69,
-                labelStyle: TextStyleClass.interRegular(
+                unselectedLabelColor: AppColor.grey697,
+                labelStyle: AppTextStyle.interRegular(
                   size: 16.0,
-                  color: ColorConst.white,
+                  color: AppColor.whiteFFF,
                 ),
-                unselectedLabelStyle: TextStyleClass.interRegular(
+                unselectedLabelStyle: AppTextStyle.interRegular(
                   size: 16.0,
-                  color: ColorConst.grey69,
+                  color: AppColor.grey697,
                 ),
-                labelColor: ColorConst.white,
+                labelColor: AppColor.whiteFFF,
                 controller: editProfileTabController.controller,
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: ColorConst.appColorFF,
+                  color: AppColor.appColorFF5,
                 ),
               ),
             ),
@@ -235,9 +236,9 @@ class Zodiac extends StatelessWidget {
       children: [
         Text(
           "What’s your zodiac sign?",
-          style: TextStyleClass.interBold(
+          style: AppTextStyle.interBold(
             size: 16.0,
-            color: ColorConst.black,
+            color: AppColor.black000,
           ),
         ),
         SizedBox(
@@ -254,9 +255,9 @@ class Zodiac extends StatelessWidget {
           onPressed: () {},
           child: Text(
             "Skip",
-            style: TextStyleClass.interSemiBold(
+            style: AppTextStyle.interSemiBold(
               size: 17.0,
-              color: ColorConst.black,
+              color: AppColor.black000,
             ),
           ),
         ),
@@ -287,9 +288,9 @@ class Pets extends StatelessWidget {
       children: [
         Text(
           "Do you have any pets?",
-          style: TextStyleClass.interBold(
+          style: AppTextStyle.interBold(
             size: 16.0,
-            color: ColorConst.black,
+            color: AppColor.black000,
           ),
         ),
         SizedBox(
@@ -306,9 +307,9 @@ class Pets extends StatelessWidget {
           onPressed: () {},
           child: Text(
             "Skip",
-            style: TextStyleClass.interSemiBold(
+            style: AppTextStyle.interSemiBold(
               size: 17.0,
-              color: ColorConst.black,
+              color: AppColor.black000,
             ),
           ),
         ),
@@ -339,7 +340,7 @@ iAmBottomSheet() {
         height: Get.height,
         width: Get.width,
         decoration: BoxDecoration(
-          color: ColorConst.white,
+          color: AppColor.whiteFFF,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40),
             topRight: Radius.circular(40),
@@ -352,7 +353,7 @@ iAmBottomSheet() {
             ),
             Text(
               "I am a",
-              style: TextStyleClass.interBold(
+              style: AppTextStyle.interBold(
                 size: 28.0,
               ),
             ),
@@ -374,7 +375,7 @@ iAmBottomSheet() {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    activeColor: ColorConst.appColorFF,
+                    activeColor: AppColor.appColorFF5,
                     // fillColor: ColorConst.appColorFF,
                   ),
                 ),
@@ -386,8 +387,8 @@ iAmBottomSheet() {
                 ),*/
                 Text(
                   "Show my gender on my profile",
-                  style: TextStyleClass.interRegular(
-                    color: ColorConst.grey69,
+                  style: AppTextStyle.interRegular(
+                    color: AppColor.grey697,
                   ),
                 ),
               ],
@@ -420,7 +421,7 @@ orientationBottomSheet() {
         height: Get.height,
         width: Get.width,
         decoration: BoxDecoration(
-          color: ColorConst.white,
+          color: AppColor.whiteFFF,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40),
             topRight: Radius.circular(40),
@@ -433,7 +434,7 @@ orientationBottomSheet() {
             ),
             Text(
               "Sexual Orientation",
-              style: TextStyleClass.interBold(
+              style: AppTextStyle.interBold(
                 size: 28.0,
               ),
             ),
@@ -443,9 +444,9 @@ orientationBottomSheet() {
             Text(
               "Select up t o 3",
               textAlign: TextAlign.center,
-              style: TextStyleClass.interRegular(
+              style: AppTextStyle.interRegular(
                 size: 16.0,
-                color: ColorConst.grey69,
+                color: AppColor.grey697,
               ),
             ),
             SizedBox(
@@ -470,14 +471,14 @@ orientationBottomSheet() {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    activeColor: ColorConst.appColorFF,
+                    activeColor: AppColor.appColorFF5,
                     // fillColor: ColorConst.appColorFF,
                   ),
                 ),
                 Text(
                   "Show my gender on my profile",
-                  style: TextStyleClass.interRegular(
-                    color: ColorConst.grey69,
+                  style: AppTextStyle.interRegular(
+                    color: AppColor.grey697,
                   ),
                 ),
               ],

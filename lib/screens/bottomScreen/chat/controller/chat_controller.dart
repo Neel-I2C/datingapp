@@ -1,16 +1,16 @@
-import 'package:datingapp/constants/image.dart';
 import 'package:get/get.dart';
+import '../../../../Constant/app_image.dart';
 
 class ChatController extends GetxController {
   List<ChatImageList> imageList = [
-    ChatImageList(image: ImageConst.photo_1, name: "Likes"),
-    ChatImageList(image: ImageConst.photo_2, name: "Emma"),
-    ChatImageList(image: ImageConst.photo_3, name: "Ava"),
-    ChatImageList(image: ImageConst.photo_4, name: "Sophia"),
-    ChatImageList(image: ImageConst.photo_1, name: "Amelia"),
-    ChatImageList(image: ImageConst.photo_3, name: "Ava"),
-    ChatImageList(image: ImageConst.photo_4, name: "Sophia"),
-    ChatImageList(image: ImageConst.photo_1, name: "Amelia"),
+    ChatImageList(image: AppImage.photo_1, name: "Likes"),
+    ChatImageList(image: AppImage.photo_2, name: "Emma"),
+    ChatImageList(image: AppImage.photo_3, name: "Ava"),
+    ChatImageList(image: AppImage.photo_4, name: "Sophia"),
+    ChatImageList(image: AppImage.photo_1, name: "Amelia"),
+    ChatImageList(image: AppImage.photo_3, name: "Ava"),
+    ChatImageList(image: AppImage.photo_4, name: "Sophia"),
+    ChatImageList(image: AppImage.photo_1, name: "Amelia"),
   ];
   List<ChatImageList> messageList = [
     ChatImageList(
@@ -43,13 +43,13 @@ class ChatController extends GetxController {
     ),
     ChatImageList(
       message:
-      "Great I will write later the exact\ntime and place. See you soon!",
+          "Great I will write later the exact\ntime and place. See you soon!",
       time: "2:55 PM",
       isEnable: false,
     ),
     ChatImageList(
       message:
-      "Hi John, how are you? I saw on the\napp that we’ve crossed paths several\ntimes this week 😄",
+          "Hi John, how are you? I saw on the\napp that we’ve crossed paths several\ntimes this week 😄",
       time: "2:55 PM",
       isEnable: true,
     ),
@@ -57,37 +57,37 @@ class ChatController extends GetxController {
 
   List<ChatImageList> imageListForChat = [
     ChatImageList(
-      image: ImageConst.girl3,
+      image: AppImage.girl3,
       name: "Emelie",
       subtitle: "Sticker 😍",
       time: "23 min",
     ),
     ChatImageList(
-      image: ImageConst.girl4,
+      image: AppImage.girl4,
       name: "Abigail",
       subtitle: "Typing..",
       time: "27 min",
     ),
     ChatImageList(
-      image: ImageConst.gril2without,
+      image: AppImage.gril2without,
       name: "Elizabeth",
       subtitle: "Ok, see you then.",
       time: "33 min",
     ),
     ChatImageList(
-      image: ImageConst.gril1Without,
+      image: AppImage.gril1Without,
       name: "Penelope",
       subtitle: "You: Hey! What’s up, long time..",
       time: "50 min",
     ),
     ChatImageList(
-      image: ImageConst.photo_2,
+      image: AppImage.photo_2,
       name: "Chloe",
       subtitle: "You: Hello how are you?",
       time: "55 min",
     ),
     ChatImageList(
-      image: ImageConst.photo_3,
+      image: AppImage.photo_3,
       name: "Grace",
       subtitle: "You: Great I will write later..",
       time: "1 hour",

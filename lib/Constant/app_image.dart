@@ -1,4 +1,4 @@
-class ImageConst {
+class AppImage {
   static String splashPath = "assets/images/";
   static String onBoardingPath = "assets/images/onBoarding/";
   static String logInPath = "assets/images/login/";

@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/screens/auth/login_with_phone/add_photos_screen.dart';
-import 'package:datingapp/screens/auth/login_with_phone/enable_location_screen.dart';
 import 'package:datingapp/screens/onboadingScreen/onboading_screen.dart';
+import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+
+import '../../../Constant/app_color.dart';
 
 class SplashMainController extends GetxController {
   @override
@@ -36,14 +36,7 @@ class SplashMainController extends GetxController {
     } on SocketException catch (_) {
       activeConnection(false);
       T.value = "Turn On the data and repress again";
-      Fluttertoast.showToast(
-          msg: "Please check ",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 1,
-          backgroundColor: ColorConst.black,
-          textColor: ColorConst.white,
-          fontSize: 20.0);
+      appToast(msg: "Please check ");
       log("  ON INTERNET    ${T.value}");
     }
   }

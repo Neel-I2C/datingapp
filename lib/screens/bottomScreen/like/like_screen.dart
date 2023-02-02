@@ -1,13 +1,13 @@
 import 'dart:ui';
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/like/controller/like_controller.dart';
 import 'package:datingapp/screens/bottomScreen/like/utiles/like_utiles_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
+import '../../../Constant/app_textstyle.dart';
 
 class LikeScreen extends StatelessWidget {
   final LikeController likeController = Get.put(LikeController());
@@ -22,7 +22,7 @@ class LikeScreen extends StatelessWidget {
             width: Get.width,
             padding: EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(23),
                 bottomRight: Radius.circular(23),
@@ -30,7 +30,7 @@ class LikeScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   blurRadius: 14,
-                  color: ColorConst.black.withOpacity(0.15),
+                  color: AppColor.black000.withOpacity(0.15),
                 ),
               ],
             ),
@@ -39,19 +39,19 @@ class LikeScreen extends StatelessWidget {
               children: [
                 AppBar(
                   elevation: 0,
-                  backgroundColor: ColorConst.white,
+                  backgroundColor: AppColor.whiteFFF,
                   leading: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Image(
                       image: AssetImage(
-                        ImageConst.appLogo,
+                        AppImage.appLogo,
                       ),
                     ),
                   ),
                   centerTitle: true,
                   title: Text(
                     "YourApp",
-                    style: TextStyleClass.arizoniaRegular(
+                    style: AppTextStyle.arizoniaRegular(
                       size: 27.0,
                     ),
                   ),
@@ -65,7 +65,7 @@ class LikeScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(35),
                     border: Border.all(
-                      color: ColorConst.greyE8,
+                      color: AppColor.greyE8E,
                     ),
                   ),
                   child: Obx(
@@ -77,19 +77,19 @@ class LikeScreen extends StatelessWidget {
                               likeController.isScreen(false);
                             },
                             color: likeController.isScreen.isFalse
-                                ? ColorConst.appColorFF
-                                : ColorConst.greyF2,
+                                ? AppColor.appColorFF5
+                                : AppColor.greyF2F,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
                             ),
                             child: Text(
                               "4 Likes",
-                              style: TextStyleClass.interBold(
+                              style: AppTextStyle.interBold(
                                 size: 16.0,
                                 color: likeController.isScreen.isFalse
-                                    ? ColorConst.white
-                                    : ColorConst.black03,
+                                    ? AppColor.whiteFFF
+                                    : AppColor.black030,
                               ),
                             ),
                           ),
@@ -107,19 +107,19 @@ class LikeScreen extends StatelessWidget {
                               }
                             },
                             color: likeController.isScreen.isTrue
-                                ? ColorConst.appColorFF
-                                : ColorConst.greyF2,
+                                ? AppColor.appColorFF5
+                                : AppColor.greyF2F,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25),
                             ),
                             child: Text(
                               "Top Picks",
-                              style: TextStyleClass.interBold(
+                              style: AppTextStyle.interBold(
                                 size: 16.0,
                                 color: likeController.isScreen.isTrue
-                                    ? ColorConst.white
-                                    : ColorConst.black03,
+                                    ? AppColor.whiteFFF
+                                    : AppColor.black030,
                               ),
                             ),
                           ),
@@ -161,9 +161,9 @@ class BottomPart1 extends StatelessWidget {
               '''Upgrade to Gold to see people
 who have already liked you.''',
               textAlign: TextAlign.center,
-              style: TextStyleClass.interRegular(
+              style: AppTextStyle.interRegular(
                 size: 18.0,
-                color: ColorConst.grey69,
+                color: AppColor.grey697,
               ),
             ),
             SizedBox(
@@ -208,7 +208,7 @@ who have already liked you.''',
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(left: 16, bottom: 16),
-                              child: SvgPicture.asset(ImageConst.menu),
+                              child: SvgPicture.asset(AppImage.menu),
                             ),
                           ),
                         ),
@@ -263,9 +263,9 @@ more Top Picks!'''
                     : '''Upgrade to Gold to see people
 who have already liked you.''',
                 textAlign: TextAlign.center,
-                style: TextStyleClass.interRegular(
+                style: AppTextStyle.interRegular(
                   size: 18.0,
-                  color: ColorConst.grey69,
+                  color: AppColor.grey697,
                 ),
               ),
             ),
@@ -308,7 +308,7 @@ who have already liked you.''',
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.1),
                             image: DecorationImage(
-                              image: AssetImage(ImageConst.blur_bg),
+                              image: AssetImage(AppImage.blur_bg),
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -332,10 +332,10 @@ who have already liked you.''',
                                                 top: 6, right: 6),
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              color: ColorConst.white,
+                                              color: AppColor.whiteFFF,
                                               boxShadow: [
                                                 BoxShadow(
-                                                  color: ColorConst.appColorFF
+                                                  color: AppColor.appColorFF5
                                                       .withOpacity(0.25),
                                                   blurRadius: 31,
                                                   offset: Offset(0, 4),
@@ -344,7 +344,7 @@ who have already liked you.''',
                                             ),
                                             child: Icon(
                                               Icons.star,
-                                              color: ColorConst.purple,
+                                              color: AppColor.purple8A2,
                                             ),
                                           ),
                                         ),
@@ -354,28 +354,27 @@ who have already liked you.''',
                                           children: [
                                             Text(
                                               "Rex, 27",
-                                              style:
-                                                  TextStyleClass.interSemiBold(
+                                              style: AppTextStyle.interSemiBold(
                                                 size: 22.0,
-                                                color: ColorConst.white,
+                                                color: AppColor.whiteFFF,
                                               ),
                                             ),
                                             Row(
                                               children: [
                                                 Text(
                                                   "\u2022 ",
-                                                  style: TextStyleClass
+                                                  style: AppTextStyle
                                                       .interSemiBold(
                                                     size: 14.0,
-                                                    color: ColorConst.green,
+                                                    color: AppColor.green4FD,
                                                   ),
                                                 ),
                                                 Text(
                                                   "Recently Active",
-                                                  style: TextStyleClass
+                                                  style: AppTextStyle
                                                       .interSemiBold(
                                                     size: 14.0,
-                                                    color: ColorConst.white,
+                                                    color: AppColor.whiteFFF,
                                                   ),
                                                 ),
                                               ],
@@ -388,9 +387,9 @@ who have already liked you.''',
                                       alignment: Alignment.bottomLeft,
                                       child: Text(
                                         "Rex, 27",
-                                        style: TextStyleClass.interSemiBold(
+                                        style: AppTextStyle.interSemiBold(
                                           size: 22.0,
-                                          color: ColorConst.white,
+                                          color: AppColor.whiteFFF,
                                         ),
                                       ),
                                     ),

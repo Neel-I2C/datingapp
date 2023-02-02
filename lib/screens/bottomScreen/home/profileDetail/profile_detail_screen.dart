@@ -1,54 +1,57 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_image.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/home/profileDetail/controller/profile_detail_controller.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import '../../../../Constant/app_color.dart';
 
 class ProfileDetailHomeScreen extends StatelessWidget {
-  final ProfileDetailController profileDetailController =
-      Get.put(ProfileDetailController());
+  final ProfileDetailController controller = Get.put(ProfileDetailController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Column(
-            children: [
-              Container(
-                height: 480,
-                width: Get.width,
-                alignment: Alignment.topLeft,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      ImageConst.gril1Without,
-                    ),
-                    fit: BoxFit.cover,
+      body: GetBuilder<ProfileDetailController>(builder: (controller) {
+        return controller.isLoading.value == true
+            ? appLoader()
+            : Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        height: 480,
+                        width: Get.width,
+                        alignment: Alignment.topLeft,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              AppImage.gril1Without,
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 50),
+                          child: IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: Icon(
+                              Icons.arrow_back,
+                              color: AppColor.black000,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: ColorConst.black,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          bottomDesign(),
-        ],
-      ),
+                  bottomDesign(),
+                ],
+              );
+      }),
     );
   }
 
@@ -61,7 +64,7 @@ class ProfileDetailHomeScreen extends StatelessWidget {
           height: Get.height / 2,
           width: Get.width,
           decoration: BoxDecoration(
-            color: ColorConst.white,
+            color: AppColor.whiteFFF,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(30),
               topLeft: Radius.circular(30),
@@ -75,16 +78,18 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Rex, 27",
-                    style: TextStyleClass.interBold(
-                      color: ColorConst.black,
+                    "${controller.profileModel?.data?[0].iAm}",
+                    // "Rex, 27",
+                    style: AppTextStyle.interBold(
+                      color: AppColor.black000,
                       size: 26.0,
                     ),
                   ),
                   Text(
-                    "Proffesional model",
-                    style: TextStyleClass.interRegular(
-                      color: ColorConst.black,
+                    "${controller.profileModel?.data?[0].jobTitle}",
+                    // "Proffesional model",
+                    style: AppTextStyle.interRegular(
+                      color: AppColor.black000,
                       size: 16.0,
                     ),
                   ),
@@ -92,15 +97,20 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                     height: 12,
                   ),
                   commonRowProfileD(
-                    title: "Veer Narmad South Gujarat University",
+                    title: "${controller.profileModel!.data![0].school}",
+                    // title: "Veer Narmad South Gujarat University",
                     icon: Icons.school_outlined,
                   ),
                   commonRowProfileD(
-                    title: "Live in Surat",
+                    title:
+                        "Live in ${controller.profileModel!.data![0].livingIn}",
+                    // title: "Live in Surat",
                     icon: Icons.home_outlined,
                   ),
                   commonRowProfileD(
-                    title: "3 miles away",
+                    title:
+                        "${controller.profileModel!.data![0].showMyDistance}",
+                    // title: "3 miles away",
                     icon: Icons.location_on_outlined,
                   ),
                   SizedBox(
@@ -108,8 +118,8 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                   ),
                   Text(
                     "About",
-                    style: TextStyleClass.interSemiBold(
-                      color: ColorConst.black,
+                    style: AppTextStyle.interSemiBold(
+                      color: AppColor.black000,
                       size: 18.0,
                     ),
                   ),
@@ -119,16 +129,17 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                   Row(
                     children: [
                       CommonButtonProfileDetail(
-                        title: "Dancing",
-                        image: ImageConst.dance,
+                        title: "${controller.profileModel!.data![0].aboutMe}",
+                        // title: "Dancing",
+                        image: AppImage.dance,
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      CommonButtonProfileDetail(
-                        title: "Modeling",
-                        image: ImageConst.modeling,
-                      ),
+                      // SizedBox(
+                      //   width: 10,
+                      // ),
+                      // CommonButtonProfileDetail(
+                      //   title: "Modeling",
+                      //   image: AppImage.modeling,
+                      // ),
                     ],
                   ),
                   SizedBox(
@@ -136,8 +147,8 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                   ),
                   Text(
                     "Interests",
-                    style: TextStyleClass.interSemiBold(
-                      color: ColorConst.black,
+                    style: AppTextStyle.interSemiBold(
+                      color: AppColor.black000,
                       size: 18.0,
                     ),
                   ),
@@ -148,7 +159,8 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 24),
                     child: GridView.builder(
                       shrinkWrap: true,
-                      itemCount: profileDetailController.itemList.length,
+                      itemCount:
+                          controller.profileModel!.data![0].interests!.length,
                       padding: EdgeInsets.zero,
                       physics: NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -161,28 +173,28 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                             ? Container(
                                 /*alignment: Alignment.center,*/
                                 decoration: BoxDecoration(
-                                  color: ColorConst.white,
+                                  color: AppColor.whiteFFF,
                                   borderRadius: BorderRadius.circular(35),
                                   border: Border.all(
-                                    color: ColorConst.appColorFF,
+                                    color: AppColor.appColorFF5,
                                   ),
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Image(
-                                      image: AssetImage(ImageConst.doubleClick),
+                                      image: AssetImage(AppImage.doubleClick),
                                       height: 10,
                                     ),
                                     SizedBox(
                                       width: 5,
                                     ),
                                     Text(
-                                      profileDetailController
-                                          .itemList[index].title
-                                          .toString(),
-                                      style: TextStyleClass.interSemiBold(
-                                        color: ColorConst.appColorFF,
+                                      "${controller.profileModel!.data![0].interests![0]}",
+                                      // controller.itemList[index].title
+                                      //     .toString(),
+                                      style: AppTextStyle.interSemiBold(
+                                        color: AppColor.appColorFF5,
                                         size: 14.0,
                                       ),
                                     ),
@@ -192,17 +204,16 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                             : Container(
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                  color: ColorConst.white,
+                                  color: AppColor.whiteFFF,
                                   borderRadius: BorderRadius.circular(35),
                                   border: Border.all(
-                                    color: ColorConst.greyE8,
+                                    color: AppColor.greyE8E,
                                   ),
                                 ),
                                 child: Text(
-                                  profileDetailController.itemList[index].title
-                                      .toString(),
-                                  style: TextStyleClass.interRegular(
-                                    color: ColorConst.black09,
+                                  controller.itemList[index].title.toString(),
+                                  style: AppTextStyle.interRegular(
+                                    color: AppColor.black091,
                                     size: 14.0,
                                   ),
                                 ),
@@ -228,7 +239,7 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                 width: 70,
                 child: Padding(
                   padding: const EdgeInsets.all(25.0),
-                  child: SvgPicture.asset(ImageConst.cancel),
+                  child: SvgPicture.asset(AppImage.cancel),
                 ),
               ),
               SizedBox(
@@ -237,12 +248,12 @@ class ProfileDetailHomeScreen extends StatelessWidget {
               PostContain(
                 height: 88,
                 width: 88,
-                color: ColorConst.appColorFF,
+                color: AppColor.appColorFF5,
                 child: Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: SvgPicture.asset(
-                    ImageConst.heart,
-                    color: ColorConst.white,
+                    AppImage.heart,
+                    color: AppColor.whiteFFF,
                   ),
                 ),
               ),
@@ -254,7 +265,7 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                 width: 70,
                 child: Padding(
                   padding: const EdgeInsets.all(22.0),
-                  child: SvgPicture.asset(ImageConst.star),
+                  child: SvgPicture.asset(AppImage.star),
                 ),
               ),
             ],

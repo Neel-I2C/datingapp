@@ -1,6 +1,4 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/add_photos_controller.dart';
 import 'package:datingapp/screens/bottomScreen/profile/subscreenlist/utiles/editprofile/edit_profile_utiles.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
@@ -8,6 +6,9 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../Constant/app_color.dart';
+import '../../../../Constant/app_image.dart';
 
 class EditProfileScreen extends StatelessWidget {
   final AddPhotosController addPhotosController =
@@ -23,7 +24,7 @@ class EditProfileScreen extends StatelessWidget {
             width: Get.width,
             padding: EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(23),
                 bottomRight: Radius.circular(23),
@@ -31,7 +32,7 @@ class EditProfileScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   blurRadius: 14,
-                  color: ColorConst.black.withOpacity(0.15),
+                  color: AppColor.black000.withOpacity(0.15),
                 ),
               ],
             ),
@@ -45,15 +46,15 @@ class EditProfileScreen extends StatelessWidget {
                 icon: Icon(
                   Icons.arrow_back,
                   size: 25,
-                  color: ColorConst.appColorFF,
+                  color: AppColor.appColorFF5,
                 ),
               ),
               centerTitle: true,
               title: Text(
                 "Edit info",
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 20.0,
-                  color: ColorConst.black09,
+                  color: AppColor.black091,
                 ),
               ),
             ),
@@ -89,8 +90,8 @@ class EditProfileScreen extends StatelessWidget {
                                     image: DecorationImage(
                                       image: AssetImage(
                                         index == 0
-                                            ? ImageConst.men1
-                                            : ImageConst.men2,
+                                            ? AppImage.men1
+                                            : AppImage.men2,
                                       ),
                                       fit: BoxFit.fill,
                                     ),
@@ -107,7 +108,7 @@ class EditProfileScreen extends StatelessWidget {
                                       ),
                                       child: Icon(
                                         Icons.cancel_outlined,
-                                        color: ColorConst.appColorFF,
+                                        color: AppColor.appColorFF5,
                                       ),
                                     ),
                                   ),
@@ -115,7 +116,7 @@ class EditProfileScreen extends StatelessWidget {
                               : DottedBorder(
                                   padding: EdgeInsets.zero,
                                   borderType: BorderType.RRect,
-                                  color: ColorConst.appColorFF,
+                                  color: AppColor.appColorFF5,
                                   radius: Radius.circular(12),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.all(
@@ -124,14 +125,13 @@ class EditProfileScreen extends StatelessWidget {
                                     child: Container(
                                       height: 142,
                                       width: Get.width,
-                                      color: ColorConst.appColorFD
-                                          .withOpacity(0.2),
+                                      color:
+                                          AppColor.appColorFD7.withOpacity(0.2),
                                       child: Padding(
                                         padding: const EdgeInsets.all(34),
                                         child: FloatingActionButton(
                                           heroTag: "Text",
-                                          backgroundColor:
-                                              ColorConst.appColorFD,
+                                          backgroundColor: AppColor.appColorFD7,
                                           elevation: 0.0,
                                           onPressed: () {
                                             addPhotosController.selected.value =
@@ -140,7 +140,7 @@ class EditProfileScreen extends StatelessWidget {
                                           },
                                           child: Icon(
                                             Icons.add,
-                                            color: ColorConst.white,
+                                            color: AppColor.whiteFFF,
                                           ),
                                         ),
                                       ),
@@ -159,9 +159,9 @@ class EditProfileScreen extends StatelessWidget {
 to completing your profile and you may
 even get more Likes.''',
                         textAlign: TextAlign.center,
-                        style: TextStyleClass.interRegular(
+                        style: AppTextStyle.interRegular(
                           size: 18.0,
-                          color: ColorConst.grey69,
+                          color: AppColor.grey697,
                         ),
                       ),
                     ),
@@ -190,15 +190,15 @@ even get more Likes.''',
                         children: [
                           Text(
                             "Smart Photos",
-                            style: TextStyleClass.interRegular(
+                            style: AppTextStyle.interRegular(
                               size: 18.0,
-                              color: ColorConst.grey69,
+                              color: AppColor.grey697,
                             ),
                           ),
                           Obx(
                             () => CupertinoSwitch(
                               value: addPhotosController.on.value,
-                              activeColor: ColorConst.appColorFF,
+                              activeColor: AppColor.appColorFF5,
                               onChanged: (val) {
                                 addPhotosController.on.value = val;
                               },
@@ -212,9 +212,9 @@ even get more Likes.''',
                       padding: const EdgeInsets.only(left: 24),
                       child: Text(
                         "Smart Photos continuously tests all your profile photos to find the best one.",
-                        style: TextStyleClass.interRegular(
+                        style: AppTextStyle.interRegular(
                           size: 18.0,
-                          color: ColorConst.grey69,
+                          color: AppColor.grey697,
                         ),
                       ),
                     ),
@@ -228,7 +228,7 @@ even get more Likes.''',
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
                         border: Border.all(
-                          color: ColorConst.greyDA,
+                          color: AppColor.greyDAD,
                           width: 1,
                         ),
                       ),
@@ -237,9 +237,9 @@ even get more Likes.''',
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "About me",
-                          hintStyle: TextStyleClass.interRegular(
+                          hintStyle: AppTextStyle.interRegular(
                             size: 16.0,
-                            color: ColorConst.greyB5,
+                            color: AppColor.greyB5C,
                           ),
                         ),
                       ),
@@ -256,9 +256,9 @@ even get more Likes.''',
                           const EdgeInsets.only(left: 24, top: 14, bottom: 13),
                       child: Text(
                         "Sports, Fashion, Gym, Motorcycling,Photography",
-                        style: TextStyleClass.interRegular(
+                        style: AppTextStyle.interRegular(
                           size: 18.0,
-                          color: ColorConst.grey69,
+                          color: AppColor.grey697,
                         ),
                       ),
                     ),
@@ -270,8 +270,8 @@ even get more Likes.''',
                       child: editInfoText(text: "Lifestyle"),
                     ),
                     Divider(),
-                    editInfoRow(image: ImageConst.moon, title: "Zodiac"),
-                    editInfoRow(image: ImageConst.pet, title: "Pets"),
+                    editInfoRow(image: AppImage.moon, title: "Zodiac"),
+                    editInfoRow(image: AppImage.pet, title: "Pets"),
                     Divider(),
                     editInfoText(text: "Job Title"),
                     Padding(
@@ -309,9 +309,9 @@ even get more Likes.''',
                           const EdgeInsets.only(top: 12, left: 24, bottom: 12),
                       child: Text(
                         "Man",
-                        style: TextStyleClass.interRegular(
+                        style: AppTextStyle.interRegular(
                           size: 16.0,
-                          color: ColorConst.grey69,
+                          color: AppColor.grey697,
                         ),
                       ),
                     ),
@@ -328,9 +328,9 @@ even get more Likes.''',
                           const EdgeInsets.only(top: 12, left: 24, bottom: 12),
                       child: Text(
                         "Straight",
-                        style: TextStyleClass.interRegular(
+                        style: AppTextStyle.interRegular(
                           size: 16.0,
-                          color: ColorConst.grey69,
+                          color: AppColor.grey697,
                         ),
                       ),
                     ),
@@ -344,15 +344,15 @@ even get more Likes.''',
                         children: [
                           Text(
                             "Don’t Show My Age",
-                            style: TextStyleClass.interRegular(
+                            style: AppTextStyle.interRegular(
                               size: 18.0,
-                              color: ColorConst.grey69,
+                              color: AppColor.grey697,
                             ),
                           ),
                           Obx(
                             () => CupertinoSwitch(
                               value: addPhotosController.on1.value,
-                              activeColor: ColorConst.appColorFF,
+                              activeColor: AppColor.appColorFF5,
                               onChanged: (val) {
                                 addPhotosController.on1.value = val;
                               },
@@ -368,15 +368,15 @@ even get more Likes.''',
                         children: [
                           Text(
                             "Don’t Show My Distance",
-                            style: TextStyleClass.interRegular(
+                            style: AppTextStyle.interRegular(
                               size: 18.0,
-                              color: ColorConst.grey69,
+                              color: AppColor.grey697,
                             ),
                           ),
                           Obx(
                             () => CupertinoSwitch(
                               value: addPhotosController.on2.value,
-                              activeColor: ColorConst.appColorFF,
+                              activeColor: AppColor.appColorFF5,
                               onChanged: (val) {
                                 addPhotosController.on2.value = val;
                               },

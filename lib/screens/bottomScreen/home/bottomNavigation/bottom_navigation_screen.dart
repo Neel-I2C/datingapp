@@ -1,5 +1,4 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
+
 import 'package:datingapp/screens/bottomScreen/chat/chat_screen.dart';
 import 'package:datingapp/screens/bottomScreen/home/bottomNavigation/bottom_navigation_controller.dart';
 import 'package:datingapp/screens/bottomScreen/home/home_screen.dart';
@@ -8,6 +7,9 @@ import 'package:datingapp/screens/bottomScreen/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import '../../../../Constant/app_color.dart';
+import '../../../../Constant/app_image.dart';
 
 class BottomNavigation extends StatelessWidget {
   final NavigationController navigationController =
@@ -40,10 +42,10 @@ class BottomNavigation extends StatelessWidget {
     return Container(
       height: 48,
       decoration: BoxDecoration(
-        color: ColorConst.white,
+        color: AppColor.whiteFFF,
         boxShadow: [
           BoxShadow(
-            color: ColorConst.greyE8,
+            color: AppColor.greyE8E,
             blurRadius: 5,
             offset: Offset(0, -4),
           ),
@@ -71,8 +73,8 @@ class BottomNavigation extends StatelessWidget {
                           bottomRight: Radius.circular(5),
                         ),
                         color: navigationController.pageIndex.value == 0
-                            ? ColorConst.appColorFF
-                            : ColorConst.white,
+                            ? AppColor.appColorFF5
+                            : AppColor.whiteFFF,
                       ),
                     ),
                     SizedBox(
@@ -80,8 +82,8 @@ class BottomNavigation extends StatelessWidget {
                     ),
                     SvgPicture.asset(
                       navigationController.pageIndex.value == 0
-                          ? ImageConst.card
-                          : ImageConst.card1,
+                          ? AppImage.card
+                          : AppImage.card1,
                     ),
                   ],
                 ),
@@ -107,8 +109,8 @@ class BottomNavigation extends StatelessWidget {
                           bottomRight: Radius.circular(5),
                         ),
                         color: navigationController.pageIndex.value == 1
-                            ? ColorConst.appColorFF
-                            : ColorConst.white,
+                            ? AppColor.appColorFF5
+                            : AppColor.whiteFFF,
                       ),
                     ),
                     SizedBox(
@@ -116,8 +118,8 @@ class BottomNavigation extends StatelessWidget {
                     ),
                     SvgPicture.asset(
                       navigationController.pageIndex.value == 1
-                          ? ImageConst.like2
-                          : ImageConst.like,
+                          ? AppImage.like2
+                          : AppImage.like,
                     ),
                   ],
                 ),
@@ -143,8 +145,8 @@ class BottomNavigation extends StatelessWidget {
                           bottomRight: Radius.circular(5),
                         ),
                         color: navigationController.pageIndex.value == 2
-                            ? ColorConst.appColorFF
-                            : ColorConst.white,
+                            ? AppColor.appColorFF5
+                            : AppColor.whiteFFF,
                       ),
                     ),
                     SizedBox(
@@ -152,8 +154,8 @@ class BottomNavigation extends StatelessWidget {
                     ),
                     SvgPicture.asset(
                       navigationController.pageIndex.value == 2
-                          ? ImageConst.message1
-                          : ImageConst.message,
+                          ? AppImage.message1
+                          : AppImage.message,
                     ),
                   ],
                 ),
@@ -179,8 +181,8 @@ class BottomNavigation extends StatelessWidget {
                           bottomRight: Radius.circular(5),
                         ),
                         color: navigationController.pageIndex.value == 3
-                            ? ColorConst.appColorFF
-                            : ColorConst.white,
+                            ? AppColor.appColorFF5
+                            : AppColor.whiteFFF,
                       ),
                     ),
                     SizedBox(
@@ -188,8 +190,8 @@ class BottomNavigation extends StatelessWidget {
                     ),
                     SvgPicture.asset(
                       navigationController.pageIndex.value == 3
-                          ? ImageConst.people1
-                          : ImageConst.people,
+                          ? AppImage.people1
+                          : AppImage.people,
                     ),
                   ],
                 ),

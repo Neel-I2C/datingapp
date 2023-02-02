@@ -1,7 +1,7 @@
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants/color.dart';
+import '../../../../Constant/app_color.dart';
 
 commonRow({var color, var title, var subTitle}) {
   return Row(
@@ -9,22 +9,22 @@ commonRow({var color, var title, var subTitle}) {
     children: [
       Text(
         title,
-        style: TextStyleClass.interRegular(
+        style: AppTextStyle.interRegular(
           size: 16.0,
-          color: ColorConst.grey69,
+          color: AppColor.grey697,
         ),
       ),
       color == null
           ? Text(
               subTitle,
-              style: TextStyleClass.interRegular(
+              style: AppTextStyle.interRegular(
                 size: 18.0,
-                color: ColorConst.black09,
+                color: AppColor.black091,
               ),
             )
           : Text(
               "\$10",
-              style: TextStyleClass.interSemiBold(
+              style: AppTextStyle.interSemiBold(
                 size: 20.0,
                 color: color,
               ),

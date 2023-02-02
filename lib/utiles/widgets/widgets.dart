@@ -1,10 +1,12 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/chat/controller/chat_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import '../../Constant/app_color.dart';
+import '../../Constant/app_image.dart';
+import '../../Constant/app_textstyle.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override
@@ -39,16 +41,16 @@ class CommonButton extends StatelessWidget {
             end: Alignment.bottomLeft,
             colors: colors ??
                 [
-                  ColorConst.appColor,
-                  ColorConst.appColorFD,
+                  AppColor.appColorFF4,
+                  AppColor.appColorFD7,
                 ],
           ),
         ),
         child: Text(
           title!,
-          style: TextStyleClass.interSemiBold(
+          style: AppTextStyle.interSemiBold(
             size: 20.0,
-            color: ColorConst.white,
+            color: AppColor.whiteFFF,
           ),
         ),
       ),
@@ -76,7 +78,7 @@ class LoginCommonButtons extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40.0),
           side: BorderSide(
-            color: ColorConst.greyDA,
+            color: AppColor.greyDAD,
             width: 1,
           ),
         ),
@@ -88,7 +90,7 @@ class LoginCommonButtons extends StatelessWidget {
               SvgPicture.asset(image!),
               Text(
                 title!,
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 16.0,
                 ),
               )
@@ -109,14 +111,14 @@ class AppBarDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       elevation: 0.0,
       leading: Padding(
         padding: const EdgeInsets.only(left: 10),
         child: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: ColorConst.appColor,
+            color: AppColor.appColorFF4,
           ),
           onPressed: () {
             Get.back();
@@ -137,8 +139,12 @@ class TextFromFieldCommon extends StatelessWidget {
   final bool? isTrue;
   final TextEditingController? controller;
 
-  TextFromFieldCommon(
-      {this.hintText, this.suffixIcon, this.isTrue, this.controller});
+  TextFromFieldCommon({
+    this.hintText,
+    this.suffixIcon,
+    this.isTrue,
+    this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -150,49 +156,49 @@ class TextFromFieldCommon extends StatelessWidget {
         contentPadding: EdgeInsets.only(top: 35, left: 20),
         suffixIcon: suffixIcon ?? SizedBox.shrink(),
         hintText: hintText,
-        hintStyle: TextStyleClass.interRegular(
+        hintStyle: AppTextStyle.interRegular(
           size: 16.0,
-          color: ColorConst.greyB5,
+          color: AppColor.greyB5C,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40),
           borderSide: BorderSide(
-            color: ColorConst.greyEB,
+            color: AppColor.greyEBE,
             width: 1,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40),
           borderSide: BorderSide(
-            color: ColorConst.greyEB,
+            color: AppColor.greyEBE,
             width: 1,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40),
           borderSide: BorderSide(
-            color: ColorConst.appColor,
+            color: AppColor.appColorFF4,
             width: 1,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40),
           borderSide: BorderSide(
-            color: ColorConst.appColor,
+            color: AppColor.appColorFF4,
             width: 1,
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40),
           borderSide: BorderSide(
-            color: ColorConst.appColor,
+            color: AppColor.appColorFF4,
             width: 1,
           ),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(40),
           borderSide: BorderSide(
-            color: ColorConst.greyEB,
+            color: AppColor.greyEBE,
             width: 1,
           ),
         ),
@@ -218,11 +224,11 @@ class PostContain extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: color ?? ColorConst.white,
+        color: color ?? AppColor.whiteFFF,
         boxShadow: [
           BoxShadow(
             blurRadius: 31,
-            color: ColorConst.appColorFF.withOpacity(0.25),
+            color: AppColor.appColorFF5.withOpacity(0.25),
             offset: Offset(0, 4),
           ),
         ],
@@ -238,7 +244,7 @@ commonRowProfileD({var icon, var title}) {
     children: [
       Icon(
         icon,
-        color: ColorConst.appColorFF,
+        color: AppColor.appColorFF5,
       ),
       /*SvgPicture.asset(
                       ImageConst.uni,
@@ -248,8 +254,8 @@ commonRowProfileD({var icon, var title}) {
       ),
       Text(
         title,
-        style: TextStyleClass.interRegular(
-          color: ColorConst.black,
+        style: AppTextStyle.interRegular(
+          color: AppColor.black000,
         ),
       ),
     ],
@@ -270,10 +276,10 @@ class CommonButtonProfileDetail extends StatelessWidget {
       height: 32,
       width: 100,
       decoration: BoxDecoration(
-        color: ColorConst.white,
+        color: AppColor.whiteFFF,
         borderRadius: BorderRadius.circular(35.0),
         border: Border.all(
-          color: ColorConst.greyE8,
+          color: AppColor.greyE8E,
         ),
       ),
       child: Row(
@@ -287,8 +293,8 @@ class CommonButtonProfileDetail extends StatelessWidget {
           ),
           Text(
             title!,
-            style: TextStyleClass.interSemiBold(
-              color: ColorConst.black09,
+            style: AppTextStyle.interSemiBold(
+              color: AppColor.black091,
               size: 14.0,
             ),
           ),
@@ -308,7 +314,7 @@ bottomSheet({var image, var name, required ChatController chatController}) {
         width: Get.width,
         padding: EdgeInsets.only(top: 40),
         decoration: BoxDecoration(
-          color: ColorConst.white,
+          color: AppColor.whiteFFF,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40),
             topRight: Radius.circular(40),
@@ -349,7 +355,7 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                                 children: [
                                   Text(
                                     name,
-                                    style: TextStyleClass.interSemiBold(
+                                    style: AppTextStyle.interSemiBold(
                                       size: 24.0,
                                     ),
                                   ),
@@ -358,16 +364,16 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                                     children: [
                                       Text(
                                         "\u2022",
-                                        style: TextStyleClass.interSemiBold(
+                                        style: AppTextStyle.interSemiBold(
                                           size: 14.0,
-                                          color: ColorConst.appColorFF,
+                                          color: AppColor.appColorFF5,
                                         ),
                                       ),
                                       Text(
                                         "Online",
-                                        style: TextStyleClass.interSemiBold(
+                                        style: AppTextStyle.interSemiBold(
                                           size: 14.0,
-                                          color: ColorConst.greyAD,
+                                          color: AppColor.greyADA,
                                         ),
                                       ),
                                     ],
@@ -379,11 +385,11 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                         ),
                         Row(
                           children: [
-                            SvgPicture.asset(ImageConst.phone_icon),
+                            SvgPicture.asset(AppImage.phone_icon),
                             SizedBox(
                               width: 14,
                             ),
-                            SvgPicture.asset(ImageConst.video_icon),
+                            SvgPicture.asset(AppImage.video_icon),
                           ],
                         ),
                       ],
@@ -402,7 +408,7 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
                               "Today",
-                              style: TextStyleClass.interSemiBold(
+                              style: AppTextStyle.interSemiBold(
                                 size: 16.0,
                               ),
                             ),
@@ -435,8 +441,8 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                               color:
                                   chatController.messageList[index].isEnable ==
                                           true
-                                      ? ColorConst.appColorFF.withOpacity(0.08)
-                                      : ColorConst.greyF4,
+                                      ? AppColor.appColorFF5.withOpacity(0.08)
+                                      : AppColor.greyF4F,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(15.0),
                                 topRight: Radius.circular(15.0),
@@ -455,8 +461,8 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                             child: Text(
                               chatController.messageList[index].message
                                   .toString(),
-                              style: TextStyleClass.interRegular(
-                                color: ColorConst.black09,
+                              style: AppTextStyle.interRegular(
+                                color: AppColor.black091,
                               ),
                             ),
                           ),
@@ -473,12 +479,12 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                               Text(
                                 chatController.messageList[index].time
                                     .toString(),
-                                style: TextStyleClass.interRegular(
-                                  color: ColorConst.greyAD,
+                                style: AppTextStyle.interRegular(
+                                  color: AppColor.greyADA,
                                 ),
                               ),
                               chatController.messageList[index].isEnable != true
-                                  ? SvgPicture.asset(ImageConst.double_icon)
+                                  ? SvgPicture.asset(AppImage.double_icon)
                                   : SizedBox.shrink(),
                             ],
                           ),
@@ -496,7 +502,7 @@ bottomSheet({var image, var name, required ChatController chatController}) {
               ),
             ),
             Container(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               height: 100,
               child: Padding(
                 padding: const EdgeInsets.only(right: 24, left: 24),
@@ -509,9 +515,9 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                         width: Get.width,
                         padding: EdgeInsets.only(left: 18),
                         decoration: BoxDecoration(
-                          color: ColorConst.white,
+                          color: AppColor.whiteFFF,
                           border: Border.all(
-                            color: ColorConst.greyE8,
+                            color: AppColor.greyE8E,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(15.0),
@@ -521,13 +527,13 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                             suffixIcon: Padding(
                               padding: const EdgeInsets.all(14),
                               child: SvgPicture.asset(
-                                ImageConst.add_image,
+                                AppImage.add_image,
                               ),
                             ),
                             hintText: "Your message",
-                            hintStyle: TextStyleClass.interRegular(
+                            hintStyle: AppTextStyle.interRegular(
                               size: 16.0,
-                              color: ColorConst.greyAD,
+                              color: AppColor.greyADA,
                             ),
                             border: InputBorder.none,
                           ),
@@ -542,16 +548,16 @@ bottomSheet({var image, var name, required ChatController chatController}) {
                       width: 48,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: ColorConst.white,
+                        color: AppColor.whiteFFF,
                         border: Border.all(
-                          color: ColorConst.greyE8,
+                          color: AppColor.greyE8E,
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
                       child: Icon(
                         Icons.mic_rounded,
-                        color: ColorConst.appColorFF,
+                        color: AppColor.appColorFF5,
                       ),
                     ),
                   ],
@@ -579,7 +585,7 @@ Widget index0() {
           shape: BoxShape.circle,
           border: Border.all(
             width: 2,
-            color: ColorConst.yellowD4,
+            color: AppColor.yellowD4A,
           ),
         ),
       ),
@@ -590,7 +596,7 @@ Widget index0() {
           shape: BoxShape.circle,
           image: DecorationImage(
             image: AssetImage(
-              ImageConst.photo_1,
+              AppImage.photo_1,
             ),
             fit: BoxFit.fill,
           ),
@@ -601,14 +607,14 @@ Widget index0() {
         width: 32,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: ColorConst.yellowD4,
+          color: AppColor.yellowD4A,
           shape: BoxShape.circle,
         ),
         child: Text(
           "99+",
-          style: TextStyleClass.interSemiBold(
+          style: AppTextStyle.interSemiBold(
             size: 14.0,
-            color: ColorConst.white,
+            color: AppColor.whiteFFF,
           ),
         ),
       ),
@@ -619,11 +625,11 @@ Widget index0() {
           width: 20,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: ColorConst.white,
+            color: AppColor.whiteFFF,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: ColorConst.black.withOpacity(0.25),
+                color: AppColor.black000.withOpacity(0.25),
                 offset: Offset(0, 0),
                 blurRadius: 4,
               ),
@@ -631,7 +637,7 @@ Widget index0() {
           ),
           child: Icon(
             Icons.favorite,
-            color: ColorConst.yellowD4,
+            color: AppColor.yellowD4A,
             size: 10,
           ),
         ),
@@ -646,9 +652,9 @@ editInfoText({var text}) {
     padding: const EdgeInsets.only(top: 15, left: 24, bottom: 8),
     child: Text(
       text,
-      style: TextStyleClass.interSemiBold(
+      style: AppTextStyle.interSemiBold(
         size: 18.0,
-        color: ColorConst.black09,
+        color: AppColor.black091,
       ),
     ),
   );
@@ -670,9 +676,9 @@ editInfoRow({var image, var title}) {
               ),
               Text(
                 title,
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 16.0,
-                  color: ColorConst.grey69,
+                  color: AppColor.grey697,
                 ),
               ),
             ],
@@ -683,9 +689,9 @@ editInfoRow({var image, var title}) {
             children: [
               Text(
                 "Empty",
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 16.0,
-                  color: ColorConst.grey69,
+                  color: AppColor.grey697,
                 ),
               ),
               SizedBox(
@@ -693,7 +699,7 @@ editInfoRow({var image, var title}) {
               ),
               Icon(
                 Icons.arrow_forward_ios,
-                color: ColorConst.appColorFF,
+                color: AppColor.appColorFF5,
               ),
             ],
           ),
@@ -714,15 +720,15 @@ editInfoContainer({var title}) {
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(40),
       border: Border.all(
-        color: ColorConst.greyDA,
+        color: AppColor.greyDAD,
         width: 1,
       ),
     ),
     child: Text(
       title,
-      style: TextStyleClass.interSemiBold(
+      style: AppTextStyle.interSemiBold(
         size: 16.0,
-        color: ColorConst.appColorFF,
+        color: AppColor.appColorFF5,
       ),
     ),
   );
@@ -739,11 +745,11 @@ rowTwo() {
             height: 86,
             width: Get.width,
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.circular(5),
               boxShadow: [
                 BoxShadow(
-                  color: ColorConst.black.withOpacity(0.1),
+                  color: AppColor.black000.withOpacity(0.1),
                   blurRadius: 5,
                 ),
               ],
@@ -755,11 +761,11 @@ rowTwo() {
                   width: 38,
                   height: 38,
                   decoration: BoxDecoration(
-                    color: ColorConst.white,
+                    color: AppColor.whiteFFF,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: ColorConst.appColorFF.withOpacity(0.25),
+                        color: AppColor.appColorFF5.withOpacity(0.25),
                         offset: Offset(0, 4),
                         blurRadius: 31,
                       ),
@@ -767,15 +773,15 @@ rowTwo() {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.asset(ImageConst.boost),
+                    child: SvgPicture.asset(AppImage.boost),
                   ),
                 ),
                 Text(
                   "Get Boosts",
                   textAlign: TextAlign.center,
-                  style: TextStyleClass.interBold(
+                  style: AppTextStyle.interBold(
                     size: 16.0,
-                    color: ColorConst.purAA3FEC,
+                    color: AppColor.purpleAA3,
                   ),
                 ),
               ],
@@ -790,11 +796,11 @@ rowTwo() {
             height: 86,
             width: Get.width,
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.circular(5),
               boxShadow: [
                 BoxShadow(
-                  color: ColorConst.black.withOpacity(0.1),
+                  color: AppColor.black000.withOpacity(0.1),
                   blurRadius: 5,
                 ),
               ],
@@ -806,11 +812,11 @@ rowTwo() {
                   width: 38,
                   height: 38,
                   decoration: BoxDecoration(
-                    color: ColorConst.white,
+                    color: AppColor.whiteFFF,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: ColorConst.appColorFF.withOpacity(0.25),
+                        color: AppColor.appColorFF5.withOpacity(0.25),
                         offset: Offset(0, 4),
                         blurRadius: 31,
                       ),
@@ -818,15 +824,15 @@ rowTwo() {
                   ),
                   child: Icon(
                     Icons.star,
-                    color: ColorConst.purple,
+                    color: AppColor.purple8A2,
                   ),
                 ),
                 Text(
                   "Get Super Likes",
                   textAlign: TextAlign.center,
-                  style: TextStyleClass.interBold(
+                  style: AppTextStyle.interBold(
                     size: 16.0,
-                    color: ColorConst.purple,
+                    color: AppColor.purple8A2,
                   ),
                 ),
               ],
@@ -868,4 +874,26 @@ class DotWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+appToast({required var msg}) {
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: AppColor.black000,
+      textColor: AppColor.whiteFFF,
+      fontSize: 20.0);
+}
+
+Widget appLoader() {
+  return Container(
+    height: Get.height,
+    width: Get.width,
+    color: AppColor.transparent,
+    child: Center(
+      child: CupertinoActivityIndicator(radius: 20),
+    ),
+  );
 }

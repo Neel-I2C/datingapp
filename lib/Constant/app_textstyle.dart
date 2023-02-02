@@ -1,11 +1,11 @@
-import 'package:datingapp/constants/color.dart';
 import 'package:flutter/material.dart';
+import 'app_color.dart';
 
-class TextStyleClass {
+class AppTextStyle {
   ///SourceSansPro Regular
   static interRegular({var color, var size}) {
     return TextStyle(
-      color: color ?? ColorConst.black,
+      color: color ?? AppColor.black000,
       fontSize: size ?? 14.0,
       fontFamily: "SourceSansPro",
       fontWeight: FontWeight.w400,
@@ -15,7 +15,7 @@ class TextStyleClass {
   ///SourceSansPro medium
   static interSemiBold({var color, var size}) {
     return TextStyle(
-      color: color ?? ColorConst.black,
+      color: color ?? AppColor.black000,
       fontSize: size ?? 14.0,
       fontFamily: "SourceSansPro",
       fontWeight: FontWeight.w600,
@@ -25,7 +25,7 @@ class TextStyleClass {
   ///SourceSansPro semiBold
   static interBold({var color, var size}) {
     return TextStyle(
-      color: color ?? ColorConst.black,
+      color: color ?? AppColor.black000,
       fontSize: size ?? 14.0,
       fontFamily: "SourceSansPro",
       fontWeight: FontWeight.w700,
@@ -35,7 +35,7 @@ class TextStyleClass {
   ///SourceSansPro semiBold
   static arizoniaRegular({var color, var size}) {
     return TextStyle(
-      color: color ?? ColorConst.black,
+      color: color ?? AppColor.black000,
       fontSize: size ?? 14.0,
       fontFamily: "Arizonia",
       fontWeight: FontWeight.w400,
@@ -48,9 +48,9 @@ class TextStyleClass {
       fontSize: size ?? 15,
       fontFamily: "SourceSansPro",
       fontWeight: FontWeight.w400,
-      color: ColorConst.appColor,
+      color: AppColor.appColorFF4,
       decoration: TextDecoration.underline,
-      decorationColor: ColorConst.appColor,
+      decorationColor: AppColor.appColorFF4,
       decorationThickness: 1,
       decorationStyle: TextDecorationStyle.solid,
     );

@@ -1,9 +1,10 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/your_interests_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import '../../../../Constant/app_color.dart';
 
 class GridItem extends StatefulWidget {
   final InterestsInfo? item;
@@ -46,25 +47,25 @@ class _GridItemState extends State<GridItem> {
         width: Get.width / 2,
         padding: EdgeInsets.only(left: 16),
         decoration: BoxDecoration(
-          color: isSelected ? ColorConst.appColorFF : ColorConst.white,
+          color: isSelected ? AppColor.appColorFF5 : AppColor.whiteFFF,
           borderRadius: BorderRadius.circular(40.0),
           border: Border.all(
-            color: isSelected ? ColorConst.appColorFF : ColorConst.greyEB,
+            color: isSelected ? AppColor.appColorFF5 : AppColor.greyEBE,
           ),
         ),
         child: Row(
           children: [
             SvgPicture.asset(
               widget.item!.image.toString(),
-              color: isSelected ? ColorConst.white : ColorConst.appColorFF,
+              color: isSelected ? AppColor.whiteFFF : AppColor.appColorFF5,
             ),
             SizedBox(
               width: 9,
             ),
             Text(
               widget.item!.title.toString(),
-              style: TextStyleClass.interSemiBold(
-                color: isSelected ? ColorConst.white : ColorConst.black09,
+              style: AppTextStyle.interSemiBold(
+                color: isSelected ? AppColor.whiteFFF : AppColor.black091,
                 size: 14.0,
               ),
             ),

@@ -1,13 +1,13 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/payment/controller/payment_controller.dart';
 import 'package:datingapp/screens/bottomScreen/payment/pay_google_screen.dart';
 import 'package:datingapp/screens/bottomScreen/payment/utiles/payment_utiles.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
+import '../../../Constant/app_textstyle.dart';
 
 class PaymentVaiCardScreen extends StatelessWidget {
   final PaymentController paymentController = Get.put(PaymentController());
@@ -22,7 +22,7 @@ class PaymentVaiCardScreen extends StatelessWidget {
             width: Get.width,
             padding: EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(23),
                 bottomRight: Radius.circular(23),
@@ -30,7 +30,7 @@ class PaymentVaiCardScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   blurRadius: 14,
-                  color: ColorConst.black.withOpacity(0.15),
+                  color: AppColor.black000.withOpacity(0.15),
                 ),
               ],
             ),
@@ -44,15 +44,15 @@ class PaymentVaiCardScreen extends StatelessWidget {
                 icon: Icon(
                   Icons.arrow_back,
                   size: 25,
-                  color: ColorConst.appColorFF,
+                  color: AppColor.appColorFF5,
                 ),
               ),
               centerTitle: true,
               title: Text(
                 "Payment Method",
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 20.0,
-                  color: ColorConst.black09,
+                  color: AppColor.black091,
                 ),
               ),
             ),
@@ -115,14 +115,14 @@ class PaymentVaiCardScreen extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4.0),
                           ),
-                          activeColor: ColorConst.appColorFF,
+                          activeColor: AppColor.appColorFF5,
                           // fillColor: ColorConst.appColorFF,
                         ),
                       ),
                       Text(
                         "Save this card for future purchases",
-                        style: TextStyleClass.interRegular(
-                          color: ColorConst.grey69,
+                        style: AppTextStyle.interRegular(
+                          color: AppColor.grey697,
                         ),
                       ),
                     ],
@@ -152,7 +152,7 @@ class PaymentVaiCardScreen extends StatelessWidget {
                         commonRow(
                           title: "Total:",
                           subTitle: "\$15",
-                          color: ColorConst.appColorFF,
+                          color: AppColor.appColorFF5,
                         ),
                       ],
                     ),
@@ -172,8 +172,8 @@ class PaymentVaiCardScreen extends StatelessWidget {
                     child: Text(
                       "By tapping buy now, we will charge your card, your subscription will automatically renew for the same package length at the same price until you cancel in account Settings, and you agree to our Terms.",
                       textAlign: TextAlign.center,
-                      style: TextStyleClass.interRegular(
-                        color: ColorConst.grey69,
+                      style: AppTextStyle.interRegular(
+                        color: AppColor.grey697,
                         size: 12.0,
                       ),
                     ),
@@ -202,14 +202,14 @@ class PaymentVaiCardScreen extends StatelessWidget {
                                 ),
                               ),
                               Image(
-                                image: AssetImage(ImageConst.success),
+                                image: AssetImage(AppImage.success),
                                 height: 150,
                                 width: Get.width,
                               ),
                               Text(
                                 "Success",
-                                style: TextStyleClass.interBold(
-                                  color: ColorConst.black09,
+                                style: AppTextStyle.interBold(
+                                  color: AppColor.black091,
                                   size: 42.0,
                                 ),
                               ),
@@ -217,8 +217,8 @@ class PaymentVaiCardScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(bottom: 10),
                                 child: Text(
                                   "Your Plan Activated Successfully",
-                                  style: TextStyleClass.interRegular(
-                                    color: ColorConst.black09,
+                                  style: AppTextStyle.interRegular(
+                                    color: AppColor.black091,
                                     size: 18.0,
                                   ),
                                 ),
@@ -241,8 +241,8 @@ class PaymentVaiCardScreen extends StatelessWidget {
                       child: Text(
                         "Buy with Google Play instead",
                         textAlign: TextAlign.center,
-                        style: TextStyleClass.interSemiBold(
-                          color: ColorConst.appColorFF,
+                        style: AppTextStyle.interSemiBold(
+                          color: AppColor.appColorFF5,
                           size: 18.0,
                         ),
                       ),

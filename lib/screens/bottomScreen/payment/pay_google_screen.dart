@@ -1,18 +1,18 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/payment/pay_card_screen.dart';
 import 'package:datingapp/screens/bottomScreen/payment/utiles/payment_utiles.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
+import '../../../Constant/app_textstyle.dart';
+
 class PayVaiGooglePayScreen extends StatelessWidget {
   const PayVaiGooglePayScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Column(
         children: [
@@ -21,7 +21,7 @@ class PayVaiGooglePayScreen extends StatelessWidget {
             width: Get.width,
             padding: EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(23),
                 bottomRight: Radius.circular(23),
@@ -29,7 +29,7 @@ class PayVaiGooglePayScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   blurRadius: 14,
-                  color: ColorConst.black.withOpacity(0.15),
+                  color: AppColor.black000.withOpacity(0.15),
                 ),
               ],
             ),
@@ -43,15 +43,15 @@ class PayVaiGooglePayScreen extends StatelessWidget {
                 icon: Icon(
                   Icons.arrow_back,
                   size: 25,
-                  color: ColorConst.appColorFF,
+                  color: AppColor.appColorFF5,
                 ),
               ),
               centerTitle: true,
               title: Text(
                 "Payment Method",
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 20.0,
-                  color: ColorConst.black09,
+                  color: AppColor.black091,
                 ),
               ),
             ),
@@ -65,7 +65,7 @@ class PayVaiGooglePayScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         right: 70, left: 83, top: 85, bottom: 98),
                     child: Image(
-                      image: AssetImage(ImageConst.banner),
+                      image: AssetImage(AppImage.banner),
                     ),
                   ),
                   Column(
@@ -87,7 +87,7 @@ class PayVaiGooglePayScreen extends StatelessWidget {
                         child: commonRow(
                           title: "Total:",
                           subTitle: "\$5",
-                          color: ColorConst.appColorFF,
+                          color: AppColor.appColorFF5,
                         ),
                       ),
                       DotWidget(
@@ -104,8 +104,8 @@ class PayVaiGooglePayScreen extends StatelessWidget {
                         child: Text(
                           "By tapping buy now you agree to our Terms.",
                           textAlign: TextAlign.center,
-                          style: TextStyleClass.interRegular(
-                            color: ColorConst.grey69,
+                          style: AppTextStyle.interRegular(
+                            color: AppColor.grey697,
                             size: 12.0,
                           ),
                         ),
@@ -132,14 +132,14 @@ class PayVaiGooglePayScreen extends StatelessWidget {
                                       ),
                                     ),
                                     Image(
-                                      image: AssetImage(ImageConst.success),
+                                      image: AssetImage(AppImage.success),
                                       height: 150,
                                       width: Get.width,
                                     ),
                                     Text(
                                       "Success",
-                                      style: TextStyleClass.interBold(
-                                        color: ColorConst.black09,
+                                      style: AppTextStyle.interBold(
+                                        color: AppColor.black091,
                                         size: 42.0,
                                       ),
                                     ),
@@ -148,8 +148,8 @@ class PayVaiGooglePayScreen extends StatelessWidget {
                                           const EdgeInsets.only(bottom: 10),
                                       child: Text(
                                         "Your Plan Activated Successfully",
-                                        style: TextStyleClass.interRegular(
-                                          color: ColorConst.black09,
+                                        style: AppTextStyle.interRegular(
+                                          color: AppColor.black091,
                                           size: 18.0,
                                         ),
                                       ),
@@ -171,8 +171,8 @@ class PayVaiGooglePayScreen extends StatelessWidget {
                           child: Text(
                             "Buy with Credit or Debit Card instead",
                             textAlign: TextAlign.center,
-                            style: TextStyleClass.interSemiBold(
-                              color: ColorConst.appColorFF,
+                            style: AppTextStyle.interSemiBold(
+                              color: AppColor.appColorFF5,
                               size: 18.0,
                             ),
                           ),

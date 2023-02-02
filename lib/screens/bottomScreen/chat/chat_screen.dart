@@ -1,11 +1,12 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/chat/controller/chat_controller.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
 
 class ChatScreen extends StatelessWidget {
   final ChatController chatController = Get.put(ChatController());
@@ -13,7 +14,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,7 +23,7 @@ class ChatScreen extends StatelessWidget {
             width: Get.width,
             padding: EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(23),
                 bottomRight: Radius.circular(23),
@@ -30,7 +31,7 @@ class ChatScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   blurRadius: 14,
-                  color: ColorConst.black.withOpacity(0.15),
+                  color: AppColor.black000.withOpacity(0.15),
                 ),
               ],
             ),
@@ -39,19 +40,19 @@ class ChatScreen extends StatelessWidget {
               children: [
                 AppBar(
                   elevation: 0,
-                  backgroundColor: ColorConst.white,
+                  backgroundColor: AppColor.whiteFFF,
                   leading: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Image(
                       image: AssetImage(
-                        ImageConst.appLogo,
+                        AppImage.appLogo,
                       ),
                     ),
                   ),
                   centerTitle: true,
                   title: Text(
                     "YourApp",
-                    style: TextStyleClass.arizoniaRegular(
+                    style: AppTextStyle.arizoniaRegular(
                       size: 27.0,
                     ),
                   ),
@@ -61,23 +62,23 @@ class ChatScreen extends StatelessWidget {
                   width: Get.width,
                   margin: EdgeInsets.symmetric(horizontal: 24),
                   decoration: BoxDecoration(
-                    color: ColorConst.greyF4,
+                    color: AppColor.greyF4F,
                     borderRadius: BorderRadius.circular(35),
                     border: Border.all(
-                      color: ColorConst.greyF4,
+                      color: AppColor.greyF4F,
                     ),
                   ),
                   child: TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         CupertinoIcons.search,
-                        color: ColorConst.appColorFF,
+                        color: AppColor.appColorFF5,
                         size: 20,
                       ),
                       hintText: "Search",
-                      hintStyle: TextStyleClass.interRegular(
+                      hintStyle: AppTextStyle.interRegular(
                         size: 16.0,
-                        color: ColorConst.grey69,
+                        color: AppColor.grey697,
                       ),
                       border: InputBorder.none,
                     ),
@@ -100,7 +101,7 @@ class ChatScreen extends StatelessWidget {
                       ),
                       Text(
                         "New Matches",
-                        style: TextStyleClass.interSemiBold(
+                        style: AppTextStyle.interSemiBold(
                           size: 20.0,
                         ),
                       ),
@@ -139,9 +140,9 @@ class ChatScreen extends StatelessWidget {
                                 Text(
                                   chatController.imageList[index].name
                                       .toString(),
-                                  style: TextStyleClass.interSemiBold(
+                                  style: AppTextStyle.interSemiBold(
                                     size: 16.0,
-                                    color: ColorConst.black09,
+                                    color: AppColor.black091,
                                   ),
                                 ),
                               ],
@@ -154,7 +155,7 @@ class ChatScreen extends StatelessWidget {
                       ),
                       Text(
                         "Messages",
-                        style: TextStyleClass.interSemiBold(
+                        style: AppTextStyle.interSemiBold(
                           size: 20.0,
                         ),
                       ),
@@ -226,14 +227,14 @@ class ChatScreen extends StatelessWidget {
                             Text(
                               chatController.imageListForChat[index].name
                                   .toString(),
-                              style: TextStyleClass.interSemiBold(
+                              style: AppTextStyle.interSemiBold(
                                 size: 16.0,
                               ),
                             ),
                             Text(
                               chatController.imageListForChat[index].subtitle
                                   .toString(),
-                              style: TextStyleClass.interRegular(
+                              style: AppTextStyle.interRegular(
                                 size: 14.0,
                               ),
                             ),
@@ -247,9 +248,9 @@ class ChatScreen extends StatelessWidget {
                     children: [
                       Text(
                         chatController.imageListForChat[index].time.toString(),
-                        style: TextStyleClass.interRegular(
+                        style: AppTextStyle.interRegular(
                           size: 12.0,
-                          color: ColorConst.greyAD,
+                          color: AppColor.greyADA,
                         ),
                       ),
                       (index == 0 || index == 1)
@@ -259,13 +260,13 @@ class ChatScreen extends StatelessWidget {
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: ColorConst.appColorFF,
+                                color: AppColor.appColorFF5,
                               ),
                               child: Text(
                                 "1",
-                                style: TextStyleClass.interSemiBold(
+                                style: AppTextStyle.interSemiBold(
                                   size: 12.0,
-                                  color: ColorConst.white,
+                                  color: AppColor.whiteFFF,
                                 ),
                               ),
                             )

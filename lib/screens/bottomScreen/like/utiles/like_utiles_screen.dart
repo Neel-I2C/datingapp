@@ -1,10 +1,11 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/like/controller/like_controller.dart';
 import 'package:datingapp/screens/bottomScreen/payment/pay_card_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../Constant/app_color.dart';
 
 void showAlert(
     {required BuildContext context, LikeController? likeController}) {
@@ -29,9 +30,9 @@ void showAlert(
                 ),
                 Text(
                   "Get Tinder Gold",
-                  style: TextStyleClass.interBold(
+                  style: AppTextStyle.interBold(
                     size: 22.0,
-                    color: ColorConst.appColorFF,
+                    color: AppColor.appColorFF5,
                   ),
                 ),
                 SizedBox(
@@ -44,14 +45,14 @@ void showAlert(
                     shape: BoxShape.circle,
                     gradient: RadialGradient(
                       colors: [
-                        ColorConst.appColorFE,
-                        ColorConst.appColorFF,
+                        AppColor.appColorFE7,
+                        AppColor.appColorFF5,
                       ],
                     ),
                   ),
                   child: Icon(
                     Icons.favorite,
-                    color: ColorConst.white,
+                    color: AppColor.whiteFFF,
                   ),
                 ),
                 SizedBox(
@@ -71,9 +72,9 @@ void showAlert(
                           children: [
                             Text(
                               "Unlimited Likes",
-                              style: TextStyleClass.interSemiBold(
+                              style: AppTextStyle.interSemiBold(
                                 size: 18.0,
-                                color: ColorConst.black,
+                                color: AppColor.black000,
                               ),
                             ),
                             SizedBox(
@@ -81,9 +82,9 @@ void showAlert(
                             ),
                             Text(
                               "Send as many likes as you want",
-                              style: TextStyleClass.interRegular(
+                              style: AppTextStyle.interRegular(
                                 size: 12.0,
-                                color: ColorConst.black,
+                                color: AppColor.black000,
                               ),
                             ),
                           ],
@@ -110,11 +111,11 @@ void showAlert(
                                           .selectedPageIndex.value ==
                                       index
                                   ? Colors.transparent
-                                  : ColorConst.greyC0),
+                                  : AppColor.greyC0C),
                           color: onBoardingController.selectedPageIndex.value ==
                                   index
-                              ? ColorConst.appColor
-                              : ColorConst.white,
+                              ? AppColor.appColorFF4
+                              : AppColor.whiteFFF,
                           shape: BoxShape.circle,
                         ),
                       );
@@ -142,11 +143,11 @@ void showAlert(
                             height: 145,
                             width: Get.width / 3.45,
                             decoration: BoxDecoration(
-                              color: ColorConst.greyF7,
+                              color: AppColor.greyF7F,
                               border: Border.all(
                                 color: controller.selectedIndex == index
-                                    ? ColorConst.appColorFF
-                                    : ColorConst.greyDE,
+                                    ? AppColor.appColorFF5
+                                    : AppColor.greyDED,
                               ),
                             ),
                             child: Column(
@@ -156,20 +157,20 @@ void showAlert(
                                 ),
                                 Text(
                                   controller.primeInfo[index].image.toString(),
-                                  style: TextStyleClass.interBold(
+                                  style: AppTextStyle.interBold(
                                     size: 25.0,
                                     color: controller.selectedIndex == index
-                                        ? ColorConst.appColorFF
-                                        : ColorConst.black,
+                                        ? AppColor.appColorFF5
+                                        : AppColor.black000,
                                   ),
                                 ),
                                 Text(
                                   controller.primeInfo[index].title.toString(),
-                                  style: TextStyleClass.interBold(
+                                  style: AppTextStyle.interBold(
                                     size: 15.0,
                                     color: controller.selectedIndex == index
-                                        ? ColorConst.appColorFF
-                                        : ColorConst.black,
+                                        ? AppColor.appColorFF5
+                                        : AppColor.black000,
                                   ),
                                 ),
                                 SizedBox(
@@ -178,11 +179,11 @@ void showAlert(
                                 Text(
                                   controller.primeInfo[index].subTitle
                                       .toString(),
-                                  style: TextStyleClass.interBold(
+                                  style: AppTextStyle.interBold(
                                     size: 15.0,
                                     color: controller.selectedIndex == index
-                                        ? ColorConst.appColorFF
-                                        : ColorConst.black,
+                                        ? AppColor.appColorFF5
+                                        : AppColor.black000,
                                   ),
                                 ),
                                 if (index == 1)
@@ -192,11 +193,11 @@ void showAlert(
                                 if (index == 1)
                                   Text(
                                     "Save 36%",
-                                    style: TextStyleClass.interBold(
+                                    style: AppTextStyle.interBold(
                                       size: 11.0,
                                       color: controller.selectedIndex == index
-                                          ? ColorConst.appColorFF
-                                          : ColorConst.black,
+                                          ? AppColor.appColorFF5
+                                          : AppColor.black000,
                                     ),
                                   ),
                               ],
@@ -243,7 +244,7 @@ commonContainerDialog() {
     decoration: BoxDecoration(
       shape: BoxShape.circle,
       border: Border.all(
-        color: ColorConst.greyC0,
+        color: AppColor.greyC0C,
         width: 0.7,
       ),
     ),
@@ -255,9 +256,9 @@ commonContainerDialog2({var child}) {
     height: 145,
     width: Get.width / 3.5,
     decoration: BoxDecoration(
-      color: ColorConst.greyF7,
+      color: AppColor.greyF7F,
       border: Border.all(
-        color: ColorConst.greyDE,
+        color: AppColor.greyDED,
       ),
     ),
     child: Column(
@@ -267,16 +268,16 @@ commonContainerDialog2({var child}) {
         ),
         Text(
           "12",
-          style: TextStyleClass.interBold(
+          style: AppTextStyle.interBold(
             size: 25.0,
-            color: ColorConst.black,
+            color: AppColor.black000,
           ),
         ),
         Text(
           "months",
-          style: TextStyleClass.interBold(
+          style: AppTextStyle.interBold(
             size: 15.0,
-            color: ColorConst.black,
+            color: AppColor.black000,
           ),
         ),
         SizedBox(
@@ -284,9 +285,9 @@ commonContainerDialog2({var child}) {
         ),
         Text(
           "\$7/mo",
-          style: TextStyleClass.interBold(
+          style: AppTextStyle.interBold(
             size: 15.0,
-            color: ColorConst.black,
+            color: AppColor.black000,
           ),
         ),
       ],

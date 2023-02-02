@@ -1,9 +1,9 @@
-import 'package:datingapp/constants/image.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/home/notification/controller/notification_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../constants/color.dart';
-import '../../../../constants/textstyle.dart';
+import '../../../../Constant/app_color.dart';
+import '../../../../Constant/app_image.dart';
 
 class NotificationScreen extends StatelessWidget {
   final NotificationController notificationController =
@@ -19,7 +19,7 @@ class NotificationScreen extends StatelessWidget {
             width: Get.width,
             padding: EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(23),
                 bottomRight: Radius.circular(23),
@@ -27,12 +27,12 @@ class NotificationScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   blurRadius: 14,
-                  color: ColorConst.black.withOpacity(0.15),
+                  color: AppColor.black000.withOpacity(0.15),
                 ),
               ],
             ),
             child: AppBar(
-              backgroundColor: Colors.transparent,
+              backgroundColor: AppColor.transparent,
               elevation: 0.0,
               leading: IconButton(
                 onPressed: () {
@@ -41,15 +41,15 @@ class NotificationScreen extends StatelessWidget {
                 icon: Icon(
                   Icons.arrow_back,
                   size: 25,
-                  color: ColorConst.appColorFF,
+                  color: AppColor.appColorFF5,
                 ),
               ),
               centerTitle: true,
               title: Text(
                 "Notification",
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 20.0,
-                  color: ColorConst.black09,
+                  color: AppColor.black091,
                 ),
               ),
             ),
@@ -65,11 +65,11 @@ class NotificationScreen extends StatelessWidget {
                 padding: EdgeInsets.only(right: 28, left: 30, top: 22),
                 decoration: BoxDecoration(
                   color: (index == 0 || index == 1)
-                      ? ColorConst.appColorFF.withOpacity(0.05)
-                      : ColorConst.white,
+                      ? AppColor.appColorFF5.withOpacity(0.05)
+                      : AppColor.whiteFFF,
                   border: Border(
                     bottom: BorderSide(
-                      color: ColorConst.greyEB,
+                      color: AppColor.greyEBE,
                     ),
                   ),
                 ),
@@ -83,7 +83,7 @@ class NotificationScreen extends StatelessWidget {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image(
-                                  image: AssetImage(ImageConst.men1),
+                                  image: AssetImage(AppImage.men1),
                                   height: 28,
                                   width: 28,
                                   fit: BoxFit.fill,
@@ -96,7 +96,7 @@ class NotificationScreen extends StatelessWidget {
                                   height: 15,
                                   width: 14,
                                   decoration: BoxDecoration(
-                                    color: ColorConst.appColorFF,
+                                    color: AppColor.appColorFF5,
                                     shape: BoxShape.circle,
                                   ),
                                 ),
@@ -106,7 +106,7 @@ class NotificationScreen extends StatelessWidget {
                         : ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: Image(
-                              image: AssetImage(ImageConst.gril1Without),
+                              image: AssetImage(AppImage.gril1Without),
                               height: 28,
                               width: 28,
                               fit: BoxFit.fill,
@@ -121,9 +121,9 @@ class NotificationScreen extends StatelessWidget {
                         children: [
                           Text(
                             "5h ago",
-                            style: TextStyleClass.interRegular(
+                            style: AppTextStyle.interRegular(
                               size: 12.0,
-                              color: ColorConst.grey6B,
+                              color: AppColor.grey6B6,
                             ),
                           ),
                           Padding(
@@ -131,9 +131,9 @@ class NotificationScreen extends StatelessWidget {
                             child: Text(
                               notificationController
                                   .notificationList[index].title,
-                              style: TextStyleClass.interRegular(
+                              style: AppTextStyle.interRegular(
                                 size: 16.0,
-                                color: ColorConst.black,
+                                color: AppColor.black000,
                               ),
                             ),
                           ),
@@ -143,9 +143,9 @@ class NotificationScreen extends StatelessWidget {
                               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do...",
                               /*maxLines: 2,
                               overflow: TextOverflow.ellipsis,*/
-                              style: TextStyleClass.interRegular(
+                              style: AppTextStyle.interRegular(
                                 size: 12.0,
-                                color: ColorConst.grey6B,
+                                color: AppColor.grey6B6,
                               ),
                             ),
                           ),

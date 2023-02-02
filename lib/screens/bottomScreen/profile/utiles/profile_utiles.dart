@@ -1,10 +1,11 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/profile/subscreenlist/edit_profile_screen.dart';
 import 'package:datingapp/screens/bottomScreen/profile/subscreenlist/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../Constant/app_color.dart';
+import '../../../../Constant/app_image.dart';
 
 ///profile part1
 class ProfilePart1 extends StatelessWidget {
@@ -21,7 +22,7 @@ class ProfilePart1 extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                ImageConst.edit_bg,
+                AppImage.edit_bg,
               ),
               fit: BoxFit.fill,
             ),
@@ -35,14 +36,14 @@ class ProfilePart1 extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Image(
                     image: AssetImage(
-                      ImageConst.appLogo,
+                      AppImage.appLogo,
                     ),
                   ),
                 ),
                 centerTitle: true,
                 title: Text(
                   "YourApp",
-                  style: TextStyleClass.arizoniaRegular(
+                  style: AppTextStyle.arizoniaRegular(
                     size: 27.0,
                   ),
                 ),
@@ -59,7 +60,7 @@ class ProfilePart1 extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                        image: AssetImage(ImageConst.men1),
+                        image: AssetImage(AppImage.men1),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -72,15 +73,15 @@ class ProfilePart1 extends StatelessWidget {
                         begin: Alignment.topRight,
                         end: Alignment.bottomLeft,
                         colors: [
-                          ColorConst.appColor,
-                          ColorConst.appColorFD,
+                          AppColor.appColorFF4,
+                          AppColor.appColorFD7,
                         ],
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
                       Icons.camera_alt_rounded,
-                      color: ColorConst.white,
+                      color: AppColor.whiteFFF,
                     ),
                   ),
                 ],
@@ -89,7 +90,7 @@ class ProfilePart1 extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(
                   "John Doe",
-                  style: TextStyleClass.interBold(
+                  style: AppTextStyle.interBold(
                     size: 30.0,
                   ),
                 ),
@@ -111,8 +112,8 @@ class ProfilePart1 extends StatelessWidget {
                     begin: Alignment.topRight,
                     end: Alignment.bottomLeft,
                     colors: [
-                      ColorConst.appColor,
-                      ColorConst.appColorFD,
+                      AppColor.appColorFF4,
+                      AppColor.appColorFD7,
                     ],
                   ),
                   shape: BoxShape.circle,
@@ -120,16 +121,16 @@ class ProfilePart1 extends StatelessWidget {
                 child: Icon(
                   Icons.add_a_photo,
                   size: 30,
-                  color: ColorConst.white,
+                  color: AppColor.whiteFFF,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 5),
                 child: Text(
                   "Add media",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
-                    color: ColorConst.grey69,
+                    color: AppColor.grey697,
                   ),
                 ),
               ),
@@ -149,11 +150,11 @@ class ProfilePart1 extends StatelessWidget {
                   width: 58,
                   height: 58,
                   decoration: BoxDecoration(
-                    color: ColorConst.white,
+                    color: AppColor.whiteFFF,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: ColorConst.appColorFF.withOpacity(0.25),
+                        color: AppColor.appColorFF5.withOpacity(0.25),
                         offset: Offset(0, 4),
                         blurRadius: 31,
                       ),
@@ -162,7 +163,7 @@ class ProfilePart1 extends StatelessWidget {
                   child: Icon(
                     Icons.settings,
                     size: 30,
-                    color: ColorConst.grey69,
+                    color: AppColor.grey697,
                   ),
                 ),
               ),
@@ -170,9 +171,9 @@ class ProfilePart1 extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 5),
                 child: Text(
                   "Settings",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
-                    color: ColorConst.grey69,
+                    color: AppColor.grey697,
                   ),
                 ),
               ),
@@ -192,11 +193,11 @@ class ProfilePart1 extends StatelessWidget {
                   width: 58,
                   height: 58,
                   decoration: BoxDecoration(
-                    color: ColorConst.white,
+                    color: AppColor.whiteFFF,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: ColorConst.appColorFF.withOpacity(0.25),
+                        color: AppColor.appColorFF5.withOpacity(0.25),
                         offset: Offset(0, 4),
                         blurRadius: 31,
                       ),
@@ -205,7 +206,7 @@ class ProfilePart1 extends StatelessWidget {
                   child: Icon(
                     Icons.edit,
                     size: 30,
-                    color: ColorConst.grey69,
+                    color: AppColor.grey697,
                   ),
                 ),
               ),
@@ -213,9 +214,9 @@ class ProfilePart1 extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 5),
                 child: Text(
                   "Edit info",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
-                    color: ColorConst.grey69,
+                    color: AppColor.grey697,
                   ),
                 ),
               ),

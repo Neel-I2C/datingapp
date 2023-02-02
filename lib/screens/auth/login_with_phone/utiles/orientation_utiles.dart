@@ -1,6 +1,8 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:flutter/material.dart';
+import '../../../../Constant/app_color.dart';
+import '../controller/my_orientation_controller.dart';
+import 'package:get/get.dart';
 
 class MultiSelectChip extends StatefulWidget {
   final List<String> reportList;
@@ -12,8 +14,7 @@ class MultiSelectChip extends StatefulWidget {
 }
 
 class _MultiSelectChipState extends State<MultiSelectChip> {
-  List<String> selectedChoices = [];
-
+  MyOrientationController myOrientationController = Get.find();
   // this function will build and return the choice list
   _buildChoiceList() {
     List<Widget> choices = [];
@@ -23,32 +24,32 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
           height: 42,
           margin: EdgeInsets.only(right: 10, bottom: 12),
           child: ChoiceChip(
-            backgroundColor: ColorConst.white,
-            selectedColor: ColorConst.appColorFF,
+            backgroundColor: AppColor.whiteFFF,
+            selectedColor: AppColor.appColorFF5,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(32),
               side: BorderSide(
-                color: ColorConst.appColorFF,
+                color: AppColor.appColorFF5,
               ),
             ),
             padding:
                 const EdgeInsets.only(right: 20, left: 20, top: 9, bottom: 9),
             label: Text(
               item,
-              style: TextStyleClass.interRegular(
+              style: AppTextStyle.interRegular(
                 size: 16.0,
-                color: selectedChoices.contains(item)
-                    ? ColorConst.white
-                    : ColorConst.appColorFF,
+                color: myOrientationController.selectedChoices.contains(item)
+                    ? AppColor.whiteFFF
+                    : AppColor.appColorFF5,
               ),
             ),
-            selected: selectedChoices.contains(item),
+            selected: myOrientationController.selectedChoices.contains(item),
             onSelected: (selected) {
               setState(
                 () {
-                  selectedChoices.contains(item)
-                      ? selectedChoices.remove(item)
-                      : selectedChoices.add(item);
+                  myOrientationController.selectedChoices.contains(item)
+                      ? myOrientationController.selectedChoices.remove(item)
+                      : myOrientationController.selectedChoices.add(item);
                 },
               );
             },

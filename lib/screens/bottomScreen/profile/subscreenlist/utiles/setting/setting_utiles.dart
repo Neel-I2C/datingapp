@@ -1,6 +1,3 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/i_am_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/i_am_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
@@ -8,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
+
+import '../../../../../../Constant/app_color.dart';
+import '../../../../../../Constant/app_image.dart';
+import '../../../../../../Constant/app_textstyle.dart';
 
 class PhoneEditScreen extends StatelessWidget {
   const PhoneEditScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class PhoneEditScreen extends StatelessWidget {
             width: Get.width,
             padding: EdgeInsets.only(bottom: 10),
             decoration: BoxDecoration(
-              color: ColorConst.white,
+              color: AppColor.whiteFFF,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(23),
                 bottomRight: Radius.circular(23),
@@ -30,7 +31,7 @@ class PhoneEditScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   blurRadius: 14,
-                  color: ColorConst.black.withOpacity(0.15),
+                  color: AppColor.black000.withOpacity(0.15),
                 ),
               ],
             ),
@@ -44,15 +45,15 @@ class PhoneEditScreen extends StatelessWidget {
                 icon: Icon(
                   Icons.arrow_back,
                   size: 25,
-                  color: ColorConst.appColorFF,
+                  color: AppColor.appColorFF5,
                 ),
               ),
               centerTitle: true,
               title: Text(
                 "Phone Number Settings",
-                style: TextStyleClass.interSemiBold(
+                style: AppTextStyle.interSemiBold(
                   size: 20.0,
-                  color: ColorConst.black09,
+                  color: AppColor.black091,
                 ),
               ),
             ),
@@ -74,8 +75,8 @@ class PhoneEditScreen extends StatelessWidget {
                       suffixIcon: Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: SvgPicture.asset(
-                          ImageConst.checkIcon,
-                          color: ColorConst.appColorFF,
+                          AppImage.checkIcon,
+                          color: AppColor.appColorFF5,
                         ),
                       ),
                     ),
@@ -85,8 +86,8 @@ class PhoneEditScreen extends StatelessWidget {
                         const EdgeInsets.only(left: 24, top: 7, bottom: 24),
                     child: Text(
                       "Verified Phone Number",
-                      style: TextStyleClass.interRegular(
-                        color: ColorConst.grey69,
+                      style: AppTextStyle.interRegular(
+                        color: AppColor.grey697,
                       ),
                     ),
                   ),
@@ -101,13 +102,13 @@ class PhoneEditScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(32.0),
-                        border: Border.all(color: ColorConst.greyEB),
+                        border: Border.all(color: AppColor.greyEBE),
                       ),
                       child: Text(
                         "Update My Phone Number",
-                        style: TextStyleClass.interSemiBold(
+                        style: AppTextStyle.interSemiBold(
                           size: 16.0,
-                          color: ColorConst.appColorFF,
+                          color: AppColor.appColorFF5,
                         ),
                       ),
                     ),
@@ -132,7 +133,7 @@ showMeBottomSheet() {
         height: Get.height,
         width: Get.width,
         decoration: BoxDecoration(
-          color: ColorConst.white,
+          color: AppColor.whiteFFF,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40),
             topRight: Radius.circular(40),
@@ -145,7 +146,7 @@ showMeBottomSheet() {
             ),
             Text(
               "Show Me",
-              style: TextStyleClass.interBold(
+              style: AppTextStyle.interBold(
                 size: 28.0,
               ),
             ),
@@ -178,13 +179,13 @@ class UpdateMobileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(),
           Text(
             "My Number Is",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -198,9 +199,9 @@ class UpdateMobileScreen extends StatelessWidget {
           Text(
             "When you tap continue, appname will send a text with\nverification code. Message and data rates may apply.\nThe verified phone number can be used to login.",
             textAlign: TextAlign.center,
-            style: TextStyleClass.interRegular(
+            style: AppTextStyle.interRegular(
               size: 13.0,
-              color: ColorConst.grey69,
+              color: AppColor.grey697,
             ),
           ),
           SizedBox(
@@ -209,7 +210,7 @@ class UpdateMobileScreen extends StatelessWidget {
           Text(
             "Learn what happens when your number changes.",
             textAlign: TextAlign.center,
-            style: TextStyleClass.interUnderLine(size: 13.0),
+            style: AppTextStyle.interUnderLine(size: 13.0),
           ),
           Spacer(),
           CommonButton(
@@ -239,24 +240,24 @@ class UpdateMobileScreen extends StatelessWidget {
                 children: [
                   Image(
                     image: AssetImage(
-                      ImageConst.india,
+                      AppImage.india,
                     ),
                   ),
                   Text(
                     " (+91)",
-                    style: TextStyleClass.interRegular(
+                    style: AppTextStyle.interRegular(
                       size: 16.0,
                     ),
                   ),
                   Icon(
                     Icons.keyboard_arrow_down,
-                    color: ColorConst.greyAD,
+                    color: AppColor.greyADA,
                   ),
                   SizedBox(
                     height: 10,
                     width: 10,
                     child: VerticalDivider(
-                      color: ColorConst.greyE8,
+                      color: AppColor.greyE8E,
                     ),
                   ),
                 ],
@@ -265,49 +266,49 @@ class UpdateMobileScreen extends StatelessWidget {
           ),
           contentPadding: EdgeInsets.only(top: 35, left: 20),
           hintText: "12345 67890",
-          hintStyle: TextStyleClass.interSemiBold(
+          hintStyle: AppTextStyle.interSemiBold(
             size: 16.0,
-            color: ColorConst.black03,
+            color: AppColor.black030,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(
-              color: ColorConst.greyEB,
+              color: AppColor.greyEBE,
               width: 1,
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(
-              color: ColorConst.greyEB,
+              color: AppColor.greyEBE,
               width: 1,
             ),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(
-              color: ColorConst.appColor,
+              color: AppColor.appColorFF4,
               width: 1,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(
-              color: ColorConst.appColor,
+              color: AppColor.appColorFF4,
               width: 1,
             ),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(
-              color: ColorConst.appColor,
+              color: AppColor.appColorFF4,
               width: 1,
             ),
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(
-              color: ColorConst.greyEB,
+              color: AppColor.greyEBE,
               width: 1,
             ),
           ),
@@ -322,13 +323,13 @@ class UpdateVerifyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(),
           Text(
             "Verify it’s you",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -341,20 +342,20 @@ class UpdateVerifyScreen extends StatelessWidget {
               children: [
                 TextSpan(
                   text: "We send a code to ",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
                   ),
                 ),
                 TextSpan(
                   text: "(+91 12345 67890).\n",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
-                    color: ColorConst.appColor,
+                    color: AppColor.appColorFF4,
                   ),
                 ),
                 TextSpan(
                   text: "Enter it here to verify your identity.",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
                   ),
                 ),
@@ -379,9 +380,9 @@ class UpdateVerifyScreen extends StatelessWidget {
             onPressed: () {},
             child: Text(
               "Send again",
-              style: TextStyleClass.interBold(
+              style: AppTextStyle.interBold(
                 size: 18.0,
-                color: ColorConst.appColorFF,
+                color: AppColor.appColorFF5,
               ),
             ),
           ),
@@ -400,7 +401,7 @@ class UpdateVerifyScreen extends StatelessWidget {
     ),
     decoration: BoxDecoration(
       border: Border.all(
-        color: ColorConst.greyE8,
+        color: AppColor.greyE8E,
       ),
       borderRadius: BorderRadius.circular(15),
     ),
@@ -415,7 +416,7 @@ class UpdateVerifyScreen extends StatelessWidget {
     ),*/
     decoration: BoxDecoration(
       border: Border.all(
-        color: ColorConst.appColor,
+        color: AppColor.appColorFF4,
       ),
       borderRadius: BorderRadius.circular(15),
     ),
@@ -423,14 +424,14 @@ class UpdateVerifyScreen extends StatelessWidget {
   final submittedPinTheme = PinTheme(
     width: 66,
     height: 67,
-    textStyle: TextStyleClass.interSemiBold(
+    textStyle: AppTextStyle.interSemiBold(
       size: 34.0,
-      color: ColorConst.white,
+      color: AppColor.whiteFFF,
     ),
     decoration: BoxDecoration(
-      color: ColorConst.appColorFF,
+      color: AppColor.appColorFF5,
       border: Border.all(
-        color: ColorConst.appColorFF,
+        color: AppColor.appColorFF5,
       ),
       borderRadius: BorderRadius.circular(15),
     ),

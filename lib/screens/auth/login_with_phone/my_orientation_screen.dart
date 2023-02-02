@@ -1,11 +1,11 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/my_orientation_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/show_me_screen.dart';
 import 'package:datingapp/screens/auth/login_with_phone/utiles/orientation_utiles.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../Constant/app_color.dart';
 
 class MyOrientationScreen extends StatefulWidget {
   @override
@@ -19,7 +19,7 @@ class _MyOrientationScreenState extends State<MyOrientationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(
@@ -30,9 +30,9 @@ class _MyOrientationScreenState extends State<MyOrientationScreen> {
                 },
                 child: Text(
                   "Skip",
-                  style: TextStyleClass.interBold(
+                  style: AppTextStyle.interBold(
                     size: 16.0,
-                    color: ColorConst.appColor,
+                    color: AppColor.appColorFF4,
                   ),
                 ),
               ),
@@ -40,7 +40,7 @@ class _MyOrientationScreenState extends State<MyOrientationScreen> {
           ),
           Text(
             "My Sexual orientation is",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -50,9 +50,9 @@ class _MyOrientationScreenState extends State<MyOrientationScreen> {
           Text(
             "Select up t o 3",
             textAlign: TextAlign.center,
-            style: TextStyleClass.interRegular(
+            style: AppTextStyle.interRegular(
               size: 16.0,
-              color: ColorConst.grey69,
+              color: AppColor.grey697,
             ),
           ),
           SizedBox(
@@ -77,13 +77,13 @@ class _MyOrientationScreenState extends State<MyOrientationScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4.0),
                   ),
-                  activeColor: ColorConst.appColorFF,
+                  activeColor: AppColor.appColorFF5,
                 ),
               ),
               Text(
                 "Show my orientation on my profile",
-                style: TextStyleClass.interRegular(
-                  color: ColorConst.grey69,
+                style: AppTextStyle.interRegular(
+                  color: AppColor.grey697,
                 ),
               ),
             ],

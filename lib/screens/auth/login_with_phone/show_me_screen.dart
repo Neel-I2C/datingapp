@@ -1,12 +1,12 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/show_me_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/my_school_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
 
 class ShowMeScreen extends StatelessWidget {
   const ShowMeScreen({Key? key}) : super(key: key);
@@ -14,13 +14,13 @@ class ShowMeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(),
           Text(
             "Show Me",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -65,12 +65,12 @@ class ShowMeScreen extends StatelessWidget {
             margin: EdgeInsets.only(left: 24, right: 24, bottom: 22),
             decoration: BoxDecoration(
               color: controller.selectedIndex == index
-                  ? ColorConst.appColorFF
-                  : ColorConst.white,
+                  ? AppColor.appColorFF5
+                  : AppColor.whiteFFF,
               borderRadius: BorderRadius.circular(40.0),
               border: Border.all(
                 width: 1,
-                color: ColorConst.greyEB,
+                color: AppColor.greyEBE,
               ),
             ),
             child: Row(
@@ -78,18 +78,18 @@ class ShowMeScreen extends StatelessWidget {
               children: [
                 Text(
                   controller.title[index],
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     color: controller.selectedIndex == index
-                        ? ColorConst.white
-                        : ColorConst.black09,
+                        ? AppColor.whiteFFF
+                        : AppColor.black091,
                     size: 16.0,
                   ),
                 ),
                 SvgPicture.asset(
-                  ImageConst.checkIcon,
+                  AppImage.checkIcon,
                   color: controller.selectedIndex == index
-                      ? ColorConst.white
-                      : ColorConst.greyAD,
+                      ? AppColor.whiteFFF
+                      : AppColor.greyADA,
                 ),
               ],
             ),

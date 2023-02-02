@@ -1,6 +1,4 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/home/notification/notification_screen.dart';
 import 'package:datingapp/screens/bottomScreen/home/profileDetail/profile_detail_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
@@ -9,6 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:swipe_cards/draggable_card.dart';
 import 'package:swipe_cards/swipe_cards.dart';
+
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -49,12 +50,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<String> imageList = [
-    ImageConst.gril1,
-    ImageConst.gril2,
-    ImageConst.gril1,
-    ImageConst.gril2,
-    ImageConst.gril1,
-    ImageConst.gril2,
+    AppImage.gril1,
+    AppImage.gril2,
+    AppImage.gril1,
+    AppImage.gril2,
+    AppImage.gril1,
+    AppImage.gril2,
   ];
 
   final List<SwipeItem> _swipeItems = <SwipeItem>[];
@@ -64,15 +65,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: ColorConst.white,
+        backgroundColor: AppColor.whiteFFF,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image(
             image: AssetImage(
-              ImageConst.appLogo,
+              AppImage.appLogo,
             ),
           ),
         ),
@@ -83,14 +84,14 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             icon: Icon(
               Icons.notifications,
-              color: ColorConst.appColorFF,
+              color: AppColor.appColorFF5,
             ),
           ),
         ],
         centerTitle: true,
         title: Text(
           "YourApp",
-          style: TextStyleClass.arizoniaRegular(
+          style: AppTextStyle.arizoniaRegular(
             size: 27.0,
           ),
         ),
@@ -106,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               ///tinder swiper
               SizedBox(
-                height: Get.height/1.48 /*532*/,
+                height: Get.height / 1.48 /*532*/,
                 child: SwipeCards(
                   matchEngine: _matchEngine,
                   itemBuilder: (BuildContext context, int index) {
@@ -135,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 34,
                               width: 71,
                               decoration: BoxDecoration(
-                                color: ColorConst.black.withOpacity(0.35),
+                                color: AppColor.black000.withOpacity(0.35),
                                 borderRadius: BorderRadius.circular(7),
                               ),
                               child: Row(
@@ -143,15 +144,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Icon(
                                     Icons.location_on_outlined,
-                                    color: ColorConst.white,
+                                    color: AppColor.whiteFFF,
                                     size: 18,
                                   ),
                                   Text(
                                     "3 Miles",
                                     textAlign: TextAlign.center,
-                                    style: TextStyleClass.interSemiBold(
+                                    style: AppTextStyle.interSemiBold(
                                       size: 12.0,
-                                      color: ColorConst.white,
+                                      color: AppColor.whiteFFF,
                                     ),
                                   ),
                                 ],
@@ -163,9 +164,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Text(
                                     "Rex, 27",
-                                    style: TextStyleClass.interBold(
+                                    style: AppTextStyle.interBold(
                                       size: 30.0,
-                                      color: ColorConst.white,
+                                      color: AppColor.whiteFFF,
                                     ),
                                   ),
                                   SizedBox(
@@ -173,9 +174,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Text(
                                     "Lives in Vadodara",
-                                    style: TextStyleClass.interSemiBold(
+                                    style: AppTextStyle.interSemiBold(
                                       size: 15.0,
-                                      color: ColorConst.white,
+                                      color: AppColor.whiteFFF,
                                     ),
                                   ),
                                 ],
@@ -206,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 42,
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(ImageConst.restart),
+                        child: SvgPicture.asset(AppImage.restart),
                       ),
                     ),
                     SizedBox(
@@ -217,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 58,
                       child: Padding(
                         padding: const EdgeInsets.all(21.0),
-                        child: SvgPicture.asset(ImageConst.cancel),
+                        child: SvgPicture.asset(AppImage.cancel),
                       ),
                     ),
                     SizedBox(
@@ -228,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 78,
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
-                        child: SvgPicture.asset(ImageConst.heart),
+                        child: SvgPicture.asset(AppImage.heart),
                       ),
                     ),
                     SizedBox(
@@ -239,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 58,
                       child: Padding(
                         padding: const EdgeInsets.all(18.0),
-                        child: SvgPicture.asset(ImageConst.star),
+                        child: SvgPicture.asset(AppImage.star),
                       ),
                     ),
                     SizedBox(
@@ -250,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 42,
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(ImageConst.light),
+                        child: SvgPicture.asset(AppImage.light),
                       ),
                     ),
                   ],

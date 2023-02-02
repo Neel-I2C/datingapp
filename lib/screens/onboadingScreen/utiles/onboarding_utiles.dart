@@ -1,10 +1,11 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_option_screen.dart';
 import 'package:datingapp/screens/onboadingScreen/controller/onboarding_controller.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../Constant/app_color.dart';
 
 ///first part
 // ignore: must_be_immutable
@@ -39,32 +40,6 @@ class FirstPart extends StatelessWidget {
               SizedBox(
                 height: Get.height / 19.8 /*45*/,
               ),
-              /* RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: onBoardingController.onBoardingPages[index].title,
-                      style: TextStyleClass.interSemiBold(
-                        size: 28.0,
-                      ),
-                    ),
-                    TextSpan(
-                      text: onBoardingController.onBoardingPages[index].title2,
-                      style: TextStyleClass.interSemiBold(
-                        size: 28.0,
-                        color: ColorConst.appColor,
-                      ),
-                    ),
-                    TextSpan(
-                      text: onBoardingController.onBoardingPages[index].title3,
-                      style: TextStyleClass.interSemiBold(
-                        size: 28.0,
-                      ),
-                    ),
-                  ],
-                ),
-              ),*/
             ],
           ),
         );
@@ -91,7 +66,7 @@ class SecondPart extends StatelessWidget {
             topRight: Radius.circular(24),
           ),
           border: Border.all(
-            color: ColorConst.greyEB,
+            color: AppColor.greyEBE,
           ),
         ),
         child: Column(
@@ -111,7 +86,7 @@ class SecondPart extends StatelessWidget {
                           .onBoardingPages[
                               onBoardingController.selectedPageIndex.value]
                           .title,
-                      style: TextStyleClass.interSemiBold(
+                      style: AppTextStyle.interSemiBold(
                         size: 28.0,
                       ),
                     ),
@@ -120,9 +95,9 @@ class SecondPart extends StatelessWidget {
                           .onBoardingPages[
                               onBoardingController.selectedPageIndex.value]
                           .title2,
-                      style: TextStyleClass.interSemiBold(
+                      style: AppTextStyle.interSemiBold(
                         size: 28.0,
-                        color: ColorConst.appColor,
+                        color: AppColor.appColorFF4,
                       ),
                     ),
                     TextSpan(
@@ -130,7 +105,7 @@ class SecondPart extends StatelessWidget {
                           .onBoardingPages[
                               onBoardingController.selectedPageIndex.value]
                           .title3,
-                      style: TextStyleClass.interSemiBold(
+                      style: AppTextStyle.interSemiBold(
                         size: 28.0,
                       ),
                     ),
@@ -153,8 +128,8 @@ class SecondPart extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: onBoardingController.selectedPageIndex.value ==
                                 index
-                            ? ColorConst.appColor
-                            : ColorConst.greyD9,
+                            ? AppColor.appColorFF4
+                            : AppColor.greyD9D,
                         shape: BoxShape.circle,
                       ),
                     );
@@ -172,11 +147,11 @@ class SecondPart extends StatelessWidget {
                 },
                 child: Text(
                   "Skip",
-                  style: TextStyleClass.interSemiBold(
+                  style: AppTextStyle.interSemiBold(
                     size: 20.0,
                     color: onBoardingController.isLastPage
                         ? Colors.transparent
-                        : ColorConst.appColor,
+                        : AppColor.appColorFF4,
                   ),
                 ),
               ),

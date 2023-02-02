@@ -1,24 +1,26 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
-import 'package:datingapp/screens/bottomScreen/home/bottomNavigation/bottom_navigation_screen.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
+import 'package:datingapp/screens/auth/login_with_phone/controller/enable_location_screen_controller.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
+import '../../bottomScreen/home/bottomNavigation/bottom_navigation_screen.dart';
 
 class EnableLocationScreen extends StatelessWidget {
-  const EnableLocationScreen({Key? key}) : super(key: key);
-
+  EnableLocationScreen({Key? key}) : super(key: key);
+  final EnableLocationScreenController controller =
+      Get.put(EnableLocationScreenController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(),
           Text(
             "Enable Location",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -30,9 +32,9 @@ class EnableLocationScreen extends StatelessWidget {
 location in order to use
 Appname''',
             textAlign: TextAlign.center,
-            style: TextStyleClass.interRegular(
+            style: AppTextStyle.interRegular(
               size: 16.0,
-              color: ColorConst.grey69,
+              color: AppColor.grey697,
             ),
           ),
           SizedBox(
@@ -41,7 +43,7 @@ Appname''',
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 43),
             child: Image(
-              image: AssetImage(ImageConst.map),
+              image: AssetImage(AppImage.map),
             ),
           ),
           SizedBox(
@@ -66,14 +68,14 @@ Appname''',
               Text(
                 "Tell Me More",
                 textAlign: TextAlign.center,
-                style: TextStyleClass.interRegular(
+                style: AppTextStyle.interRegular(
                   size: 20.0,
-                  color: ColorConst.grey69,
+                  color: AppColor.grey697,
                 ),
               ),
               Icon(
                 Icons.keyboard_arrow_down,
-                color: ColorConst.grey69,
+                color: AppColor.grey697,
               ),
             ],
           ),

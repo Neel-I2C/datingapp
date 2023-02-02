@@ -1,23 +1,24 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/textstyle.dart';
-import 'package:datingapp/screens/auth/login_with_phone/my_mobile_screen.dart';
-import 'package:datingapp/screens/auth/login_with_phone/whats_your_email_screen.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
+import 'package:datingapp/screens/auth/login_with_phone/controller/verify_otp_screen_controller.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
+import '../../../Constant/app_color.dart';
 
 class VerifyOtpScreen extends StatelessWidget {
+  final VerifyOtpScreenController controller =
+      Get.put(VerifyOtpScreenController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(),
           Text(
             "Verify it’s you",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -30,20 +31,21 @@ class VerifyOtpScreen extends StatelessWidget {
               children: [
                 TextSpan(
                   text: "We send a code to ",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
                   ),
                 ),
                 TextSpan(
-                  text: "(+91 12345 67890).\n",
-                  style: TextStyleClass.interRegular(
+                  text:
+                      "(+91 ${controller.myMobileScreenController.numberController.text}).\n",
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
-                    color: ColorConst.appColor,
+                    color: AppColor.appColorFF4,
                   ),
                 ),
                 TextSpan(
                   text: "Enter it here to verify your identity.",
-                  style: TextStyleClass.interRegular(
+                  style: AppTextStyle.interRegular(
                     size: 18.0,
                   ),
                 ),
@@ -53,24 +55,31 @@ class VerifyOtpScreen extends StatelessWidget {
           SizedBox(
             height: 42,
           ),
-          Pinput(
-            defaultPinTheme: defaultPinTheme,
-            focusedPinTheme: focusedPinTheme,
-            submittedPinTheme: submittedPinTheme,
-            onCompleted: (val) {
-              Get.to(() => WhatsYourEmailScreen());
-            },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Pinput(
+              length: 6,
+              controller: controller.otpController,
+              defaultPinTheme: defaultPinTheme,
+              focusedPinTheme: focusedPinTheme,
+              submittedPinTheme: submittedPinTheme,
+              onCompleted: (val) {
+                controller.checkOtp();
+              },
+            ),
           ),
           SizedBox(
             height: 42,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              controller.myMobileScreenController.verifyPhoneNumber();
+            },
             child: Text(
               "Send again",
-              style: TextStyleClass.interBold(
+              style: AppTextStyle.interBold(
                 size: 18.0,
-                color: ColorConst.appColorFF,
+                color: AppColor.appColorFF5,
               ),
             ),
           ),
@@ -89,7 +98,7 @@ class VerifyOtpScreen extends StatelessWidget {
     ),
     decoration: BoxDecoration(
       border: Border.all(
-        color: ColorConst.greyE8,
+        color: AppColor.greyE8E,
       ),
       borderRadius: BorderRadius.circular(15),
     ),
@@ -104,7 +113,7 @@ class VerifyOtpScreen extends StatelessWidget {
     ),*/
     decoration: BoxDecoration(
       border: Border.all(
-        color: ColorConst.appColor,
+        color: AppColor.appColorFF4,
       ),
       borderRadius: BorderRadius.circular(15),
     ),
@@ -112,14 +121,14 @@ class VerifyOtpScreen extends StatelessWidget {
   final submittedPinTheme = PinTheme(
     width: 66,
     height: 67,
-    textStyle: TextStyleClass.interSemiBold(
+    textStyle: AppTextStyle.interSemiBold(
       size: 34.0,
-      color: ColorConst.white,
+      color: AppColor.whiteFFF,
     ),
     decoration: BoxDecoration(
-      color: ColorConst.appColorFF,
+      color: AppColor.appColorFF5,
       border: Border.all(
-        color: ColorConst.appColorFF,
+        color: AppColor.appColorFF5,
       ),
       borderRadius: BorderRadius.circular(15),
     ),

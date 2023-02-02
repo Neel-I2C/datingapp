@@ -1,25 +1,25 @@
-import 'package:datingapp/constants/color.dart';
-import 'package:datingapp/constants/image.dart';
-import 'package:datingapp/constants/textstyle.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/i_am_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import '../../../Constant/app_color.dart';
+import '../../../Constant/app_image.dart';
 
 class MyBirthDAyScreen extends StatelessWidget {
-  const MyBirthDAyScreen({Key? key}) : super(key: key);
-
+  MyBirthDAyScreen({Key? key}) : super(key: key);
+  final TextEditingController birthdayController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConst.white,
+      backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
           AppBarDesign(),
           Text(
             "My Birthday Is",
-            style: TextStyleClass.interBold(
+            style: AppTextStyle.interBold(
               size: 28.0,
             ),
           ),
@@ -29,11 +29,12 @@ class MyBirthDAyScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: TextFromFieldCommon(
+              controller: birthdayController,
               hintText: "MM/DD/YYYY",
               suffixIcon: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: SvgPicture.asset(
-                  ImageConst.calander,
+                  AppImage.calander,
                 ),
               ),
             ),
@@ -44,9 +45,9 @@ class MyBirthDAyScreen extends StatelessWidget {
           Text(
             "Your age will be public",
             textAlign: TextAlign.center,
-            style: TextStyleClass.interRegular(
+            style: AppTextStyle.interRegular(
               size: 16.0,
-              color: ColorConst.grey69,
+              color: AppColor.grey697,
             ),
           ),
           SizedBox(
