@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "882123341398",
+    "project_id": "datingapp-804eb",
+    "storage_bucket": "datingapp-804eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882123341398:android:0b7c63bfd28dfb7f7745f7",
+        "android_client_info": {
+          "package_name": "com.love.lovemode.datingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882123341398-vl8s2dkcqkha860uqvepadetge2a0e75.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.love.lovemode.datingapp",
+            "certificate_hash": "0a287f622b4e906a164166b85bf3eaf57868d7ae"
+          }
+        },
+        {
+          "client_id": "882123341398-n65lc1qu77g3lcdakuc94sge6ttehe4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSMumo05sudP7JWHbk1VU2bcUdi1K5Yc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882123341398-e44odcpim4s8u6an1plrgka7dtgdn9e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
