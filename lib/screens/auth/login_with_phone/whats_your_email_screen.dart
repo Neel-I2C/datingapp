@@ -1,11 +1,11 @@
 import 'package:datingapp/screens/auth/login_with_phone/controller/whatsa_your%20email_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/profile_detail_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../../../Constant/app_textstyle.dart';
 import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
-import '../../../Constant/app_textstyle.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WhatsYourEmailScreen extends StatelessWidget {
   WhatsYourEmailScreen({Key? key}) : super(key: key);
@@ -44,6 +44,7 @@ verify your email.''',
               padding: EdgeInsets.symmetric(horizontal: 24),
               child: TextFromFieldCommon(
                 hintText: "Enter Email",
+                controller: controller.emailController,
               ),
             ),
             // Form(

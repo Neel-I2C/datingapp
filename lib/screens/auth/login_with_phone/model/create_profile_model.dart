@@ -1,6 +1,6 @@
 class ProfileCreateModel {
-  final String? status;
-  final String? message;
+  final List<String>? status;
+  final List<String>? message;
 
   ProfileCreateModel({
     this.status,
@@ -8,8 +8,8 @@ class ProfileCreateModel {
   });
 
   ProfileCreateModel copyWith({
-    String? status,
-    String? message,
+    List<String>? status,
+    List<String>? message,
   }) {
     return ProfileCreateModel(
       status: status ?? this.status,
@@ -18,8 +18,11 @@ class ProfileCreateModel {
   }
 
   ProfileCreateModel.fromJson(Map<String, dynamic> json)
-      : status = json['status'] as String?,
-        message = json['message'] as String?;
+      : status =
+            (json['status'] as List?)?.map((dynamic e) => e as String).toList(),
+        message = (json['messsage'] as List?)
+            ?.map((dynamic e) => e as String)
+            .toList();
 
-  Map<String, dynamic> toJson() => {'status': status, 'message': message};
+  Map<String, dynamic> toJson() => {'status': status, 'messsage': message};
 }

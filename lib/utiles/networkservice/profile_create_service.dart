@@ -1,8 +1,8 @@
-import 'dart:developer';
-import 'package:datingapp/Constant/app_api.dart';
 import 'package:datingapp/screens/auth/login_with_phone/model/create_profile_model.dart';
-import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:datingapp/Constant/app_api.dart';
+import 'package:dio/dio.dart';
+import 'dart:developer';
 
 class ProfileCreateService {
   static Future<ProfileCreateModel> profileCreateService({
@@ -13,10 +13,13 @@ class ProfileCreateService {
     required var school,
     required var livingIn,
     required var petsLoverId,
-    required var profileSettingId,
+    required var showMe,
+    required var latitude,
+    required var longitude,
   }) async {
     try {
       Dio dio = Dio();
+      log(token);
       dio.interceptors.add(
         PrettyDioLogger(
           compact: false,
@@ -26,23 +29,29 @@ class ProfileCreateService {
           requestBody: true,
         ),
       );
-      var response = await dio.post(
-        AppApi.userProfile,
-        options: Options(
-          headers: {
-            "Authorization": "",
-          },
-        ),
-        data: {
-          "about_me": "$aboutMe",
-          "job_title": "$jobTitle",
-          "company": "$company",
-          "school": "$school",
-          "living_in": "$livingIn",
-          "pets_lover_id": "$petsLoverId",
-          "profile_setting_id": "$profileSettingId",
-        },
-      );
+      var response = await dio.post(AppApi.userProfile,
+          options: Options(
+            headers: {
+              // "Authorization":
+              //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYxNzMyMzk3LCJqdGkiOiIxMzc4ZDY0Y2ExZDc0MGI3ODhlNTU1MmNlZTRhODlkZSIsInVzZXJfaWQiOjQzfQ.4QuPstPHcwPwpRn03EqJRg6--oLml8xwHt4YPMp6FHw",
+              "Authorization": "Bearer $token",
+            },
+          ),
+          data: {
+            "about_me": "$aboutMe",
+            "job_title": "$jobTitle",
+            "company": "$company",
+            "school": "$school",
+            "living_in": "$livingIn",
+            "pets_lover_id": 1,
+            "latitude": latitude,
+            "longitude": longitude,
+            "show_me": "$showMe",
+            "image": [
+              "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-16_09-11-20.png",
+              "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-27_14-25-37.png"
+            ]
+          });
       return ProfileCreateModel.fromJson(response.data);
     } catch (e) {
       log("PROFILE CREATE SERVICE ERROR :: $e");
