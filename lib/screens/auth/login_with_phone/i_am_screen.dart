@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/i_am_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/my_orientation_screen.dart';
@@ -7,7 +6,6 @@ import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
 

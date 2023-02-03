@@ -1,3 +1,4 @@
+import 'package:datingapp/screens/auth/login_with_phone/whats_your_email_screen.dart';
 import 'package:datingapp/utiles/networkservice/email_login_service.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class EmailLoginController extends GetxController {
         log("SUCCESSA");
         storage.write("accessToken", emailLogin.access);
         storage.write("refreshToken", emailLogin.refresh);
+        Get.to(() => WhatsYourEmailScreen());
         appToast(msg: "Signin Success");
       }
       log("3");

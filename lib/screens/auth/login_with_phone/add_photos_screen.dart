@@ -6,7 +6,6 @@ import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../Constant/app_image.dart';
 
 class AddPhotosScreen extends StatelessWidget {

@@ -4,7 +4,6 @@ import 'package:datingapp/screens/auth/login_with_phone/utiles/your_interest_uti
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../Constant/app_color.dart';
 import '../../../Constant/app_textstyle.dart';
 

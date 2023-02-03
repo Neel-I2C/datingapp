@@ -1,4 +1,5 @@
 import 'package:datingapp/Constant/app_textstyle.dart';
+import 'package:datingapp/screens/auth/login_with_phone/controller/my_school_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/your_interests_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,8 @@ import '../../../Constant/app_color.dart';
 
 class MySchoolScreen extends StatelessWidget {
   MySchoolScreen({Key? key}) : super(key: key);
-  final TextEditingController schoolController = TextEditingController();
+  final MySchoolScreenController controller =
+      Get.put(MySchoolScreenController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class MySchoolScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: TextFromFieldCommon(
                 hintText: "School Name",
-                controller: schoolController,
+                controller: controller.schoolController,
               ),
             ),
             SizedBox(

@@ -1,6 +1,6 @@
 class AppApi {
   // static String baseUrl = "https://staging.sabbour.net/api/v1/";
-  static String baseUrl = "http://192.168.1.3:8000/";
+  static String baseUrl = "http://192.168.1.26:8000/";
 
   static String userRegister = "${baseUrl}user/";
 

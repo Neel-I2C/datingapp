@@ -6,6 +6,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ProfileCreateService {
   static Future<ProfileCreateModel> profileCreateService({
+    required var token,
     required var aboutMe,
     required var jobTitle,
     required var company,

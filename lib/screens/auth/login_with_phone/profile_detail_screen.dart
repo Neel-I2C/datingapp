@@ -1,11 +1,9 @@
 import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/profile_detail_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/my_brithday_screen.dart';
-import 'package:datingapp/screens/bottomScreen/home/profileDetail/controller/profile_detail_controller.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../Constant/app_color.dart';
 
 class ProfileDetailScreen extends StatelessWidget {
@@ -16,6 +14,7 @@ class ProfileDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [

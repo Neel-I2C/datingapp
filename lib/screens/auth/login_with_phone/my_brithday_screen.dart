@@ -1,4 +1,5 @@
 import 'package:datingapp/Constant/app_textstyle.dart';
+import 'package:datingapp/screens/auth/login_with_phone/controller/my_birthday_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/i_am_screen.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +10,12 @@ import '../../../Constant/app_image.dart';
 
 class MyBirthDAyScreen extends StatelessWidget {
   MyBirthDAyScreen({Key? key}) : super(key: key);
-  final TextEditingController birthdayController = TextEditingController();
+  final MyBirthDAyScreenController controller =
+      Get.put(MyBirthDAyScreenController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.whiteFFF,
       body: Column(
         children: [
@@ -29,7 +32,7 @@ class MyBirthDAyScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: TextFromFieldCommon(
-              controller: birthdayController,
+              controller: controller.birthdayController,
               hintText: "MM/DD/YYYY",
               suffixIcon: Padding(
                 padding: const EdgeInsets.all(15.0),

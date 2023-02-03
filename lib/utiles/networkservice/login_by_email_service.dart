@@ -4,10 +4,7 @@ import 'package:datingapp/Constant/app_api.dart';
 import 'package:datingapp/screens/auth/model/sign_in_model.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:dio/dio.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-import '../../Constant/app_color.dart';
 
 class LoginByEmailService {
   static Future<RegisterUser> loginByEmail({
