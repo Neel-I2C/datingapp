@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:datingapp/screens/auth/login_with_phone/controller/enable_location_screen_controller.dart';
 import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
@@ -6,6 +5,7 @@ import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'dart:developer';
 
 class EnableLocationScreen extends StatelessWidget {
   EnableLocationScreen({Key? key}) : super(key: key);
@@ -59,9 +59,9 @@ Appname''',
                   controller.longitude = value.longitude;
                   log(controller.latitude.toString());
                   log(controller.longitude.toString());
-                  controller.createProfile();
+                  // controller.createProfile();
                 });
-                // controller.createProfile();
+                controller.createProfile();
               },
               title: "Allow Location",
             ),

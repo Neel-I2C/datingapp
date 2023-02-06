@@ -47,15 +47,17 @@ class EnableLocationScreenController extends GetxController {
     try {
       var profile = await ProfileCreateService.profileCreateService(
         token: "${storage.read("accessToken")}",
+        pets: "Cats",
         aboutMe: whatsYourEmailScreenController.emailController.text,
         jobTitle: profileDetailScreenController.fNameController.text,
         company: profileDetailScreenController.lNameController.text,
         school: myBirthDAyScreenController.birthdayController.text,
         livingIn: iAmController.title[iAmController.selectedIndex],
-        petsLoverId: 1,
         showMe: "men",
         latitude: latitude,
         longitude: longitude,
+        zodiac: "Doe",
+        iAm: "Man",
       );
       profile.status![0] == "HTTP_200_OK"
           ? appToast(msg: profile.status![0])
