@@ -1,11 +1,12 @@
-import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/my_orientation_controller.dart';
-import 'package:datingapp/screens/auth/login_with_phone/show_me_screen.dart';
 import 'package:datingapp/screens/auth/login_with_phone/utiles/orientation_utiles.dart';
+import 'package:datingapp/screens/auth/login_with_phone/model/orintation_model.dart';
+import 'package:datingapp/screens/auth/login_with_phone/show_me_screen.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
+import '../../../Constant/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../Constant/app_color.dart';
 
 class MyOrientationScreen extends StatefulWidget {
   @override
@@ -60,9 +61,22 @@ class _MyOrientationScreenState extends State<MyOrientationScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: MultiSelectChip(
-              myOrientationController.reportList,
+            child: FutureBuilder<OrientationModel>(
+              future: myOrientationController.fetchOrientation(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<OrientationModel> snapshot) {
+                if (snapshot.hasData) {
+                  return MultiSelectChip(
+                      snapshot.data!.data!.map((e) => e).toList());
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
             ),
+            // child: MultiSelectChip(
+            //   myOrientationController.reportList,
+            // ),
           ),
           Spacer(),
           Row(

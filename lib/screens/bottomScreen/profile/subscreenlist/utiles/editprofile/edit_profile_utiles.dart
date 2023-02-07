@@ -9,7 +9,6 @@ import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../../Constant/app_color.dart';
 import '../../../../../../Constant/app_textstyle.dart';
 
@@ -104,13 +103,15 @@ interestBottomSheet() {
                               if (yourInterestsController.selectedList.length !=
                                   5) {
                                 yourInterestsController.selectedList.add(
-                                    yourInterestsController
-                                        .itemListInterest[index]);
+                                  yourInterestsController
+                                      .itemListInterest[index].title,
+                                );
                               }
                             } else {
                               yourInterestsController.selectedList.remove(
-                                  yourInterestsController
-                                      .itemListInterest[index]);
+                                yourInterestsController
+                                    .itemListInterest[index].title,
+                              );
                             }
 
                             print("$index : $value");

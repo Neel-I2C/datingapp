@@ -1,10 +1,9 @@
-import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/your_interests_controller.dart';
-import 'package:flutter/material.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-
 import '../../../../Constant/app_color.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GridItem extends StatefulWidget {
   final InterestsInfo? item;
@@ -30,6 +29,10 @@ class _GridItemState extends State<GridItem> {
     return InkWell(
       onTap: () {
         setState(() {
+          // yourInterestsController.selectedList.contains(element)
+          // yourInterestsController.selectedList.contains(isSelected)
+          //     ? !isSelected
+          //     : widget.isSelected!(isSelected);
           isSelected = !isSelected;
           widget.isSelected!(isSelected);
         });

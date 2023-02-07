@@ -43,25 +43,48 @@ class EnableLocationScreenController extends GetxController {
     }
   }
 
+  logAllData() {
+    log("TOKEN :: ${storage.read("accessToken")}");
+    log("FIRST NAME :: ${profileDetailScreenController.fNameController.text}");
+    log("LAST NAME :: ${profileDetailScreenController.lNameController.text}");
+    log("DOB :: ${myBirthDAyScreenController.birthdayController.text}");
+    log("IAM :: ${iAmController.title[iAmController.selectedIndex]}");
+    log("S ORIENTATION :: ${myOrientationController.selectedChoices}");
+    log("SHOW ME :: ${showMeController.title[showMeController.selectedIndex]}");
+    log("SCHOOL :: ${mySchoolScreenController.schoolController.text}");
+    log("INTEREST :: ${yourInterestsController.selectedList}");
+    log("IMAGE :: ${[
+      "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-16_09-11-20.png",
+      "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-27_14-25-37.png"
+    ]}");
+  }
+
   createProfile() async {
+    log("1");
     try {
+      log("2");
       var profile = await ProfileCreateService.profileCreateService(
         token: "${storage.read("accessToken")}",
-        pets: "Cats",
-        aboutMe: whatsYourEmailScreenController.emailController.text,
-        jobTitle: profileDetailScreenController.fNameController.text,
-        company: profileDetailScreenController.lNameController.text,
-        school: myBirthDAyScreenController.birthdayController.text,
-        livingIn: iAmController.title[iAmController.selectedIndex],
-        showMe: "men",
-        latitude: latitude,
+        firstName: profileDetailScreenController.fNameController.text,
+        lastName: profileDetailScreenController.lNameController.text,
+        dob: myBirthDAyScreenController.birthdayController.text,
+        iAm: iAmController.title[iAmController.selectedIndex],
+        sexualOrientation: myOrientationController.selectedChoices,
+        showMe: showMeController.title[showMeController.selectedIndex],
+        school: mySchoolScreenController.schoolController.text,
+        interest: yourInterestsController.selectedList,
+        images: [
+          "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-16_09-11-20.png",
+          "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-27_14-25-37.png"
+        ],
         longitude: longitude,
-        zodiac: "Doe",
-        iAm: "Man",
+        latitude: latitude,
       );
+      log("3");
       profile.status![0] == "HTTP_200_OK"
           ? appToast(msg: profile.status![0])
           : null;
+      log("4");
     } catch (e) {
       log("CREATE PROFILE ERROR :: $e");
     }

@@ -59,9 +59,10 @@ Appname''',
                   controller.longitude = value.longitude;
                   log(controller.latitude.toString());
                   log(controller.longitude.toString());
-                  // controller.createProfile();
+                  controller.createProfile();
                 });
-                controller.createProfile();
+                controller.logAllData();
+                // controller.createProfile();
               },
               title: "Allow Location",
             ),

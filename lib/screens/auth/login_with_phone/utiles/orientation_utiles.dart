@@ -1,11 +1,11 @@
 import 'package:datingapp/Constant/app_textstyle.dart';
-import 'package:flutter/material.dart';
-import '../../../../Constant/app_color.dart';
 import '../controller/my_orientation_controller.dart';
+import '../../../../Constant/app_color.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MultiSelectChip extends StatefulWidget {
-  final List<String> reportList;
+  final List reportList;
 
   MultiSelectChip(this.reportList);
 
@@ -18,7 +18,8 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
   // this function will build and return the choice list
   _buildChoiceList() {
     List<Widget> choices = [];
-    for (var item in widget.reportList) {
+    // for (var item in widget.reportList!) {
+    for (int i = 0; i < widget.reportList.length; i++) {
       choices.add(
         Container(
           height: 42,
@@ -35,21 +36,26 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
             padding:
                 const EdgeInsets.only(right: 20, left: 20, top: 9, bottom: 9),
             label: Text(
-              item,
+              widget.reportList[i]["nameS"].toString(),
               style: AppTextStyle.interRegular(
                 size: 16.0,
-                color: myOrientationController.selectedChoices.contains(item)
+                color: myOrientationController.selectedChoices
+                        .contains(widget.reportList[i]["id"].toString())
                     ? AppColor.whiteFFF
                     : AppColor.appColorFF5,
               ),
             ),
-            selected: myOrientationController.selectedChoices.contains(item),
+            selected: myOrientationController.selectedChoices
+                .contains(widget.reportList[i]["id"].toString()),
             onSelected: (selected) {
               setState(
                 () {
-                  myOrientationController.selectedChoices.contains(item)
-                      ? myOrientationController.selectedChoices.remove(item)
-                      : myOrientationController.selectedChoices.add(item);
+                  myOrientationController.selectedChoices
+                          .contains(widget.reportList[i]["id"].toString())
+                      ? myOrientationController.selectedChoices
+                          .remove(widget.reportList[i]["id"].toString())
+                      : myOrientationController.selectedChoices
+                          .add(widget.reportList[i]["id"].toString());
                 },
               );
             },

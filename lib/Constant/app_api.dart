@@ -8,6 +8,10 @@ class AppApi {
 
   static String userProfile = "${baseUrl}profile";
 
+  static String orient = "${baseUrl}orient";
+
+  static String interest = "${baseUrl}interests";
+
   // ///login
   // static String login = "login";
   //

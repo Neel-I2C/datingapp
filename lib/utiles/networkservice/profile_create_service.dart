@@ -7,21 +7,24 @@ import 'dart:developer';
 class ProfileCreateService {
   static Future<ProfileCreateModel> profileCreateService({
     required var token,
-    required var pets,
-    required var zodiac,
-    required var aboutMe,
-    required var jobTitle,
-    required var company,
+    required var firstName,
+    required var lastName,
+    required var dob,
     required var school,
-    required var livingIn,
+    required var interest,
+    required var sexualOrientation,
     required var iAm,
-    required var showMe,
     required var latitude,
     required var longitude,
+    required var showMe,
+    required var images,
   }) async {
     try {
+      log("API 1");
       Dio dio = Dio();
+      log("API 2");
       log(token);
+      log("API 3");
       dio.interceptors.add(
         PrettyDioLogger(
           compact: false,
@@ -31,31 +34,29 @@ class ProfileCreateService {
           requestBody: true,
         ),
       );
-      var response = await dio.post(AppApi.userProfile,
-          options: Options(
-            headers: {
-              // "Authorization":
-              //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYxNzMyMzk3LCJqdGkiOiIxMzc4ZDY0Y2ExZDc0MGI3ODhlNTU1MmNlZTRhODlkZSIsInVzZXJfaWQiOjQzfQ.4QuPstPHcwPwpRn03EqJRg6--oLml8xwHt4YPMp6FHw",
-              "Authorization": "Bearer $token",
-            },
-          ),
-          data: {
-            "pets": "Cats",
-            "zodiac": "Leo",
-            "about_me": "asdaf",
-            "job_title": "sdfas",
-            "company": "df",
-            "school": "zsaadsf",
-            "living_in": "fhdsgss",
-            "i_am": "Male",
-            "latitude": 12.1648,
-            "longitude": 11.3264,
-            "show_me": "Women",
-            "image": [
-              "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-16_09-11-20.png",
-              "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-27_14-25-37.png"
-            ]
-          });
+      log("API 4");
+      var response = await dio.post(
+        AppApi.userProfile,
+        options: Options(
+          headers: {
+            "Authorization": "Bearer $token",
+          },
+        ),
+        data: {
+          "first_name": "$firstName",
+          "last_name": "$lastName",
+          "dob": "$dob",
+          "school": "$school",
+          "interests": interest,
+          "sexual_orient": sexualOrientation,
+          "i_am": "$iAm",
+          "latitude": latitude,
+          "longitude": longitude,
+          "show_me": "$showMe",
+          "image": images
+        },
+      );
+      log("API 5");
       return ProfileCreateModel.fromJson(response.data);
     } catch (e) {
       log("PROFILE CREATE SERVICE ERROR :: $e");
