@@ -1,7 +1,10 @@
 import 'package:datingapp/screens/bottomScreen/home/profileDetail/profile_detail_screen.dart';
 import 'package:datingapp/screens/bottomScreen/home/notification/notification_screen.dart';
+import 'package:datingapp/screens/bottomScreen/home/Model/all_profile_model.dart';
+import 'package:datingapp/utiles/networkservice/home_screen_service.dart';
 import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:swipe_cards/draggable_card.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:swipe_cards/swipe_cards.dart';
@@ -9,6 +12,7 @@ import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'dart:developer';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,10 +20,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  AllProfileModel? allProfileModel;
+
   @override
   void initState() {
-    for (int i = 0; i < imageList.length; i++) {
-      _swipeItems.add(SwipeItem(
+    // fetchAllProfile();
+    for (int i = 0; i < allProfileModel!.data![i].dp!.length; i++) {
+      _swipeItems.add(
+        SwipeItem(
           content: Content(text: imageList[i]),
           likeAction: () {
             /*  _scaffoldKey.currentState.showSnackBar(SnackBar(
@@ -41,7 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           onSlideUpdate: (SlideRegion? region) async {
             print("Region $region");
-          }));
+          },
+        ),
+      );
     }
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
@@ -60,6 +70,23 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<SwipeItem> _swipeItems = <SwipeItem>[];
 
   late MatchEngine _matchEngine;
+
+  GetStorage storage = GetStorage();
+
+  fetchAllProfile() async {
+    log("** 1");
+    try {
+      log("** 2");
+      var profile = await HomeScreenService.fetchAllProfile(
+        token: storage.read("accessToken"),
+      ).then((value) {
+        allProfileModel = value;
+      });
+      log("** 3");
+    } catch (e) {
+      log("FETCH ALL PROFILE FUNCTION ERROR :: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

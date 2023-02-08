@@ -27,6 +27,9 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         decoration: BoxDecoration(
                           image: DecorationImage(
+                            // image: NetworkImage(
+                            //   "${controller.profileMeModel!.data![0].dp![0].img}",
+                            // ),
                             image: AssetImage(
                               AppImage.gril1Without,
                             ),
@@ -34,7 +37,7 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 50),
+                          padding: EdgeInsets.only(top: 50),
                           child: IconButton(
                             onPressed: () {
                               Get.back();

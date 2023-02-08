@@ -98,13 +98,11 @@ class AddPhotosScreen extends StatelessWidget {
           mainAxisSpacing: 9,
         ),
         itemBuilder: (context, index) {
-          /* Obx(
-                () =>
-                    : Container(),
-              ),*/
           return Obx(
             () => (addPhotosController.selected.isTrue &&
                     (index == 0 || index == 1))
+                // (addPhotosController.selectedImage.length != 6)
+                // (addPhotosController.selectedImage[index] != null)
                 ? Container(
                     height: 142,
                     width: Get.width,
@@ -154,6 +152,11 @@ class AddPhotosScreen extends StatelessWidget {
                             backgroundColor: AppColor.appColorFD7,
                             elevation: 0.0,
                             onPressed: () {
+                              // addPhotosController.selectImageSource();
+                              // addPhotosController.pickImage(
+                              //   index: index,
+                              //   imageSource: ImageSource.gallery,
+                              // );
                               addPhotosController.selected.value =
                                   !addPhotosController.selected.value;
                             },
