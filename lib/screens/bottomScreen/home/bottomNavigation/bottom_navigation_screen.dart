@@ -1,15 +1,13 @@
-
-import 'package:datingapp/screens/bottomScreen/chat/chat_screen.dart';
 import 'package:datingapp/screens/bottomScreen/home/bottomNavigation/bottom_navigation_controller.dart';
+import 'package:datingapp/screens/bottomScreen/profile/profile_screen.dart';
+import 'package:datingapp/screens/bottomScreen/chat/chat_screen.dart';
 import 'package:datingapp/screens/bottomScreen/home/home_screen.dart';
 import 'package:datingapp/screens/bottomScreen/like/like_screen.dart';
-import 'package:datingapp/screens/bottomScreen/profile/profile_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-
 import '../../../../Constant/app_color.dart';
 import '../../../../Constant/app_image.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BottomNavigation extends StatelessWidget {
   final NavigationController navigationController =

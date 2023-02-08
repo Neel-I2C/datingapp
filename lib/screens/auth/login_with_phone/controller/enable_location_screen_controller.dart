@@ -2,6 +2,7 @@ import 'package:datingapp/screens/auth/login_with_phone/controller/whatsa_your%2
 import 'package:datingapp/screens/auth/login_with_phone/controller/profile_detail_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/my_birthday_screen_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/my_school_screen_controller.dart';
+import 'package:datingapp/screens/bottomScreen/home/bottomNavigation/bottom_navigation_screen.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/my_orientation_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/your_interests_controller.dart';
 import 'package:datingapp/screens/auth/login_with_phone/controller/i_am_screen_controller.dart';
@@ -43,26 +44,8 @@ class EnableLocationScreenController extends GetxController {
     }
   }
 
-  logAllData() {
-    log("TOKEN :: ${storage.read("accessToken")}");
-    log("FIRST NAME :: ${profileDetailScreenController.fNameController.text}");
-    log("LAST NAME :: ${profileDetailScreenController.lNameController.text}");
-    log("DOB :: ${myBirthDAyScreenController.birthdayController.text}");
-    log("IAM :: ${iAmController.title[iAmController.selectedIndex]}");
-    log("S ORIENTATION :: ${myOrientationController.selectedChoices}");
-    log("SHOW ME :: ${showMeController.title[showMeController.selectedIndex]}");
-    log("SCHOOL :: ${mySchoolScreenController.schoolController.text}");
-    log("INTEREST :: ${yourInterestsController.selectedList}");
-    log("IMAGE :: ${[
-      "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-16_09-11-20.png",
-      "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-27_14-25-37.png"
-    ]}");
-  }
-
   createProfile() async {
-    log("1");
     try {
-      log("2");
       var profile = await ProfileCreateService.profileCreateService(
         token: "${storage.read("accessToken")}",
         firstName: profileDetailScreenController.fNameController.text,
@@ -80,13 +63,14 @@ class EnableLocationScreenController extends GetxController {
         longitude: longitude,
         latitude: latitude,
       );
-      log("3");
-      profile.status![0] == "HTTP_200_OK"
-          ? appToast(msg: profile.status![0])
-          : null;
-      log("4");
+      profile.status![0] == "HTTP_200_OK" ? onSuccess() : null;
     } catch (e) {
       log("CREATE PROFILE ERROR :: $e");
     }
+  }
+
+  onSuccess() {
+    appToast(msg: "Profile Created");
+    Get.to(() => BottomNavigation());
   }
 }

@@ -1,8 +1,10 @@
 import 'package:datingapp/screens/auth/login_with_phone/model/create_profile_model.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:datingapp/Constant/app_api.dart';
 import 'package:dio/dio.dart';
 import 'dart:developer';
+import 'dart:convert';
 
 class ProfileCreateService {
   static Future<ProfileCreateModel> profileCreateService({
@@ -20,11 +22,8 @@ class ProfileCreateService {
     required var images,
   }) async {
     try {
-      log("API 1");
       Dio dio = Dio();
-      log("API 2");
       log(token);
-      log("API 3");
       dio.interceptors.add(
         PrettyDioLogger(
           compact: false,
@@ -34,7 +33,6 @@ class ProfileCreateService {
           requestBody: true,
         ),
       );
-      log("API 4");
       var response = await dio.post(
         AppApi.userProfile,
         options: Options(
@@ -53,12 +51,18 @@ class ProfileCreateService {
           "latitude": latitude,
           "longitude": longitude,
           "show_me": "$showMe",
-          "image": images
+          "image": [
+            "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-16_09-11-20.png",
+            "/home/i2c/Pictures/Screenshots/Screenshot_from_2022-12-27_14-25-37.png"
+          ]
         },
       );
-      log("API 5");
       return ProfileCreateModel.fromJson(response.data);
     } catch (e) {
+      if (e is DioError) {
+        final jsonArray = json.decode(e.response.toString());
+        appToast(msg: jsonArray["message"][0]);
+      }
       log("PROFILE CREATE SERVICE ERROR :: $e");
       throw Exception(e);
     }

@@ -1,11 +1,11 @@
-import 'package:datingapp/Constant/app_image.dart';
-import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/screens/bottomScreen/home/profileDetail/controller/profile_detail_controller.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
-import 'package:flutter/material.dart';
+import 'package:datingapp/Constant/app_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import '../../../../Constant/app_color.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfileDetailHomeScreen extends StatelessWidget {
   final ProfileDetailController controller = Get.put(ProfileDetailController());
@@ -78,7 +78,7 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${controller.profileModel?.data?[0].iAm}",
+                    "${controller.profileMeModel!.data![0].user!.firstName} ${controller.profileMeModel!.data![0].user!.lastName}",
                     // "Rex, 27",
                     style: AppTextStyle.interBold(
                       color: AppColor.black000,
@@ -86,8 +86,8 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "${controller.profileModel?.data?[0].jobTitle}",
-                    // "Proffesional model",
+                    // "${controller.profileMeModel?.data}",
+                    "Proffesional model",
                     style: AppTextStyle.interRegular(
                       color: AppColor.black000,
                       size: 16.0,
@@ -97,20 +97,18 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                     height: 12,
                   ),
                   commonRowProfileD(
-                    title: "${controller.profileModel!.data![0].school}",
-                    // title: "Veer Narmad South Gujarat University",
+                    // title: "${controller.profileMeModel!.data}",
+                    title: "Veer Narmad South Gujarat University",
                     icon: Icons.school_outlined,
                   ),
                   commonRowProfileD(
-                    title:
-                        "Live in ${controller.profileModel!.data![0].livingIn}",
-                    // title: "Live in Surat",
+                    // title: "Live in ${controller.profileMeModel!.data}",
+                    title: "Live in Surat",
                     icon: Icons.home_outlined,
                   ),
                   commonRowProfileD(
-                    title:
-                        "${controller.profileModel!.data![0].showMyDistance}",
-                    // title: "3 miles away",
+                    // title: "${controller.profileMeModel!.data}",
+                    title: "3 miles away",
                     icon: Icons.location_on_outlined,
                   ),
                   SizedBox(
@@ -129,8 +127,8 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                   Row(
                     children: [
                       CommonButtonProfileDetail(
-                        title: "${controller.profileModel!.data![0].aboutMe}",
-                        // title: "Dancing",
+                        // title: "${controller.profileMeModel!.data}",
+                        title: "Dancing",
                         image: AppImage.dance,
                       ),
                       // SizedBox(
@@ -155,72 +153,72 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 9,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 24),
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      itemCount:
-                          controller.profileModel!.data![0].interests!.length,
-                      padding: EdgeInsets.zero,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          childAspectRatio: 2 / 0.65,
-                          crossAxisSpacing: 15,
-                          mainAxisSpacing: 10),
-                      itemBuilder: (context, index) {
-                        return (index == 0 || index == 1)
-                            ? Container(
-                                /*alignment: Alignment.center,*/
-                                decoration: BoxDecoration(
-                                  color: AppColor.whiteFFF,
-                                  borderRadius: BorderRadius.circular(35),
-                                  border: Border.all(
-                                    color: AppColor.appColorFF5,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image(
-                                      image: AssetImage(AppImage.doubleClick),
-                                      height: 10,
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "${controller.profileModel!.data![0].interests![0]}",
-                                      // controller.itemList[index].title
-                                      //     .toString(),
-                                      style: AppTextStyle.interSemiBold(
-                                        color: AppColor.appColorFF5,
-                                        size: 14.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            : Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: AppColor.whiteFFF,
-                                  borderRadius: BorderRadius.circular(35),
-                                  border: Border.all(
-                                    color: AppColor.greyE8E,
-                                  ),
-                                ),
-                                child: Text(
-                                  controller.itemList[index].title.toString(),
-                                  style: AppTextStyle.interRegular(
-                                    color: AppColor.black091,
-                                    size: 14.0,
-                                  ),
-                                ),
-                              );
-                      },
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(right: 24),
+                  //   child: GridView.builder(
+                  //     shrinkWrap: true,
+                  //     itemCount:
+                  //         controller.profileMeModel!.data![0].interests!.length,
+                  //     padding: EdgeInsets.zero,
+                  //     physics: NeverScrollableScrollPhysics(),
+                  //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //         crossAxisCount: 3,
+                  //         childAspectRatio: 2 / 0.65,
+                  //         crossAxisSpacing: 15,
+                  //         mainAxisSpacing: 10),
+                  //     itemBuilder: (context, index) {
+                  //       return (index == 0 || index == 1)
+                  //           ? Container(
+                  //               /*alignment: Alignment.center,*/
+                  //               decoration: BoxDecoration(
+                  //                 color: AppColor.whiteFFF,
+                  //                 borderRadius: BorderRadius.circular(35),
+                  //                 border: Border.all(
+                  //                   color: AppColor.appColorFF5,
+                  //                 ),
+                  //               ),
+                  //               child: Row(
+                  //                 mainAxisAlignment: MainAxisAlignment.center,
+                  //                 children: [
+                  //                   Image(
+                  //                     image: AssetImage(AppImage.doubleClick),
+                  //                     height: 10,
+                  //                   ),
+                  //                   SizedBox(
+                  //                     width: 5,
+                  //                   ),
+                  //                   Text(
+                  //                     "${controller.profileMeModel!.data![0].interests![0]}",
+                  //                     // controller.itemList[index].title
+                  //                     //     .toString(),
+                  //                     style: AppTextStyle.interSemiBold(
+                  //                       color: AppColor.appColorFF5,
+                  //                       size: 14.0,
+                  //                     ),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             )
+                  //           : Container(
+                  //               alignment: Alignment.center,
+                  //               decoration: BoxDecoration(
+                  //                 color: AppColor.whiteFFF,
+                  //                 borderRadius: BorderRadius.circular(35),
+                  //                 border: Border.all(
+                  //                   color: AppColor.greyE8E,
+                  //                 ),
+                  //               ),
+                  //               child: Text(
+                  //                 controller.itemList[index].title.toString(),
+                  //                 style: AppTextStyle.interRegular(
+                  //                   color: AppColor.black091,
+                  //                   size: 14.0,
+                  //                 ),
+                  //               ),
+                  //             );
+                  //     },
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 50,
                   ),

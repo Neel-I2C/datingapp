@@ -1,12 +1,14 @@
-import 'dart:developer';
 import 'package:datingapp/screens/bottomScreen/home/profileDetail/model/model.dart';
 import 'package:datingapp/utiles/networkservice/profile_detail_screen_service.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
+import 'dart:developer';
 
 class ProfileDetailController extends GetxController {
   RxBool isLoading = false.obs;
-  ProfileModel? profileModel;
+  ProfileMeModel? profileMeModel;
   RxList selectedList = [].obs;
+  GetStorage storage = GetStorage();
   List<ProfileDetailInfo> itemList = [
     ProfileDetailInfo(title: "Travelling"),
     ProfileDetailInfo(title: "Books"),
@@ -18,10 +20,10 @@ class ProfileDetailController extends GetxController {
   fetchProfile() async {
     isLoading.value = true;
     try {
-      var profile =
-          await ProfileDetailScreenService.profileDetailScreenService()
-              .then((value) {
-        profileModel = value;
+      var profile = await ProfileDetailScreenService.profileDetailScreenService(
+        token: storage.read("accessToken"),
+      ).then((value) {
+        profileMeModel = value;
       });
       isLoading.value = false;
       update();

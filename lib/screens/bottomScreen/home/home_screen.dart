@@ -1,15 +1,14 @@
-import 'package:datingapp/Constant/app_textstyle.dart';
-import 'package:datingapp/screens/bottomScreen/home/notification/notification_screen.dart';
 import 'package:datingapp/screens/bottomScreen/home/profileDetail/profile_detail_screen.dart';
+import 'package:datingapp/screens/bottomScreen/home/notification/notification_screen.dart';
+import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import 'package:swipe_cards/draggable_card.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:swipe_cards/swipe_cards.dart';
-
 import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

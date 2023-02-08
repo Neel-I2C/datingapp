@@ -92,10 +92,11 @@ class AddPhotosScreen extends StatelessWidget {
         itemCount: 6,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            childAspectRatio: 2 / 2.5,
-            crossAxisSpacing: 11,
-            mainAxisSpacing: 9),
+          crossAxisCount: 3,
+          childAspectRatio: 2 / 2.5,
+          crossAxisSpacing: 11,
+          mainAxisSpacing: 9,
+        ),
         itemBuilder: (context, index) {
           /* Obx(
                 () =>

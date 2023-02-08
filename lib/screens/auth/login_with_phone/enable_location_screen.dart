@@ -5,7 +5,6 @@ import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:developer';
 
 class EnableLocationScreen extends StatelessWidget {
   EnableLocationScreen({Key? key}) : super(key: key);
@@ -57,12 +56,8 @@ Appname''',
                 controller.getUserCurrentLocation().then((value) {
                   controller.latitude = value.latitude;
                   controller.longitude = value.longitude;
-                  log(controller.latitude.toString());
-                  log(controller.longitude.toString());
                   controller.createProfile();
                 });
-                controller.logAllData();
-                // controller.createProfile();
               },
               title: "Allow Location",
             ),

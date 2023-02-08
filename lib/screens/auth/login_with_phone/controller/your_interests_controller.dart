@@ -10,14 +10,18 @@ import 'dart:developer';
 class YourInterestsController extends GetxController {
   GetStorage storage = GetStorage();
   InterestModel? interestModel;
+  RxBool isLoading = false.obs;
 
   fetchInterest() async {
+    isLoading.value = true;
     try {
       var interest = await fetchInterestService().then((value) {
         interestModel = value;
+        isLoading.value = false;
       });
     } catch (e) {
       log("FETCH INTEREST FUNCTION ERROR :: $e");
+      isLoading.value = false;
     }
   }
 
