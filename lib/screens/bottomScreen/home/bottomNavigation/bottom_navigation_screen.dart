@@ -19,8 +19,6 @@ class BottomNavigation extends StatelessWidget {
     ProfileScreen(),
   ];
 
-  //
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
