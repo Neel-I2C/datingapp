@@ -5,7 +5,6 @@ import 'package:datingapp/utiles/networkservice/home_screen_service.dart';
 import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:swipe_cards/draggable_card.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:swipe_cards/swipe_cards.dart';
 import '../../../Constant/app_color.dart';
@@ -24,35 +23,35 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // fetchAllProfile();
-    for (int i = 0; i < allProfileModel!.data![i].dp!.length; i++) {
-      _swipeItems.add(
-        SwipeItem(
-          content: Content(text: imageList[i]),
-          likeAction: () {
-            /*  _scaffoldKey.currentState.showSnackBar(SnackBar(
-              content: Text("Liked ${_names[i]}"),
-              duration: Duration(milliseconds: 500),
-            ));*/
-          },
-          nopeAction: () {
-            /*_scaffoldKey.currentState.showSnackBar(SnackBar(
-              content: Text("Nope ${_names[i]}"),
-              duration: Duration(milliseconds: 500),
-            ));*/
-          },
-          superlikeAction: () {
-            /*_scaffoldKey.currentState.showSnackBar(SnackBar(
-              content: Text("Superliked ${_names[i]}"),
-              duration: Duration(milliseconds: 500),
-            ));*/
-          },
-          onSlideUpdate: (SlideRegion? region) async {
-            print("Region $region");
-          },
-        ),
-      );
-    }
+    fetchAllProfile();
+    // for (int i = 0; i < imageList.length; i++) {
+    //   _swipeItems.add(
+    //     SwipeItem(
+    //       content: Content(text: imageList[i]),
+    //       likeAction: () {
+    //         /*  _scaffoldKey.currentState.showSnackBar(SnackBar(
+    //           content: Text("Liked ${_names[i]}"),
+    //           duration: Duration(milliseconds: 500),
+    //         ));*/
+    //       },
+    //       nopeAction: () {
+    //         /*_scaffoldKey.currentState.showSnackBar(SnackBar(
+    //           content: Text("Nope ${_names[i]}"),
+    //           duration: Duration(milliseconds: 500),
+    //         ));*/
+    //       },
+    //       superlikeAction: () {
+    //         /*_scaffoldKey.currentState.showSnackBar(SnackBar(
+    //           content: Text("Superliked ${_names[i]}"),
+    //           duration: Duration(milliseconds: 500),
+    //         ));*/
+    //       },
+    //       onSlideUpdate: (SlideRegion? region) async {
+    //         print("Region $region");
+    //       },
+    //     ),
+    //   );
+    // }
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
     super.initState();
@@ -74,9 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
   GetStorage storage = GetStorage();
 
   fetchAllProfile() async {
-    log("** 1");
     try {
-      log("** 2");
       var profile = await HomeScreenService.fetchAllProfile(
         token: storage.read("accessToken"),
       ).then((value) {
@@ -96,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         backgroundColor: AppColor.whiteFFF,
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Image(
             image: AssetImage(
               AppImage.appLogo,

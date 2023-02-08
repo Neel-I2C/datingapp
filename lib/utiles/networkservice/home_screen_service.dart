@@ -6,7 +6,7 @@ import 'dart:developer';
 import 'dart:convert';
 
 class HomeScreenService {
-  static Future<AllProfileModel?> fetchAllProfile({required var token}) async {
+  static Future<AllProfileModel> fetchAllProfile({required var token}) async {
     try {
       Dio dio = Dio();
       dio.interceptors.add(
@@ -24,7 +24,8 @@ class HomeScreenService {
           headers: {"Authorization": "Bearer $token"},
         ),
       );
-      return AllProfileModel.fromJson(response.data);
+      AllProfileModel allProfileModel = AllProfileModel.fromJson(response.data);
+      return allProfileModel;
     } catch (e) {
       if (e is DioError) {
         final jsonArray = json.decode(e.response.toString());
