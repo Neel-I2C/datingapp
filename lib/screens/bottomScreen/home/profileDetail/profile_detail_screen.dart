@@ -86,8 +86,8 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    // "${controller.profileMeModel?.data}",
-                    "Proffesional model",
+                    "${controller.profileMeModel?.data![0].iAm}",
+                    // "Proffesional model",
                     style: AppTextStyle.interRegular(
                       color: AppColor.black000,
                       size: 16.0,
@@ -97,18 +97,23 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                     height: 12,
                   ),
                   commonRowProfileD(
-                    // title: "${controller.profileMeModel!.data}",
-                    title: "Veer Narmad South Gujarat University",
+                    title: "${controller.profileMeModel!.data![0].school}",
+                    // title: "Veer Narmad South Gujarat University",
                     icon: Icons.school_outlined,
                   ),
                   commonRowProfileD(
+                    title: controller.profileMeModel!.data![0].livingIn != null
+                        ? "Live in ${controller.profileMeModel!.data![0].livingIn}"
+                        : "Live in ",
                     // title: "Live in ${controller.profileMeModel!.data}",
-                    title: "Live in Surat",
+                    // title: "Live in Surat",
                     icon: Icons.home_outlined,
                   ),
                   commonRowProfileD(
-                    // title: "${controller.profileMeModel!.data}",
-                    title: "3 miles away",
+                    title: controller.profileMeModel!.data![0].livingIn != null
+                        ? "${controller.profileMeModel!.data![0].livingIn}"
+                        : "",
+                    // title: "3 miles away",
                     icon: Icons.location_on_outlined,
                   ),
                   SizedBox(
@@ -131,13 +136,13 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                         title: "Dancing",
                         image: AppImage.dance,
                       ),
-                      // SizedBox(
-                      //   width: 10,
-                      // ),
-                      // CommonButtonProfileDetail(
-                      //   title: "Modeling",
-                      //   image: AppImage.modeling,
-                      // ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      CommonButtonProfileDetail(
+                        title: "Modeling",
+                        image: AppImage.modeling,
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -153,72 +158,74 @@ class ProfileDetailHomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 9,
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(right: 24),
-                  //   child: GridView.builder(
-                  //     shrinkWrap: true,
-                  //     itemCount:
-                  //         controller.profileMeModel!.data![0].interests!.length,
-                  //     padding: EdgeInsets.zero,
-                  //     physics: NeverScrollableScrollPhysics(),
-                  //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  //         crossAxisCount: 3,
-                  //         childAspectRatio: 2 / 0.65,
-                  //         crossAxisSpacing: 15,
-                  //         mainAxisSpacing: 10),
-                  //     itemBuilder: (context, index) {
-                  //       return (index == 0 || index == 1)
-                  //           ? Container(
-                  //               /*alignment: Alignment.center,*/
-                  //               decoration: BoxDecoration(
-                  //                 color: AppColor.whiteFFF,
-                  //                 borderRadius: BorderRadius.circular(35),
-                  //                 border: Border.all(
-                  //                   color: AppColor.appColorFF5,
-                  //                 ),
-                  //               ),
-                  //               child: Row(
-                  //                 mainAxisAlignment: MainAxisAlignment.center,
-                  //                 children: [
-                  //                   Image(
-                  //                     image: AssetImage(AppImage.doubleClick),
-                  //                     height: 10,
-                  //                   ),
-                  //                   SizedBox(
-                  //                     width: 5,
-                  //                   ),
-                  //                   Text(
-                  //                     "${controller.profileMeModel!.data![0].interests![0]}",
-                  //                     // controller.itemList[index].title
-                  //                     //     .toString(),
-                  //                     style: AppTextStyle.interSemiBold(
-                  //                       color: AppColor.appColorFF5,
-                  //                       size: 14.0,
-                  //                     ),
-                  //                   ),
-                  //                 ],
-                  //               ),
-                  //             )
-                  //           : Container(
-                  //               alignment: Alignment.center,
-                  //               decoration: BoxDecoration(
-                  //                 color: AppColor.whiteFFF,
-                  //                 borderRadius: BorderRadius.circular(35),
-                  //                 border: Border.all(
-                  //                   color: AppColor.greyE8E,
-                  //                 ),
-                  //               ),
-                  //               child: Text(
-                  //                 controller.itemList[index].title.toString(),
-                  //                 style: AppTextStyle.interRegular(
-                  //                   color: AppColor.black091,
-                  //                   size: 14.0,
-                  //                 ),
-                  //               ),
-                  //             );
-                  //     },
-                  //   ),
-                  // ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 24),
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      itemCount:
+                          controller.profileMeModel!.data![0].interests!.length,
+                      padding: EdgeInsets.zero,
+                      physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 2 / 0.65,
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemBuilder: (context, index) {
+                        return (index == 0 || index == 1)
+                            ? Container(
+                                /*alignment: Alignment.center,*/
+                                decoration: BoxDecoration(
+                                  color: AppColor.whiteFFF,
+                                  borderRadius: BorderRadius.circular(35),
+                                  border: Border.all(
+                                    color: AppColor.appColorFF5,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                      image: AssetImage(AppImage.doubleClick),
+                                      height: 10,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "${controller.profileMeModel!.data![0].interests![index].name}",
+                                      // controller.itemList[index].title
+                                      //     .toString(),
+                                      style: AppTextStyle.interSemiBold(
+                                        color: AppColor.appColorFF5,
+                                        size: 14.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: AppColor.whiteFFF,
+                                  borderRadius: BorderRadius.circular(35),
+                                  border: Border.all(
+                                    color: AppColor.greyE8E,
+                                  ),
+                                ),
+                                child: Text(
+                                  "${controller.profileMeModel!.data![0].interests![index].name}",
+                                  // controller.itemList[index].title.toString(),
+                                  style: AppTextStyle.interRegular(
+                                    color: AppColor.black091,
+                                    size: 14.0,
+                                  ),
+                                ),
+                              );
+                      },
+                    ),
+                  ),
                   SizedBox(
                     height: 50,
                   ),
