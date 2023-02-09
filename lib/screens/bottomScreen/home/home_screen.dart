@@ -46,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
     for (int i = 0; i < imageList.length; i++) {
       _swipeItems.add(
         SwipeItem(
-          content: Content(text: imageList[i]),
+          content: Content(
+            text: imageList[i],
+          ),
           likeAction: () {},
           nopeAction: () {},
           superlikeAction: () {},
@@ -56,6 +58,23 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }
+    // for (int i = 0;
+    //     i < navigationController.allProfileModel!.data!.length;
+    //     i++) {
+    //   _swipeItems.add(
+    //     SwipeItem(
+    //       content: Content(
+    //         text: imageList[i],
+    //       ),
+    //       likeAction: () {},
+    //       nopeAction: () {},
+    //       superlikeAction: () {},
+    //       onSlideUpdate: (SlideRegion? region) async {
+    //         print("Region $region");
+    //       },
+    //     ),
+    //   );
+    // }
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
     super.initState();
@@ -136,9 +155,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(35),
                           image: DecorationImage(
-                            image: NetworkImage(navigationController
-                                .allProfileModel!.data![0].dp![0].img
-                                .toString()),
+                            image: NetworkImage(
+                              "${navigationController.allProfileModel!.data![0].dp![0].img}",
+                            ),
                             // image: AssetImage(
                             //   _swipeItems[index].content.text,
                             // ),
