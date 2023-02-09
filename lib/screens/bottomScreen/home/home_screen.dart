@@ -1,9 +1,9 @@
 import 'package:datingapp/screens/bottomScreen/home/profileDetail/profile_detail_screen.dart';
 import 'package:datingapp/screens/bottomScreen/home/notification/notification_screen.dart';
-import 'package:datingapp/screens/bottomScreen/home/Model/all_profile_model.dart';
-import 'package:datingapp/utiles/networkservice/home_screen_service.dart';
+import 'bottomNavigation/bottom_navigation_controller.dart';
 import 'package:datingapp/Constant/app_textstyle.dart';
 import 'package:datingapp/utiles/widgets/widgets.dart';
+import 'package:swipe_cards/draggable_card.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:swipe_cards/swipe_cards.dart';
@@ -11,7 +11,6 @@ import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:developer';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,39 +18,44 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  AllProfileModel? allProfileModel;
-
+  NavigationController navigationController = Get.find();
   @override
   void initState() {
-    fetchAllProfile();
-    // for (int i = 0; i < imageList.length; i++) {
-    //   _swipeItems.add(
-    //     SwipeItem(
-    //       content: Content(text: imageList[i]),
-    //       likeAction: () {
-    //         /*  _scaffoldKey.currentState.showSnackBar(SnackBar(
-    //           content: Text("Liked ${_names[i]}"),
-    //           duration: Duration(milliseconds: 500),
-    //         ));*/
-    //       },
-    //       nopeAction: () {
-    //         /*_scaffoldKey.currentState.showSnackBar(SnackBar(
-    //           content: Text("Nope ${_names[i]}"),
-    //           duration: Duration(milliseconds: 500),
-    //         ));*/
-    //       },
-    //       superlikeAction: () {
-    //         /*_scaffoldKey.currentState.showSnackBar(SnackBar(
-    //           content: Text("Superliked ${_names[i]}"),
-    //           duration: Duration(milliseconds: 500),
-    //         ));*/
-    //       },
-    //       onSlideUpdate: (SlideRegion? region) async {
-    //         print("Region $region");
-    //       },
-    //     ),
-    //   );
+    // for (int i = 0;
+    //     i < navigationController.allProfileModel!.data!.length;
+    //     i++) {
+    //   for (int j = 0;
+    //       j < navigationController.allProfileModel!.data![i].dp!.length;
+    //       j++) {
+    //     _swipeItems.add(
+    //       SwipeItem(
+    //         content: Content(
+    //             text:
+    //                 "${navigationController.allProfileModel!.data![i].dp![j].img}"),
+    //         likeAction: () {},
+    //         nopeAction: () {},
+    //         superlikeAction: () {},
+    //         onSlideUpdate: (SlideRegion? region) async {
+    //           print("Region $region");
+    //         },
+    //       ),
+    //     );
+    //   }
     // }
+    // fetchAllProfile();
+    for (int i = 0; i < imageList.length; i++) {
+      _swipeItems.add(
+        SwipeItem(
+          content: Content(text: imageList[i]),
+          likeAction: () {},
+          nopeAction: () {},
+          superlikeAction: () {},
+          onSlideUpdate: (SlideRegion? region) async {
+            print("Region $region");
+          },
+        ),
+      );
+    }
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
     super.initState();
@@ -71,19 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late MatchEngine _matchEngine;
 
   GetStorage storage = GetStorage();
-
-  fetchAllProfile() async {
-    try {
-      var profile = await HomeScreenService.fetchAllProfile(
-        token: storage.read("accessToken"),
-      ).then((value) {
-        allProfileModel = value;
-      });
-      log("** 3");
-    } catch (e) {
-      log("FETCH ALL PROFILE FUNCTION ERROR :: $e");
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,9 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(35),
                           image: DecorationImage(
-                            image: AssetImage(
-                              _swipeItems[index].content.text,
-                            ),
+                            image: NetworkImage(navigationController
+                                .allProfileModel!.data![0].dp![0].img
+                                .toString()),
+                            // image: AssetImage(
+                            //   _swipeItems[index].content.text,
+                            // ),
                             fit: BoxFit.fill,
                           ),
                         ),

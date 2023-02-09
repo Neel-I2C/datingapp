@@ -1,5 +1,5 @@
 class AllProfileModel {
-  final List<String>? status;
+  final List<int>? status;
   final List<String>? messsage;
   final List<Data>? data;
 
@@ -10,7 +10,7 @@ class AllProfileModel {
   });
 
   AllProfileModel copyWith({
-    List<String>? status,
+    List<int>? status,
     List<String>? messsage,
     List<Data>? data,
   }) {
@@ -23,7 +23,7 @@ class AllProfileModel {
 
   AllProfileModel.fromJson(Map<String, dynamic> json)
       : status =
-            (json['status'] as List?)?.map((dynamic e) => e as String).toList(),
+            (json['status'] as List?)?.map((dynamic e) => e as int).toList(),
         messsage = (json['messsage'] as List?)
             ?.map((dynamic e) => e as String)
             .toList(),
@@ -42,8 +42,9 @@ class Data {
   final int? id;
   final User? user;
   final List<Dp>? dp;
-  final List<SexualOrient>? sexualOrient;
-  final List<Interests>? interests;
+  final List<dynamic>? sexualOrient;
+  final List<dynamic>? interests;
+  final ProfileSetting? profileSetting;
   final String? userUID;
   final bool? smartPhoto;
   final dynamic aboutMe;
@@ -58,7 +59,6 @@ class Data {
   final bool? showMySexual;
   final bool? showMyAge;
   final bool? showMyDistance;
-  final int? profileSetting;
 
   Data({
     this.id,
@@ -66,6 +66,7 @@ class Data {
     this.dp,
     this.sexualOrient,
     this.interests,
+    this.profileSetting,
     this.userUID,
     this.smartPhoto,
     this.aboutMe,
@@ -80,15 +81,15 @@ class Data {
     this.showMySexual,
     this.showMyAge,
     this.showMyDistance,
-    this.profileSetting,
   });
 
   Data copyWith({
     int? id,
     User? user,
     List<Dp>? dp,
-    List<SexualOrient>? sexualOrient,
-    List<Interests>? interests,
+    List<dynamic>? sexualOrient,
+    List<dynamic>? interests,
+    ProfileSetting? profileSetting,
     String? userUID,
     bool? smartPhoto,
     dynamic aboutMe,
@@ -103,7 +104,6 @@ class Data {
     bool? showMySexual,
     bool? showMyAge,
     bool? showMyDistance,
-    int? profileSetting,
   }) {
     return Data(
       id: id ?? this.id,
@@ -111,6 +111,7 @@ class Data {
       dp: dp ?? this.dp,
       sexualOrient: sexualOrient ?? this.sexualOrient,
       interests: interests ?? this.interests,
+      profileSetting: profileSetting ?? this.profileSetting,
       userUID: userUID ?? this.userUID,
       smartPhoto: smartPhoto ?? this.smartPhoto,
       aboutMe: aboutMe ?? this.aboutMe,
@@ -125,7 +126,6 @@ class Data {
       showMySexual: showMySexual ?? this.showMySexual,
       showMyAge: showMyAge ?? this.showMyAge,
       showMyDistance: showMyDistance ?? this.showMyDistance,
-      profileSetting: profileSetting ?? this.profileSetting,
     );
   }
 
@@ -137,13 +137,13 @@ class Data {
         dp = (json['dp'] as List?)
             ?.map((dynamic e) => Dp.fromJson(e as Map<String, dynamic>))
             .toList(),
-        sexualOrient = (json['sexual_orient'] as List?)
-            ?.map(
-                (dynamic e) => SexualOrient.fromJson(e as Map<String, dynamic>))
-            .toList(),
-        interests = (json['interests'] as List?)
-            ?.map((dynamic e) => Interests.fromJson(e as Map<String, dynamic>))
-            .toList(),
+        sexualOrient = json['sexual_orient'] as List?,
+        interests = json['interests'] as List?,
+        profileSetting =
+            (json['profile_setting'] as Map<String, dynamic>?) != null
+                ? ProfileSetting.fromJson(
+                    json['profile_setting'] as Map<String, dynamic>)
+                : null,
         userUID = json['userUID'] as String?,
         smartPhoto = json['smart_photo'] as bool?,
         aboutMe = json['about_me'],
@@ -157,15 +157,15 @@ class Data {
         showMyGender = json['show_my_gender'] as bool?,
         showMySexual = json['show_my_sexual'] as bool?,
         showMyAge = json['show_my_age'] as bool?,
-        showMyDistance = json['show_my_distance'] as bool?,
-        profileSetting = json['profile_setting'] as int?;
+        showMyDistance = json['show_my_distance'] as bool?;
 
   Map<String, dynamic> toJson() => {
         'id': id,
         'user': user?.toJson(),
         'dp': dp?.map((e) => e.toJson()).toList(),
-        'sexual_orient': sexualOrient?.map((e) => e.toJson()).toList(),
-        'interests': interests?.map((e) => e.toJson()).toList(),
+        'sexual_orient': sexualOrient,
+        'interests': interests,
+        'profile_setting': profileSetting?.toJson(),
         'userUID': userUID,
         'smart_photo': smartPhoto,
         'about_me': aboutMe,
@@ -179,14 +179,13 @@ class Data {
         'show_my_gender': showMyGender,
         'show_my_sexual': showMySexual,
         'show_my_age': showMyAge,
-        'show_my_distance': showMyDistance,
-        'profile_setting': profileSetting
+        'show_my_distance': showMyDistance
       };
 }
 
 class User {
-  final String? firstName;
-  final String? lastName;
+  final dynamic firstName;
+  final dynamic lastName;
   final String? email;
   final String? username;
 
@@ -198,8 +197,8 @@ class User {
   });
 
   User copyWith({
-    String? firstName,
-    String? lastName,
+    dynamic firstName,
+    dynamic lastName,
     String? email,
     String? username,
   }) {
@@ -212,8 +211,8 @@ class User {
   }
 
   User.fromJson(Map<String, dynamic> json)
-      : firstName = json['first_name'] as String?,
-        lastName = json['last_name'] as String?,
+      : firstName = json['first_name'],
+        lastName = json['last_name'],
         email = json['email'] as String?,
         username = json['username'] as String?;
 
@@ -251,54 +250,49 @@ class Dp {
   Map<String, dynamic> toJson() => {'id': id, 'img': img};
 }
 
-class SexualOrient {
-  final int? id;
-  final String? nameS;
+class ProfileSetting {
+  final String? location;
+  final bool? globalLocation;
+  final String? showMe;
+  final bool? showMeSameOrit;
+  final bool? showMeOnTinder;
 
-  SexualOrient({
-    this.id,
-    this.nameS,
+  ProfileSetting({
+    this.location,
+    this.globalLocation,
+    this.showMe,
+    this.showMeSameOrit,
+    this.showMeOnTinder,
   });
 
-  SexualOrient copyWith({
-    int? id,
-    String? nameS,
+  ProfileSetting copyWith({
+    String? location,
+    bool? globalLocation,
+    String? showMe,
+    bool? showMeSameOrit,
+    bool? showMeOnTinder,
   }) {
-    return SexualOrient(
-      id: id ?? this.id,
-      nameS: nameS ?? this.nameS,
+    return ProfileSetting(
+      location: location ?? this.location,
+      globalLocation: globalLocation ?? this.globalLocation,
+      showMe: showMe ?? this.showMe,
+      showMeSameOrit: showMeSameOrit ?? this.showMeSameOrit,
+      showMeOnTinder: showMeOnTinder ?? this.showMeOnTinder,
     );
   }
 
-  SexualOrient.fromJson(Map<String, dynamic> json)
-      : id = json['id'] as int?,
-        nameS = json['nameS'] as String?;
+  ProfileSetting.fromJson(Map<String, dynamic> json)
+      : location = json['location'] as String?,
+        globalLocation = json['global_location'] as bool?,
+        showMe = json['show_me'] as String?,
+        showMeSameOrit = json['show_me_same_orit'] as bool?,
+        showMeOnTinder = json['show_me_on_tinder'] as bool?;
 
-  Map<String, dynamic> toJson() => {'id': id, 'nameS': nameS};
-}
-
-class Interests {
-  final int? id;
-  final String? name;
-
-  Interests({
-    this.id,
-    this.name,
-  });
-
-  Interests copyWith({
-    int? id,
-    String? name,
-  }) {
-    return Interests(
-      id: id ?? this.id,
-      name: name ?? this.name,
-    );
-  }
-
-  Interests.fromJson(Map<String, dynamic> json)
-      : id = json['id'] as int?,
-        name = json['name'] as String?;
-
-  Map<String, dynamic> toJson() => {'id': id, 'name': name};
+  Map<String, dynamic> toJson() => {
+        'location': location,
+        'global_location': globalLocation,
+        'show_me': showMe,
+        'show_me_same_orit': showMeSameOrit,
+        'show_me_on_tinder': showMeOnTinder
+      };
 }
