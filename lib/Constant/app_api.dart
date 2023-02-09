@@ -1,5 +1,5 @@
 class AppApi {
-  static String baseUrl = "http://192.168.1.11:8000/";
+  static String baseUrl = "http://192.168.1.28:8000/";
 
   static String userRegister = "${baseUrl}user/";
 
