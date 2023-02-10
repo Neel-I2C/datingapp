@@ -59,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
     //     ),
     //   );
     // }
+    log("START");
     for (int i = 0;
         i < navigationController.allProfileModel!.data!.length;
         i++) {
@@ -66,7 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
       _swipeItems.add(
         SwipeItem(
           content: Content(
-            text: imageList[i],
+            text:
+                "${navigationController.allProfileModel!.data![i].dp![i].img}",
           ),
           likeAction: () {},
           nopeAction: () {},
@@ -77,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }
+    log("END");
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
     super.initState();
