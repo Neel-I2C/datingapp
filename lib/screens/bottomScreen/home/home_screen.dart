@@ -11,7 +11,6 @@ import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:developer';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -44,31 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
     //   }
     // }
     // fetchAllProfile();
-    // for (int i = 0; i < imageList.length; i++) {
-    //   _swipeItems.add(
-    //     SwipeItem(
-    //       content: Content(
-    //         text: imageList[i],
-    //       ),
-    //       likeAction: () {},
-    //       nopeAction: () {},
-    //       superlikeAction: () {},
-    //       onSlideUpdate: (SlideRegion? region) async {
-    //         print("Region $region");
-    //       },
-    //     ),
-    //   );
-    // }
-    log("START");
-    for (int i = 0;
-        i < navigationController.allProfileModel!.data!.length;
-        i++) {
-      log("INDEX :: ${navigationController.allProfileModel!.data!.length}");
+    for (int i = 0; i < imageList.length; i++) {
       _swipeItems.add(
         SwipeItem(
           content: Content(
-            text:
-                "${navigationController.allProfileModel!.data![i].dp![i].img}",
+            text: imageList[i],
           ),
           likeAction: () {},
           nopeAction: () {},
@@ -79,7 +58,24 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }
-    log("END");
+    // for (int i = 0;
+    //     i < navigationController.allProfileModel!.data!.length;
+    //     i++) {
+    //   _swipeItems.add(
+    //     SwipeItem(
+    //       content: Content(
+    //         text:
+    //             "${navigationController.allProfileModel!.data![i].dp![i].img}",
+    //       ),
+    //       likeAction: () {},
+    //       nopeAction: () {},
+    //       superlikeAction: () {},
+    //       onSlideUpdate: (SlideRegion? region) async {
+    //         print("Region $region");
+    //       },
+    //     ),
+    //   );
+    // }
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
     super.initState();
@@ -160,12 +156,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(35),
                           image: DecorationImage(
-                            image: NetworkImage(
-                              "${navigationController.allProfileModel!.data![0].dp![0].img}",
-                            ),
-                            // image: AssetImage(
-                            //   _swipeItems[index].content.text,
+                            // image: NetworkImage(
+                            //   "${navigationController.allProfileModel!.data![0].dp![0].img}",
                             // ),
+                            image: AssetImage(
+                              _swipeItems[index].content.text,
+                            ),
                             fit: BoxFit.fill,
                           ),
                         ),
