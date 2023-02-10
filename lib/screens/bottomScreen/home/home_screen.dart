@@ -11,6 +11,7 @@ import '../../../Constant/app_color.dart';
 import '../../../Constant/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'dart:developer';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -43,24 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     //   }
     // }
     // fetchAllProfile();
-    for (int i = 0; i < imageList.length; i++) {
-      _swipeItems.add(
-        SwipeItem(
-          content: Content(
-            text: imageList[i],
-          ),
-          likeAction: () {},
-          nopeAction: () {},
-          superlikeAction: () {},
-          onSlideUpdate: (SlideRegion? region) async {
-            print("Region $region");
-          },
-        ),
-      );
-    }
-    // for (int i = 0;
-    //     i < navigationController.allProfileModel!.data!.length;
-    //     i++) {
+    // for (int i = 0; i < imageList.length; i++) {
     //   _swipeItems.add(
     //     SwipeItem(
     //       content: Content(
@@ -75,6 +59,24 @@ class _HomeScreenState extends State<HomeScreen> {
     //     ),
     //   );
     // }
+    for (int i = 0;
+        i < navigationController.allProfileModel!.data!.length;
+        i++) {
+      log("INDEX :: ${navigationController.allProfileModel!.data!.length}");
+      _swipeItems.add(
+        SwipeItem(
+          content: Content(
+            text: imageList[i],
+          ),
+          likeAction: () {},
+          nopeAction: () {},
+          superlikeAction: () {},
+          onSlideUpdate: (SlideRegion? region) async {
+            print("Region $region");
+          },
+        ),
+      );
+    }
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
     super.initState();
