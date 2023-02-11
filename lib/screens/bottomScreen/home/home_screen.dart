@@ -21,28 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   NavigationController navigationController = Get.find();
   @override
   void initState() {
-    // for (int i = 0;
-    //     i < navigationController.allProfileModel!.data!.length;
-    //     i++) {
-    //   for (int j = 0;
-    //       j < navigationController.allProfileModel!.data![i].dp!.length;
-    //       j++) {
-    //     _swipeItems.add(
-    //       SwipeItem(
-    //         content: Content(
-    //             text:
-    //                 "${navigationController.allProfileModel!.data![i].dp![j].img}"),
-    //         likeAction: () {},
-    //         nopeAction: () {},
-    //         superlikeAction: () {},
-    //         onSlideUpdate: (SlideRegion? region) async {
-    //           print("Region $region");
-    //         },
-    //       ),
-    //     );
-    //   }
-    // }
-    // fetchAllProfile();
     for (int i = 0; i < imageList.length; i++) {
       _swipeItems.add(
         SwipeItem(
